@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>投稿主の日記 | SF6 攻略ガイド</title>
+  <meta name="description" content="SF6攻略ガイドの投稿主によるプレイ日記・アップデート感想・サイト更新情報。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <section class="page-hero" data-accent="pink">
+      <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+        <a href="../index.html">TOP</a><span aria-hidden="true">/</span><span>投稿主の日記</span>
+      </nav>
+      <p class="page-no reveal">07 — DIARY</p>
+      <h1 class="page-title reveal">投稿主の<span class="accent">日記</span></h1>
+      <p class="page-lead reveal">プレイ日記やアップデートの感想、サイトの更新情報をゆるく書いていきます。</p>
+    </section>
+
+    <div class="blog-layout">
+      <div>
+        <div class="callout callout--warn sample-banner">現在の記事は<b>表示確認用のサンプル</b>です。下の「記事の書き方」コメントを参考に、自分の日記に書き換えてください。</div>
+        <p class="filter-status" id="filterStatus" hidden><span id="filterStatusText"></span><button type="button" id="filterClear">絞り込みを解除</button></p>
+
+        <!--
+          ===== 記事の書き方 =====
+          下の <article class="post-card"> を1つコピーして、一番上に貼り付ける。
+          - data-cat   : site / update / play / study のどれか（サイト更新 / アップデート感想 / プレイ日記 / キャラ研究）
+          - data-month : 投稿した年月（例 2026-10）。サイドバーの月別アーカイブに使う
+          - 画像を入れない記事は <div class="media-frame"> の行ごと削除してOK
+          サイドバーの記事数は自動で数えられます。
+        -->
+        <div class="post-list" id="postList">
+        <!-- 記事 1 -->
+        <article class="post-card reveal" data-cat="site" data-month="2026-10">
+          <div class="media-frame " data-label="POST IMAGE"><img src="../images/diary/post-1.png" alt="POST IMAGE" loading="lazy"></div>
+          <div class="post-meta"><time class="post-date" datetime="2026-10-10">2026.10.10</time><span class="post-cat" data-cat="site">サイト更新</span></div>
+          <h2 class="post-title">SF6攻略ガイドを公開しました</h2>
+          <p class="post-excerpt">ルール・操作・ランクの解説ページと、キャラクター選択画面を作りました。これから少しずつキャラ別のデータを増やしていきます。</p>
+          <details class="post-more">
+            <summary><span>続きを読む</span></summary>
+            <div class="post-body"><p>初心者の人が最初に読めるように、「ゲームルール」「基本操作方法」「ランクについて」の3ページを中心に作りました。</p><p>キャラクターページはリュウをサンプルにしたテンプレートだけですが、次はC.ヴァイパーを追加する予定です。</p></div>
+          </details>
+          <div class="post-tags"><a href="#postList">#サイト</a><a href="#postList">#お知らせ</a></div>
+        </article>
+        <!-- 記事 2 -->
+        <article class="post-card reveal" data-cat="study" data-month="2026-10">
+          
+          <div class="post-meta"><time class="post-date" datetime="2026-10-09">2026.10.09</time><span class="post-cat" data-cat="study">キャラ研究</span></div>
+          <h2 class="post-title">C.ヴァイパーのコンボとセットプレイを整理した</h2>
+          <p class="post-excerpt">解説動画を見ながら、コンボを技名＋矢印コマンドで書き出しました。締めごとの有利フレームをまとめると、起き攻めの選択肢が一気に見やすくなります。</p>
+          <details class="post-more">
+            <summary><span>続きを読む</span></summary>
+            <div class="post-body"><p>etc（締めパーツ）を先に覚えて、始動ごとに付け替える考え方が分かりやすかったです。</p><p>次はトレーニングモードで、有利フレームが書かれていなかったセットプレイを計測してみます。</p></div>
+          </details>
+          <div class="post-tags"><a href="#postList">#C.ヴァイパー</a><a href="#postList">#コンボ</a><a href="#postList">#セットプレイ</a></div>
+        </article>
+        <!-- 記事 3 -->
+        <article class="post-card reveal" data-cat="update" data-month="2026-10">
+          
+          <div class="post-meta"><time class="post-date" datetime="2026-10-05">2026.10.05</time><span class="post-cat" data-cat="update">アップデート感想</span></div>
+          <h2 class="post-title">アルジュンの配信日が決まった</h2>
+          <p class="post-excerpt">Year 4の2人目、アルジュンの配信日が10月13日に決まりました。配信されたら、まずはコンボトライアルから触ってみる予定です。</p>
+          <details class="post-more">
+            <summary><span>続きを読む</span></summary>
+            <div class="post-body"><p>新キャラが来た直後は、対戦相手としての対策も必要になります。主要な技の有利・不利だけでも早めにメモしておきたいところです。</p></div>
+          </details>
+          <div class="post-tags"><a href="#postList">#Year4</a><a href="#postList">#新キャラ</a></div>
+        </article>
+        <!-- 記事 4 -->
+        <article class="post-card reveal" data-cat="play" data-month="2026-09">
+          <div class="media-frame " data-label="POST IMAGE"><img src="../images/diary/post-4.png" alt="POST IMAGE" loading="lazy"></div>
+          <div class="post-meta"><time class="post-date" datetime="2026-09-28">2026.09.28</time><span class="post-cat" data-cat="play">プレイ日記</span></div>
+          <h2 class="post-title">ランクマ日記：連敗からの立て直し</h2>
+          <p class="post-excerpt">連敗が続いたので、負けた試合のリプレイを見直しました。同じ技に何度も当たっていたので、トレーニングモードで対策を練習。</p>
+          <details class="post-more">
+            <summary><span>続きを読む</span></summary>
+            <div class="post-body"><p>ダミーの録画機能で、負けた場面を再現して練習するのが一番効きました。</p><p>対策を覚えた次の日は勝ち越せたので、しばらくこのやり方を続けます。</p></div>
+          </details>
+          <div class="post-tags"><a href="#postList">#ランクマ</a><a href="#postList">#トレーニング</a></div>
+        </article>
+        <!-- 記事 5 -->
+        <article class="post-card reveal" data-cat="update" data-month="2026-09">
+          
+          <div class="post-meta"><time class="post-date" datetime="2026-09-15">2026.09.15</time><span class="post-cat" data-cat="update">アップデート感想</span></div>
+          <h2 class="post-title">実写映画の公開日が近づいてきた</h2>
+          <p class="post-excerpt">新しい実写映画が10月16日に全世界で公開されます。ゲームから入った人にも、映画をきっかけに興味を持つ人にも見てほしいです。</p>
+          <details class="post-more">
+            <summary><span>続きを読む</span></summary>
+            <div class="post-body"><p>歴史ページにアニメ・映画の一覧を作ったので、過去の作品と見比べるのも面白いと思います。</p></div>
+          </details>
+          <div class="post-tags"><a href="#postList">#映画</a><a href="#postList">#イベント</a></div>
+        </article>
+        </div>
+      </div>
+
+      <aside class="blog-side" aria-label="サイドバー">
+        <div class="side-box">
+          <p class="side-title">PROFILE</p>
+          <div class="profile">
+            <div class="media-frame " data-label="YOU"><img src="../images/diary/profile.png" alt="YOU" loading="lazy"></div>
+            <div><p class="profile-name">投稿主</p><p class="profile-main">メイン：C.ヴァイパー</p></div>
+          </div>
+          <p class="profile-text">SF6を遊びながら、コンボや対策を資料にまとめています。（プロフィールは自由に書き換えてください）</p>
+        </div>
+        <div class="side-box">
+          <p class="side-title">CATEGORY</p>
+          <div class="side-filter" role="group" aria-label="カテゴリーで絞り込み"><button type="button" data-filter-key="cat" data-filter-value="all" data-label="すべて" aria-pressed="true">すべて<span class="n"></span></button><button type="button" data-filter-key="cat" data-filter-value="site" data-label="サイト更新" aria-pressed="false">サイト更新<span class="n"></span></button><button type="button" data-filter-key="cat" data-filter-value="update" data-label="アップデート感想" aria-pressed="false">アップデート感想<span class="n"></span></button><button type="button" data-filter-key="cat" data-filter-value="play" data-label="プレイ日記" aria-pressed="false">プレイ日記<span class="n"></span></button><button type="button" data-filter-key="cat" data-filter-value="study" data-label="キャラ研究" aria-pressed="false">キャラ研究<span class="n"></span></button></div>
+        </div>
+        <div class="side-box side-box--sub">
+          <p class="side-title">ARCHIVE</p>
+          <div class="side-filter" role="group" aria-label="月別に絞り込み"><button type="button" data-filter-key="month" data-filter-value="2026-10" data-label="2026年10月" aria-pressed="false">2026年10月<span class="n"></span></button><button type="button" data-filter-key="month" data-filter-value="2026-09" data-label="2026年9月" aria-pressed="false">2026年9月<span class="n"></span></button></div>
+        </div>
+      </aside>
+    </div>
+
+    <div style="max-width:1240px;margin:0 auto;padding:0 24px 100px">
+      <nav class="page-pager" aria-label="前後のページ">
+        <a href="history.html" class="pager-link"><small>← PREV</small><span>ストリートファイターの歴史</span></a>
+        <a href="../index.html" class="pager-link pager-link--next"><small>HOME →</small><span>トップページへ戻る</span></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

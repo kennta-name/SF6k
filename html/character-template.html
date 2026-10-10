@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リュウ（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="リュウの立ち回り、技の仕様、コンボ、セットプレイ。キャラクター詳細ページのテンプレート。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!--
+      ===============================================================
+      キャラクター詳細ページ テンプレート
+      新しいキャラを追加する時は、このファイルを複製して
+      「character-キャラ名.html」にリネームし、以下の【差し替え】部分を書き換える。
+      ===============================================================
+    -->
+
+    <!-- 【差し替え】キャラクターの基本情報 -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>リュウ</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">RYU</p>
+        <h1 class="page-title reveal">リュウ</h1>
+        <p class="page-lead reveal">波動拳と昇龍拳を軸にした、シリーズの基本となるキャラクター。電刃錬気で必殺技を強化しながら攻めを組み立てます。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>スタンダード</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>ふつう</b><div class="meter" aria-label="難易度 5段階中3"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          <div class="chara-stat"><small>CONTROL</small><b>クラシック基準</b></div>
+        </div>
+      </div>
+      <figure class="media reveal">
+        <div class="media-frame" data-label="リュウ"><img src="../images/characters/ryu.png" alt="リュウ"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">基本技・特殊技</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り方針 -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+          <p>飛び道具（波動拳）、無敵対空（昇龍拳）、突進技（竜巻旋風脚）と、格ゲーの基本となる技がそろったキャラクターです。<strong>技の性能が素直で、基礎を学ぶのに最適</strong>です。</p>
+          <h3>立ち回りの方針</h3>
+          <ul class="list">
+            <li><b>中距離</b>：波動拳で相手の動きを制限し、飛んできたら昇龍拳で落とす</li>
+            <li><b>差し合い</b>：屈中Kに波動拳を入れ込んで、触れたらダメージを取る</li>
+            <li><b>攻め</b>：電刃錬気で必殺技を強化し、ラッシュや鎖骨割り（中段）で崩す</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>無敵対空があり、ジャンプに強い</li><li>飛び道具で距離を管理しやすい</li><li>コンボがシンプルで安定する</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>突出した崩し性能はない</li><li>電刃錬気を活かすには知識が必要</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 基本技・特殊技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">基本技・特殊技の仕様</h2><span class="sec-en">MOVES</span></div>
+          <p>コマンドは公式コマンドリスト（クラシック）準拠。フレーム欄（—）はトレーニングモードのフレームメーターで計測して記入します。</p>
+
+          <h3>通常技（立ち）</h3>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>ボタン</th><th>発生</th><th>持続</th><th>硬直</th><th>ガード時</th><th>ヒット時</th><th>用途・メモ</th></tr></thead>
+            <tbody><tr><td><span class="btn-chip lp">弱P</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td></td></tr><tr><td><span class="btn-chip mp">中P</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td></td></tr><tr><td><span class="btn-chip hp">強P</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td></td></tr><tr><td><span class="btn-chip lk">弱K</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td></td></tr><tr><td><span class="btn-chip mk">中K</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td></td></tr><tr><td><span class="btn-chip hk">強K</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td></td></tr></tbody>
+          </table></div>
+          <p class="note" style="margin-top:8px;font-size:12.5px;color:var(--text-dim)">※しゃがみ・ジャンプ攻撃も同じ形式で表を追加してください。</p>
+
+          <h3>特殊技・投げ</h3>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>ガード時</th><th>ヒット時</th><th>特徴</th></tr></thead>
+            <tbody><tr><td><b>鎖骨割り</b></td><td><span class="cmd">→ + 中P</span></td><td class="num">—</td><td class="num">—</td><td>中段。しゃがみガードを崩す</td></tr><tr><td><b>鳩尾砕き</b></td><td><span class="cmd">→ + 強P</span></td><td class="num">—</td><td class="num">—</td><td>コンボの中継に使う主力技</td></tr><tr><td><b>上げ突き</b></td><td><span class="cmd">← + 強P</span></td><td class="num">—</td><td class="num">—</td><td>対空向けの特殊技</td></tr><tr><td><b>かかと落とし</b></td><td><span class="cmd">← + 強K</span></td><td class="num">—</td><td class="num">—</td><td>特殊技</td></tr><tr><td><b>旋風脚</b></td><td><span class="cmd">→ + 強K</span></td><td class="num">—</td><td class="num">—</td><td>特殊技</td></tr><tr><td><b>上段二連撃</b></td><td><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強K</span></td><td class="num">—</td><td class="num">—</td><td>ターゲットコンボ（↓+Pで電刃錬気にキャンセル可能）</td></tr><tr><td><b>不破三連撃</b></td><td><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強K</span></td><td class="num">—</td><td class="num">—</td><td>ターゲットコンボ（↓+Pで電刃錬気にキャンセル可能）</td></tr><tr><td><b>背負い投げ</b></td><td><span class="cmd">（N or →）+ 弱P + 弱K</span></td><td class="num">—</td><td class="num">—</td><td>通常投げ（前）</td></tr><tr><td><b>巴投げ</b></td><td><span class="cmd">← + 弱P + 弱K</span></td><td class="num">—</td><td class="num">—</td><td>通常投げ（後ろ）</td></tr></tbody>
+          </table></div>
+
+          <h3>必殺技・SA</h3>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>ガード時</th><th>ヒット時</th><th>特徴</th></tr></thead>
+            <tbody><tr><td><b>波動拳</b></td><td><span class="cmd">↓↘→ + P</span></td><td class="num">—</td><td class="num">—</td><td>飛び道具。電刃錬気中は性質変化</td></tr><tr><td><b>昇龍拳</b></td><td><span class="cmd">→↓↘ + P</span></td><td class="num">—</td><td class="num">—</td><td>対空・切り返し</td></tr><tr><td><b>竜巻旋風脚</b></td><td><span class="cmd">↓↙← + K</span></td><td class="num">—</td><td class="num">—</td><td>突進・運び。空中版あり（前ジャンプ中）</td></tr><tr><td><b>上段足刀蹴り</b></td><td><span class="cmd">↓↘→ + K</span></td><td class="num">—</td><td class="num">—</td><td>コンボの締め・確定反撃</td></tr><tr><td><b>波掌撃</b></td><td><span class="cmd">↓↙← + P</span></td><td class="num">—</td><td class="num">—</td><td>電刃錬気中は性質変化</td></tr><tr><td><b>電刃錬気</b></td><td><span class="cmd">↓↓ + P</span></td><td class="num">—</td><td class="num">—</td><td>必殺技を強化する構え</td></tr><tr><td><b>SA1 真空波動拳</b></td><td><span class="cmd">↓↘→↓↘→ + P</span></td><td class="num">—</td><td class="num">—</td><td>電刃錬気中は性質変化</td></tr><tr><td><b>SA2 真・波掌撃</b></td><td><span class="cmd">↓↙←↓↙← + P</span></td><td class="num">—</td><td class="num">—</td><td>ボタンホールドで性質変化</td></tr><tr><td><b>SA3 真・昇龍拳</b></td><td><span class="cmd">↓↘→↓↘→ + K</span></td><td class="num">—</td><td class="num">—</td><td>体力25%以下でCA（性能アップ）</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ（タブ切り替え） -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span><span class="sample-tag">SAMPLE</span></div>
+          <p>分類ごとにタブで切り替えられます。コマンドは「›」の順に入力します。</p>
+          <div class="callout callout--warn">このテンプレートのコンボは<b>表示確認用のサンプル</b>です。実際に掲載する前に、トレーニングモードで成立とダメージを確認してください。</div>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類">
+              <button type="button" role="tab" class="tab-btn" id="tab-basic" aria-controls="combo-basic" aria-selected="false">基本コンボ<span class="count">3</span></button><button type="button" role="tab" class="tab-btn" id="tab-carry" aria-controls="combo-carry" aria-selected="false">運びコンボ<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-corner" aria-controls="combo-corner" aria-selected="false">画面端コンボ<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-pc-impact" aria-controls="combo-pc-impact" aria-selected="false">パニカンインパクト<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-lethal" aria-controls="combo-lethal" aria-selected="false">リーサルコンボ<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-stun" aria-controls="combo-stun" aria-selected="false">スタンコンボ<span class="count">2</span></button>
+            </div>
+          <div class="tab-panel" role="tabpanel" id="combo-basic" aria-labelledby="tab-basic" hidden>
+            <p class="tab-desc">まず覚えたい、実戦で一番使うコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">B-01</span><h4 class="combo-recipe">屈中K → 波動拳</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→ + P</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">差し合いの基本。屈中Kが当たっても当たらなくても波動拳まで入れ込む。</p>
+              </article>
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">B-02</span><h4 class="combo-recipe">強P → 鳩尾砕き → 強上段足刀蹴り</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→ + 強K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">確定反撃の基本形。相手を画面端方向へ大きく吹き飛ばす。</p>
+              </article>
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">B-03</span><h4 class="combo-recipe">屈弱P → 屈弱P → 弱竜巻旋風脚</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙← + 弱K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">小技からのヒット確認用。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-carry" aria-labelledby="tab-carry" hidden>
+            <p class="tab-desc">画面端へ相手を運ぶことを優先したコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">C-01</span><h4 class="combo-recipe">屈中P → キャンセルラッシュ → 強P → 鳩尾砕き → 強上段足刀蹴り</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→ + 強K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>3本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">ドライブゲージを使って運びとダメージを両立。</p>
+              </article>
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">C-02</span><h4 class="combo-recipe">強P → 鳩尾砕き → 強竜巻旋風脚</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙← + 強K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">ゲージを使わずに運ぶ。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-corner" aria-labelledby="tab-corner" hidden>
+            <p class="tab-desc">画面端でダメージを最大化するコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">E-01</span><h4 class="combo-recipe">強P → 鳩尾砕き → 強竜巻旋風脚 → 強昇龍拳</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙← + 強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ ↓↘ + 強P</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">画面端限定。竜巻後の追撃で昇龍拳を当てる。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-pc-impact" aria-labelledby="tab-pc-impact" hidden>
+            <p class="tab-desc">ドライブインパクトがパニッシュカウンターした時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">P-01</span><h4 class="combo-recipe">インパクト（パニカン） → 前ステ → 強P → 鳩尾砕き → 強上段足刀蹴り</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P + 強K（PC）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→ + 強K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>1本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">崩れ落ちた相手に前ステから拾う。</p>
+              </article>
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">P-02</span><h4 class="combo-recipe">画面端インパクト（壁やられ） → 強P → 鳩尾砕き → 強竜巻旋風脚 → 強昇龍拳</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P + 強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙← + 強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ ↓↘ + 強P</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>1本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">画面端でインパクトをガードさせた時も同じルートで拾える。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-lethal" aria-labelledby="tab-lethal" hidden>
+            <p class="tab-desc">SAを使って倒し切るためのコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">L-01</span><h4 class="combo-recipe">強P → 鳩尾砕き → SA3（真・昇龍拳）</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→↓↘→ + K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>3本</b></span><span>難易度 <span class="diff" aria-label="難易度3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">体力25%以下ならCAに変化してダメージアップ。</p>
+              </article>
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">L-02</span><h4 class="combo-recipe">屈中K → SA1（真空波動拳）</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→↓↘→ + P</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>1本</b></span><span>難易度 <span class="diff" aria-label="難易度2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">差し合いのついでに倒し切る時に。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-stun" aria-labelledby="tab-stun" hidden>
+            <p class="tab-desc">相手をスタン（気絶）させた時の最大ダメージ。</p>
+            <div class="combo-list">
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">S-01</span><h4 class="combo-recipe">スタン → 前ジャンプ強K → 強P → 鳩尾砕き → 強上段足刀蹴り</h4></div>
+                <div class="combo-cmd"><span class="cmd">↗ 強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→ + 強K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>0本</b></span><span>難易度 <span class="diff" aria-label="難易度2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">ゲージなしの基本形。</p>
+              </article>
+              <article class="combo-card">
+                <div class="combo-top"><span class="combo-id">S-02</span><h4 class="combo-recipe">スタン → 前ジャンプ強K → 強P → 鳩尾砕き → SA3</h4></div>
+                <div class="combo-cmd"><span class="cmd">↗ 強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→ + 強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→↓↘→ + K</span></div>
+                <div class="combo-stats">
+                  <span>ダメージ <b>要計測</b></span><span>Dゲージ <b>0本</b></span><span>SAゲージ <b>3本</b></span><span>難易度 <span class="diff" aria-label="難易度3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span>
+                </div>
+                <p class="combo-note">SAゲージがある時の最大ダメージ。</p>
+              </article>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <!-- ④ セットプレイ・起き攻め -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">セットプレイ・起き攻めパターン</h2><span class="sec-en">SET PLAY</span><span class="sample-tag">SAMPLE</span></div>
+          <p>コンボの締め（起点）ごとに、その後の行動・有利フレーム・重ねる技をまとめます。有利Fは計測して記入してください。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>起点（締め）</th><th>その後の行動</th><th>コマンド</th><th>有利F</th><th>重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td>強上段足刀蹴り（B-02 / C-01）</td><td>前ステップ → 屈中K重ね</td><td><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中K</span></td><td class="num">要計測</td><td>屈中K（持続）</td><td>ガードされても波動拳まで入れ込める</td></tr><tr><td>強竜巻旋風脚（画面端）</td><td>前ステップ → 投げ／シミー</td><td><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P + 弱K</span></td><td class="num">要計測</td><td>投げ</td><td>打撃と投げの二択の起点</td></tr><tr><td>背負い投げ（前投げ）</td><td>前ステップ → 打撃重ね</td><td><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span></td><td class="num">要計測</td><td>屈中P</td><td>画面端なら距離が近く、さらに有利</td></tr><tr><td>強昇龍拳（E-01 / P-02）</td><td>前ジャンプで重ね</td><td><span class="cmd">↗</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強K</span></td><td class="num">要計測</td><td>ジャンプ強K（めくり/表）</td><td>相手の無敵技に注意</td></tr><tr><td>インパクト壁やられ後のコンボ締め</td><td>電刃錬気で強化</td><td><span class="cmd">↓↓ + P</span></td><td class="num">要計測</td><td>—</td><td>起き攻めの代わりに強化状態を作る選択肢</td></tr></tbody>
+          </table></div>
+          <div class="callout">起き攻めの基本は「<b>打撃を重ねる</b>」「<b>投げる</b>」「<b>投げを見せてシミー（下がって投げ抜けを狩る）</b>」の三択です。</div>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="characters.html" class="pager-link"><small>← BACK</small><span>キャラクター選択へ戻る</span></a>
+          <a href="#combos" class="pager-link pager-link--next"><small>JUMP →</small><span>コンボを見る</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

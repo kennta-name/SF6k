@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C.ヴァイパー（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="C.ヴァイパーのコンボ、セットプレイ（有利フレーム・重ね技）、生ラッシュ行動、立ち回り方針。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- データ元：cviper_combo_data.json（C.ヴァイパー コンボ＆セットプレイ資料） -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>C.ヴァイパー</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">C.VIPER</p>
+        <h1 class="page-title reveal">C.ヴァイパー</h1>
+        <p class="page-lead reveal">バーニングキック・セイスモハンマー・サンダースラップを、ハイジャンプキャンセルやフェイントでつないで攻め続けるキャラクター。ドライブゲージがある時に一気に攻め込み、持続重ねのセットプレイで起き攻めを回します。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>攻め・ゲージ活用</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>やや高め</b><div class="meter" aria-label="難易度 5段階中4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          <div class="chara-stat"><small>DATA</small><b>コンボ37・連携15</b></div>
+        </div>
+      </div>
+      <figure class="media reveal">
+        <div class="media-frame " data-label="C.V"><img src="../images/characters/cviper.png" alt="C.V" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">技・コマンド</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#rush">生ラッシュ行動</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+            <li><a href="#source">出典・用語</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+          <p>必殺技どうしをハイジャンプ（<span class="cmd">↓↑</span>）やフェイントでつなぐ、操作量の多いキャラクターです。<strong>ドライブゲージの量で立ち回りが大きく変わる</strong>のが特徴で、ゲージがある時は積極的に攻め、少ない時は守りを固めます。</p>
+
+          <h3>ゲージがある時（攻め）</h3>
+          <ul class="list">
+            <li>ジャンプODバニや生ラッシュで触りに行く。ODバニからは屈弱K、生ラッシュからは中P・屈大Pで拾う</li>
+            <li>HJ中バニはガードさせて<b>+1</b>。通常技の後に出して攻めを続けやすい</li>
+            <li>相手の屈大Pへの打ち返しや、ノーマルセイスモを読んだ飛びには<b>ODセイスモ</b>で大きなリターンを取る</li>
+          </ul>
+          <h3>ゲージが半分以下の時（守り）</h3>
+          <ul class="list">
+            <li>セイスモとセイスモフェイントを混ぜてラッシュ止めと対空</li>
+            <li>密着では弱K・屈中Kを中心に技を振る。相手が下がったら深追いしない</li>
+          </ul>
+          <h3>差し合い・対空・画面端</h3>
+          <ul class="list">
+            <li>立ち回りの軸は<b>弱Kに中サンダーを仕込む</b>こと。どの通常技からも入れ込め、屈中Kからは下段が2回出るので当たりやすい</li>
+            <li>飛びには基本は強サンダーで対空。リターン重視なら中P空対空 → 強バニ</li>
+            <li>画面端に追い込まれたら、通常攻撃めくりバニ／直接めくりODバニで脱出（強バニ −2、中バニ 五分）</li>
+          </ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>締めごとに有利Fの決まった持続セットプレイが豊富</li><li>パニカン・ODセイスモからのリターンが大きい</li><li>HJ中バニ（+1）で攻めを継続しやすい</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>ドライブゲージが少ないと攻め手が減る</li><li>HJキャンセルやフェイントなど入力の負担が大きい</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">技・コマンド（クラシック）</h2><span class="sec-en">MOVES</span></div>
+          <p>公式コマンドリストで確認したコマンドです。カッコ内は動画内での呼び方です。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名（動画内の呼び方）</th><th>コマンド</th><th>備考</th></tr></thead>
+            <tbody><tr><td><b>サンダースラップ（動画内「サンダー」）</b></td><td><span class="cmd">↓↙← + P</span></td><td>弱/中/強/OD(P+P)</td></tr><tr><td><b>└ トレースコンビネーション（「派生」）</b></td><td><span class="cmd">サンダースラップ中に → + P+P</span></td><td>動画内「派生出し切り」</td></tr><tr><td><b>└ フェイント（「サンキャン」）</b></td><td><span class="cmd">サンダースラップ攻撃前に K</span></td><td>動画内「サンダークラップキャンセル」</td></tr><tr><td><b>バーニングキック（「バニ」）</b></td><td><span class="cmd">↓↘→ + K</span></td><td>弱/中/強/OD(K+K)</td></tr><tr><td><b>└ チェイスナックル（「P派生」）</b></td><td><span class="cmd">バーニングキック中に P+P</span></td><td>—</td></tr><tr><td><b>└ ダブルバーン</b></td><td><span class="cmd">バーニングキック中に K+K</span></td><td>—</td></tr><tr><td><b>空中バーニングキック（「HJバニ」）</b></td><td><span class="cmd">垂直/前ジャンプ中に ↓↘→ + K</span></td><td>HJ(↓↑)から出すのが基本</td></tr><tr><td><b>セイスモハンマー（「セイスモ」）</b></td><td><span class="cmd">→↓↘ + P</span></td><td>弱/中/強/OD(P+P)</td></tr><tr><td><b>└ フェイント（「セイスモフェイント」）</b></td><td><span class="cmd">セイスモハンマー攻撃前に K</span></td><td>—</td></tr><tr><td><b>セービングフォース（「セービング」）</b></td><td><span class="cmd">↓↙← + K</span></td><td>ボタンホールドで性質変化／OD=K+K</td></tr><tr><td><b>SA1 バウンサーステップ</b></td><td><span class="cmd">↓↘→↓↘→ + K</span></td><td>—</td></tr><tr><td><b>SA2 ミッションオーバー</b></td><td><span class="cmd">↓↙←↓↙← + P</span></td><td>—</td></tr><tr><td><b>SA3 アンラックリジェクター</b></td><td><span class="cmd">↓↙←↓↙← + K</span></td><td>体力25%以下で性能アップ</td></tr><tr><td><b>ヴァイパーエルボー</b></td><td><span class="cmd">→ + 中P</span></td><td>—</td></tr><tr><td><b>ダブルキック（「前大K」）</b></td><td><span class="cmd">→ + 強K</span></td><td>—</td></tr><tr><td><b>ハイジャンプ（「HJ」）</b></td><td><span class="cmd">↓ → すぐに ↑</span></td><td>—</td></tr><tr><td><b>ドライブインパクト</b></td><td><span class="cmd">強P + 強K</span></td><td>—</td></tr><tr><td><b>ドライブラッシュ（生ラッシュ）</b></td><td><span class="cmd">中P+中K（パリィ中 →→）</span></td><td>キャンセルラッシュ: 必殺技キャンセル可能技ヒット中に →→</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span></div>
+          <p>始動技の種類ごとにタブで切り替えられます。コマンドは「›」の順に入力。「etc」は最初のタブの締めパーツを付けます。</p>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類">
+              <button type="button" role="tab" class="tab-btn" id="tab-etc" aria-controls="combo-etc" aria-selected="false">etc（締めパーツ）<span class="count">9</span></button><button type="button" role="tab" class="tab-btn" id="tab-light" aria-controls="combo-light" aria-selected="false">小技・中攻撃始動<span class="count">8</span></button><button type="button" role="tab" class="tab-btn" id="tab-heavy" aria-controls="combo-heavy" aria-selected="false">強攻撃始動<span class="count">6</span></button><button type="button" role="tab" class="tab-btn" id="tab-counter" aria-controls="combo-counter" aria-selected="false">カウンター<span class="count">5</span></button><button type="button" role="tab" class="tab-btn" id="tab-punish" aria-controls="combo-punish" aria-selected="false">パニカン<span class="count">6</span></button><button type="button" role="tab" class="tab-btn" id="tab-impact" aria-controls="combo-impact" aria-selected="false">インパクト<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-sa" aria-controls="combo-sa" aria-selected="false">SAゲージ溜め<span class="count">1</span></button>
+            </div>
+          <div class="tab-panel" role="tabpanel" id="combo-etc" aria-labelledby="tab-etc" hidden>
+            <p class="tab-desc">コンボ後半の締めルート。以降のコンボの「etc」にここから好きなものを付ける。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="e1-1">
+                <div class="combo-top"><span class="combo-id">E1-1</span><h4 class="combo-recipe">屈中P → 中バーニングキック → P派生</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">P+P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">前ステで+2。歩きシミー不可</p>
+              </article>
+              <article class="combo-card" id="e1-2">
+                <div class="combo-top"><span class="combo-id">E1-2</span><h4 class="combo-recipe">屈中P → 弱サンダー → 派生出し切り</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→P+P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">前ステ微歩きで投げが重なる。歩きシミー可能。ダメージはバニ締めより少し低い</p>
+              </article>
+              <article class="combo-card" id="e1-3">
+                <div class="combo-top"><span class="combo-id">E1-3</span><h4 class="combo-recipe">屈中P → ノーマルセービング</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←K</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">派生でドライブゲージを消費したくない時に使う</p>
+              </article>
+              <article class="combo-card" id="e1-4">
+                <div class="combo-top"><span class="combo-id">E1-4</span><h4 class="combo-recipe">屈中P → ODセイスモ → HJバニ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">主にリーサル（倒し切り）時に使用</p>
+              </article>
+              <article class="combo-card" id="e2-1">
+                <div class="combo-top"><span class="combo-id">E2-1</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ強バニ → 中サンダー → 派生出し切り</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→P+P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">前ステからシミー不可。屈中Kが持続で重なる。モダンは強アシストから中サンダー。※動画内テロップの「強サンダー」は「中サンダー」の誤り（概要欄の訂正）</p>
+              </article>
+              <article class="combo-card" id="e2-2">
+                <div class="combo-top"><span class="combo-id">E2-2</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ強バニ → 強サンダー → 派生出し切り</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→P+P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">前ステから+6F。歩きシミー不可</p>
+              </article>
+              <article class="combo-card" id="e2-3">
+                <div class="combo-top"><span class="combo-id">E2-3</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ強バニ → SA1</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→↓↘→K</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">クラシックなら 大K → HJ SA1 も入る</p>
+              </article>
+              <article class="combo-card" id="e2-4">
+                <div class="combo-top"><span class="combo-id">E2-4</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ強バニ → ODバニ → SA2 or SA3</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→K+K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←↓↙←P（SA2） or ↓↙←↓↙←K（SA3）</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">クラシックなら 大K → ODバニ も入る</p>
+              </article>
+              <article class="combo-card" id="e2-5">
+                <div class="combo-top"><span class="combo-id">E2-5</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ中P → 強バニ → 強サンキャン</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">(空中)中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">前ステで歩きシミー可能、+5F。ジャストパリィ後に使うことが多い</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-light" aria-labelledby="tab-light" hidden>
+            <p class="tab-desc">差し合いや小技の確認から使うコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="c01">
+                <div class="combo-top"><span class="combo-id">C01</span><h4 class="combo-recipe">屈弱K → 屈弱P → 弱K → 強サンダー</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←強P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱K</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c02">
+                <div class="combo-top"><span class="combo-id">C02</span><h4 class="combo-recipe">屈弱K → 屈弱K → 弱P → 強サンダー</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←強P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱K</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c07">
+                <div class="combo-top"><span class="combo-id">C07</span><h4 class="combo-recipe">屈中K → 弱K → 強サンダー</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←強P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中K</b></span></div>
+                <p class="combo-note">弱Kの方が屈中Pよりリーチが長い</p>
+              </article>
+              <article class="combo-card" id="c03">
+                <div class="combo-top"><span class="combo-id">C03</span><h4 class="combo-recipe">中P → 屈中P → 弱バニ → P派生 → 前ステ</h4></div>
+                <div class="combo-cmd"><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span></div>
+                <div class="combo-stats"><span>始動 <b>中P</b></span></div>
+                <p class="combo-note">前ステで+2</p>
+              </article>
+              <article class="combo-card" id="c04">
+                <div class="combo-top"><span class="combo-id">C04</span><h4 class="combo-recipe">中P → 屈中P → ODセイスモ → HJ強バニ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>中P</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c09">
+                <div class="combo-top"><span class="combo-id">C09</span><h4 class="combo-recipe">中K → HJ中サンダー</h4></div>
+                <div class="combo-cmd"><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←中P</span></div>
+                <div class="combo-stats"><span>始動 <b>中K</b></span></div>
+                <p class="combo-note">動画テロップ表記どおり</p>
+              </article>
+              <article class="combo-card" id="c10">
+                <div class="combo-top"><span class="combo-id">C10</span><h4 class="combo-recipe">中K、屈中K → ODセイスモ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">中K or ↓中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>中K / ↓中K</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c11">
+                <div class="combo-top"><span class="combo-id">C11</span><h4 class="combo-recipe">中K → ODセイスモ → HJ中バニ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>中K</b></span></div>
+                
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-heavy" aria-labelledby="tab-heavy" hidden>
+            <p class="tab-desc">確定反撃や強攻撃ヒット時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="c12">
+                <div class="combo-top"><span class="combo-id">C12</span><h4 class="combo-recipe">大Pサンキャン → 屈中P → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>強P</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c15">
+                <div class="combo-top"><span class="combo-id">C15</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ低め中バニ → 中サンダー → 派生出し切り</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→中K（低め）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→P+P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c26">
+                <div class="combo-top"><span class="combo-id">C26</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ → 大P</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">(J)強P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">一番簡単</p>
+              </article>
+              <article class="combo-card" id="c27">
+                <div class="combo-top"><span class="combo-id">C27</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJ → 中P → 遅らせ強バニ</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">(J)中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">(遅らせ)↓↘→強K</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c28">
+                <div class="combo-top"><span class="combo-id">C28</span><h4 class="combo-recipe">屈大P → 弱セイスモ → HJセービング最速前派生 → 強サンダー</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">セービング（↓↙←K）最速前派生</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←強P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">そのまま直で持続中段。※「最速前派生」の入力は動画テロップ表記どおり（要確認）</p>
+              </article>
+              <article class="combo-card" id="c18">
+                <div class="combo-top"><span class="combo-id">C18</span><h4 class="combo-recipe">前大K → 屈弱P → 弱K → 強サンダー</h4></div>
+                <div class="combo-cmd"><span class="cmd">→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←強P</span></div>
+                <div class="combo-stats"><span>始動 <b>→強K</b></span></div>
+                
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-counter" aria-labelledby="tab-counter" hidden>
+            <p class="tab-desc">カウンターヒットした時の追撃。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="c06">
+                <div class="combo-top"><span class="combo-id">C06</span><h4 class="combo-recipe">屈中P（カウンター） → 中セイスモ → HJ強バニ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P(CH)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P(CH)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c08">
+                <div class="combo-top"><span class="combo-id">C08</span><h4 class="combo-recipe">屈中K（カウンター） → HJ弱セイスモ → 強バニ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中K(CH)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中K(CH)</b></span></div>
+                <p class="combo-note">動画テロップ表記どおり</p>
+              </article>
+              <article class="combo-card" id="c13">
+                <div class="combo-top"><span class="combo-id">C13</span><h4 class="combo-recipe">大P（カウンター）サンキャン → 中K → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P(CH)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>強P(CH)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c16">
+                <div class="combo-top"><span class="combo-id">C16</span><h4 class="combo-recipe">先端付近 屈大P（カウンター） → 中K → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P(CH)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P(CH・先端)</b></span></div>
+                <p class="combo-note">先端付近でカウンターした時</p>
+              </article>
+              <article class="combo-card" id="c19">
+                <div class="combo-top"><span class="combo-id">C19</span><h4 class="combo-recipe">前大K（カウンター） → 屈中P → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">→強K(CH)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>→強K(CH)</b></span></div>
+                
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-punish" aria-labelledby="tab-punish" hidden>
+            <p class="tab-desc">パニッシュカウンター時の高火力コンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="c14">
+                <div class="combo-top"><span class="combo-id">C14</span><h4 class="combo-recipe">大P（パニカン）サンキャン → 屈大P → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P(PC)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>強P(PC)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c17">
+                <div class="combo-top"><span class="combo-id">C17</span><h4 class="combo-recipe">屈大P（パニカン） → 屈大P → 弱セイスモ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P(PC)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P(PC)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c20">
+                <div class="combo-top"><span class="combo-id">C20</span><h4 class="combo-recipe">前大K（パニカン） → 中K → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">→強K(PC)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>→強K(PC)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c21">
+                <div class="combo-top"><span class="combo-id">C21</span><h4 class="combo-recipe">大K（パニカン） → 屈大P → 弱セイスモ → 強バニ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">強K(PC)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>強K(PC)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c22">
+                <div class="combo-top"><span class="combo-id">C22</span><h4 class="combo-recipe">大K（パニカン） → HJ → ジャンプ大K → 大K → HJサンキャン → 屈中P → ODセイスモ → HJ強バニ → 大K → HJ ODバニ → SA2 or SA3</h4></div>
+                <div class="combo-cmd"><span class="cmd">強K(PC)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">(J)強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→K+K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←↓↙←P or ↓↙←↓↙←K</span></div>
+                <div class="combo-stats"><span>始動 <b>強K(PC)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c23">
+                <div class="combo-top"><span class="combo-id">C23</span><h4 class="combo-recipe">大K（パニカン） → HJ → ジャンプ大P → 大K → HJ ODセイスモ → HJ強バニ → 大K → HJ ODサンダー → SA2 or SA3</h4></div>
+                <div class="combo-cmd"><span class="cmd">強K(PC)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">(J)強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P+P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←↓↙←P or ↓↙←↓↙←K</span></div>
+                <div class="combo-stats"><span>始動 <b>強K(PC)</b></span></div>
+                <p class="combo-note">動画テロップ表記どおり</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-impact" aria-labelledby="tab-impact" hidden>
+            <p class="tab-desc">ドライブインパクトがヒットした時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="c24">
+                <div class="combo-top"><span class="combo-id">C24</span><h4 class="combo-recipe">インパクト（パニカン） → 前ステ → 屈大P → 弱セイスモ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P+強K(PC)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>DI(PC)</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="c25">
+                <div class="combo-top"><span class="combo-id">C25</span><h4 class="combo-recipe">画面端インパクト → 歩き → ODセービング → 屈大P → 弱セイスモ → etc</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P+強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">歩き(→)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←K+K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">etc</span></div>
+                <div class="combo-stats"><span>始動 <b>DI（画面端）</b></span></div>
+                <p class="combo-note">ドライブゲージ1.5本以下の時はノーマルセービング（↓↙←K）</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-sa" aria-labelledby="tab-sa" hidden>
+            <p class="tab-desc">ゲージ回収を優先するコンボ。リーサル時は etc の E1-4 / E2-3 / E2-4 を使う。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="c05">
+                <div class="combo-top"><span class="combo-id">C05</span><h4 class="combo-recipe">屈中P → 屈中Pラッシュ → 屈大Pサンキャン → 屈大Pサンキャン → 屈中Pラッシュ → 屈大Pサンキャン → 屈大P → 弱セイスモ → 各種SA</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P →→(ラッシュ)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P →→(ラッシュ)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">各種SA</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">SAゲージ溜めコンボ</p>
+              </article>
+            </div>
+          </div>
+          </div>
+          <div class="callout callout--warn">E2-1 は概要欄の訂正に合わせて「中サンダー」で掲載しています（動画内テロップは「強サンダー」）。</div>
+        </section>
+
+        <!-- ④ 生ラッシュ -->
+        <section class="doc-section reveal" id="rush">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">よく使う生ラッシュ行動</h2><span class="sec-en">DRIVE RUSH</span></div>
+          <div class="table-wrap"><table class="data-table" style="min-width:780px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:150px">行動</th><th>コマンド</th><th>有利F</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">R1</td><td><b>生ラッシュ → 前大K</b></td><td><span class="cmd">中P+中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→強K</span></td><td class="num"><span>ガード+2 ／ ヒット+8</span></td><td>近めはヒット後 中P → 屈中P、遠めは屈中P始動。前大Kカウンター時は屈大P始動</td></tr><tr><td class="num">R2</td><td><b>生ラッシュ → 各種打撃</b></td><td><span class="cmd">中P+中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P など</span></td><td class="num"><span style="color:var(--text-dim)">—</span></td><td>基本ヒット時は屈大P。屈大Pが届かない時はセイスモを入れ込む手もあり。先端はカウンター以上で屈大K</td></tr><tr><td class="num">R3</td><td><b>ラッシュ止め対策</b></td><td><span class="cmd">→↓↘P（セイスモ） / ↓↙←弱P（弱サンダー）</span></td><td class="num"><span style="color:var(--text-dim)">—</span></td><td>相手のラッシュ止めにセイスモや弱サンダー（垂直・前ジャンプとの読み合い）</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ⑤ セットプレイ -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">セットプレイ・起き攻め</h2><span class="sec-en">SET PLAY</span></div>
+          <p>コンボの締め（起点）ごとに、その後の行動・有利フレーム・重ねる技をまとめています。</p>
+          <div class="table-wrap"><table class="data-table" style="min-width:1100px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:190px">起点（締め）</th><th style="width:170px">その後の行動</th><th style="width:210px">コマンド</th><th style="width:130px">有利F</th><th style="width:150px">重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">S01</td><td>弱サンダー派生出し切り（E1-2 など）</td><td>屈中Kを空振り（消費） → 中Pを持続重ね</td><td><span class="cmd">↓中K(空振り)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span></td><td class="num"><span>ガード +4 ／ ヒット +9</span></td><td>中P（持続）</td><td>—</td></tr><tr><td class="num">S02</td><td>弱サンダー派生出し切り</td><td>大Kを空振り（消費） → シミー</td><td><span class="cmd">強K(空振り)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">歩き/シミー</span></td><td class="num"><span>+4</span></td><td>（シミー可能）</td><td>—</td></tr><tr><td class="num">S03</td><td>セイスモ → HJ中バニ（最速付近） → 中サンダー派生出し切り</td><td>最速強バニ／前ステ → 屈中K</td><td><span class="cmd">↓↘→強K ／ →→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中K</span></td><td class="num"><span>強バニ +2 ／ 屈中K +1</span></td><td>強バニ（最速） or 屈中K</td><td>両方とも中央可。モダンは強アシスト</td></tr><tr><td class="num">S04</td><td>画面端限定：強バニ → 大K → HJ強サンダー出し切り</td><td>屈弱P空振り → 中P最持続 ／ 屈弱K空振り → 屈中K持続</td><td><span class="cmd">↓弱P(空振り)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P ／ ↓弱K(空振り)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中K</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>中P（最持続） or 屈中K（持続）</td><td>画面端限定</td></tr><tr><td class="num">S05</td><td>弱セイスモ → HJ中P → 強バニ → 強サンキャン</td><td>前ステ → シミー/打撃</td><td><span class="cmd">→→</span></td><td class="num"><span>+5</span></td><td>（シミー可能）</td><td>E2-5と同じ締め</td></tr><tr><td class="num">S06</td><td>屈大P → 弱セイスモ → HJ強バニ → 強サンダー出し切り（E2-2）</td><td>前ステ</td><td><span class="cmd">→→</span></td><td class="num"><span>+6</span></td><td>打撃重ね（歩きシミー不可）</td><td>—</td></tr><tr><td class="num">S07</td><td>屈大P → 弱セイスモ → HJ強バニ → 中サンダー出し切り（E2-1）</td><td>前ステ → 屈中K</td><td><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中K</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>屈中K（持続）</td><td>シミー不可</td></tr><tr><td class="num">S08</td><td>屈中P → 中バニ → P派生（E1-1）</td><td>前ステ</td><td><span class="cmd">→→</span></td><td class="num"><span>+2</span></td><td>—</td><td>歩きシミー不可</td></tr><tr><td class="num">S09</td><td>大K（パニカン）始動コンボ</td><td>弱P、屈弱K → HJ中バニ or 強バニ</td><td><span class="cmd">弱P, ↓弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→中K or ↓↘→強K</span></td><td class="num"><span>+2 / +3 / +4（距離次第）</span></td><td>空中バニ</td><td>—</td></tr><tr><td class="num">S10</td><td>画面端 前投げ</td><td>前ステ → 最速垂直HJ中バニ</td><td><span class="cmd">→弱P+弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↑(垂直)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→中K</span></td><td class="num"><span>+2（投げ間合い）</span></td><td>空中中バニ</td><td>暗転SAには中バニが出ないため多くのSAを回避可能。エドのOD無敵技も避けられる。ジャスパ・バックジャンプには負ける</td></tr><tr><td class="num">S11</td><td>SA1ヒット後</td><td>ラッシュ大Pが重なる → 無料サンキャン</td><td><span class="cmd">中P+中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>ラッシュ強P</td><td>歩き投げ or もう一回大Pなどで攻め継続</td></tr><tr><td class="num">S12</td><td>SA2ヒット後</td><td>大P</td><td><span class="cmd">強P</span></td><td class="num"><span>4F（相打ち）</span></td><td>強P</td><td>コンボになり飛びにはしっかり当たる。前大Kは飛ばれるがガードさせれば強いので読み合い的に悪くない</td></tr><tr><td class="num">S13</td><td>SA3ヒット後</td><td>大P</td><td><span class="cmd">強P</span></td><td class="num"><span style="color:var(--text-dim)">（重なる）</span></td><td>強P</td><td>—</td></tr><tr><td class="num">S14</td><td>あまった蜜柑式①：ラッシュ屈中Kサンキャン</td><td>→ 投げ／シミー</td><td><span class="cmd">中P+中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">K</span></td><td class="num"><span>+2</span></td><td>投げ（中足からで本来の投げ間合い外まで届く）</td><td>後ろ下がり不可、シミー可能</td></tr><tr><td class="num">S15</td><td>あまった蜜柑式②：画面端 HJ垂直バニ ヒット</td><td>前ステ → 持続中段</td><td><span class="cmd">↓↑(垂直)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中段</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>持続中段</td><td>画面端最強。展開が速くヒット率が高い</td></tr></tbody>
+          </table></div>
+          <div class="callout">「数値表記なし」は動画内で有利Fが示されていない連携です。トレーニングモードのフレームメーターで計測して追記してください。</div>
+        </section>
+
+        <!-- ⑥ 出典・用語 -->
+        <section class="doc-section reveal" id="source">
+          <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">出典・用語</h2><span class="sec-en">SOURCE</span></div>
+          <p>このページのコンボ・セットプレイは、以下の解説動画の内容を整理したものです（クラシック基準（モダンでも使える要素あり））。</p>
+          <div class="info-grid">
+            <a class="info-card" data-accent="pink" href="https://www.youtube.com/watch?v=lXg28z_TTEU" target="_blank" rel="noopener">
+              <p class="info-label">YOUTUBE ／ 12:38</p>
+              <p class="info-title">取りあえずこれ一本！ヴァイパーコンボ、立ち回り、連携解説動画！</p>
+              <p>投稿者：あまった蜜柑</p>
+            </a>
+          </div>
+          <h3>動画内用語</h3>
+          <div class="table-wrap"><table class="data-table" style="min-width:0">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody><tr><td><b>サンキャン</b></td><td>サンダークラップキャンセル。サンダースラップのフェイント（K）でキャンセルすること</td></tr><tr><td><b>屈</b></td><td>しゃがみ（↓）</td></tr><tr><td><b>大</b></td><td>強ボタン（大P=強P、大K=強K）</td></tr><tr><td><b>HJ</b></td><td>ハイジャンプキャンセル（↓↑の入力で可能）</td></tr><tr><td><b>etc</b></td><td>コンボ後半の派生ルート（締めパーツ）</td></tr><tr><td><b>パニカン</b></td><td>パニッシュカウンター</td></tr><tr><td><b>出し切り</b></td><td>派生（トレースコンビネーション）まで最後まで出す</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="characters.html" class="pager-link"><small>← BACK</small><span>キャラクター選択へ戻る</span></a>
+          <a href="#combos" class="pager-link pager-link--next"><small>JUMP →</small><span>コンボを見る</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ランクについて | SF6 攻略ガイド</title>
+  <meta name="description" content="SF6のランク（ルーキー〜マスター）の必要LPと昇格・降格の仕組み、MRとハイマスター〜レジェンドの解説。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- ページヒーロー -->
+    <section class="page-hero" data-accent="pink">
+      <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+        <a href="../index.html">TOP</a><span aria-hidden="true">/</span><span>ランクについて</span>
+      </nav>
+      <p class="page-no reveal">03 — RANK SYSTEM</p>
+      <h1 class="page-title reveal">ランクに<span class="accent">ついて</span></h1>
+      <p class="page-lead reveal">ルーキーからマスター、さらにその先のレジェンドまで。ランクの段階と、上がる・下がる仕組みを解説します。</p>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav>
+          <ol>
+            <li><a href="#overview">ランクの全体像</a></li>
+            <li><a href="#ladder">ルーキー〜マスター</a></li>
+            <li><a href="#promotion">昇格・降格の仕組み</a></li>
+            <li><a href="#master-rate">マスターとMR帯</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <article class="article">
+      <section class="doc-section reveal" id="overview">
+        <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">ランクの全体像</h2><span class="sec-en">OVERVIEW</span></div>
+
+        <p>ランクマッチでは、勝つと<strong>LP（リーグポイント）</strong>が増え、一定のLPに達するとランクが上がります。ランクは<span class="em-cyan">ルーキー → アイアン → ブロンズ → シルバー → ゴールド → プラチナ → ダイヤ → マスター</span>の8段階で、マスター以外は<strong>★1〜★5</strong>に細かく分かれています。</p>
+        <ul class="list">
+          <li>ランクは<b>キャラクターごと</b>に別々。メインキャラとサブキャラで違うランクになる</li>
+          <li>最初の<b>10試合は振り分け戦</b>。結果に応じて開始ランクが決まる</li>
+          <li>マスター到達後はLPではなく<b>MR（マスターレート）</b>で強さを競う</li>
+        </ul>
+        <figure class="media"><div class="media-frame media-frame--wide" data-label="ランク一覧"><img src="../images/ranks/overview.png" alt="ランク一覧" loading="lazy"></div><figcaption>ランクのエンブレム一覧</figcaption></figure>
+      </section>
+      <section class="doc-section reveal" id="ladder">
+        <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">ルーキー〜マスター</h2><span class="sec-en">RANK LADDER</span></div>
+
+        <p>各ランクで必要なLPと、強さの目安です。上のランクほど★1つ上げるのに必要なLPが増えます。</p>
+        <div class="rank-ladder">
+          <div class="rank-card tier-rookie">
+            <div class="media-frame" data-label="ROOKIE"><img src="../images/ranks/rookie.png" alt="ルーキー"></div>
+            <p class="rank-name">ルーキー</p>
+            <p class="rank-en">ROOKIE</p>
+            <span class="stars" aria-label="★1〜★5"><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="rank-lp">0 〜 999 LP</p>
+            <p class="rank-desc">格ゲーを始めたばかり。必殺技を出すのに慣れる段階。</p>
+          </div>
+          <div class="rank-card tier-iron">
+            <div class="media-frame" data-label="IRON"><img src="../images/ranks/iron.png" alt="アイアン"></div>
+            <p class="rank-name">アイアン</p>
+            <p class="rank-en">IRON</p>
+            <span class="stars" aria-label="★1〜★5"><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="rank-lp">1,000 〜 2,999 LP</p>
+            <p class="rank-desc">ガードと必殺技が少しずつ使えるようになる。</p>
+          </div>
+          <div class="rank-card tier-bronze">
+            <div class="media-frame" data-label="BRONZE"><img src="../images/ranks/bronze.png" alt="ブロンズ"></div>
+            <p class="rank-name">ブロンズ</p>
+            <p class="rank-en">BRONZE</p>
+            <span class="stars" aria-label="★1〜★5"><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="rank-lp">3,000 〜 4,999 LP</p>
+            <p class="rank-desc">簡単なコンボを実戦で決められる。</p>
+          </div>
+          <div class="rank-card tier-silver">
+            <div class="media-frame" data-label="SILVER"><img src="../images/ranks/silver.png" alt="シルバー"></div>
+            <p class="rank-name">シルバー</p>
+            <p class="rank-en">SILVER</p>
+            <span class="stars" aria-label="★1〜★5"><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="rank-lp">5,000 〜 8,999 LP</p>
+            <p class="rank-desc">対空・投げ抜けなど基本の守りが身に付く。</p>
+          </div>
+          <div class="rank-card tier-gold">
+            <div class="media-frame" data-label="GOLD"><img src="../images/ranks/gold.png" alt="ゴールド"></div>
+            <p class="rank-name">ゴールド</p>
+            <p class="rank-en">GOLD</p>
+            <span class="stars" aria-label="★1〜★5"><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="rank-lp">9,000 〜 12,999 LP</p>
+            <p class="rank-desc">ドライブゲージの使い方を意識し始める。</p>
+          </div>
+          <div class="rank-card tier-platinum">
+            <div class="media-frame" data-label="PLATINUM"><img src="../images/ranks/platinum.png" alt="プラチナ"></div>
+            <p class="rank-name">プラチナ</p>
+            <p class="rank-en">PLATINUM</p>
+            <span class="stars" aria-label="★1〜★5"><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="rank-lp">13,000 〜 18,999 LP</p>
+            <p class="rank-desc">確定反撃・セットプレイを使いこなす中級者。</p>
+          </div>
+          <div class="rank-card tier-diamond">
+            <div class="media-frame" data-label="DIAMOND"><img src="../images/ranks/diamond.png" alt="ダイヤ"></div>
+            <p class="rank-name">ダイヤ</p>
+            <p class="rank-en">DIAMOND</p>
+            <span class="stars" aria-label="★1〜★5"><i></i><i></i><i></i><i></i><i></i></span>
+            <p class="rank-lp">19,000 〜 24,999 LP</p>
+            <p class="rank-desc">キャラ対策や読み合いの精度が問われる上級者。</p>
+          </div>
+          <div class="rank-card tier-master">
+            <div class="media-frame" data-label="MASTER"><img src="../images/ranks/master.png" alt="マスター"></div>
+            <p class="rank-name">マスター</p>
+            <p class="rank-en">MASTER</p>
+            
+            <p class="rank-lp">25,000〜 LP</p>
+            <p class="rank-desc">LPの最上位。ここからはMRで強さを競う。</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>ランク</th><th>必要LP</th><th>★が上がる間隔</th></tr></thead>
+            <tbody><tr><td><b style="color:var(--tier)" class="tier-rookie">ルーキー</b></td><td class="num">0 〜 999</td><td>200LPごとに★アップ</td></tr><tr><td><b style="color:var(--tier)" class="tier-iron">アイアン</b></td><td class="num">1,000 〜 2,999</td><td>400LPごと</td></tr><tr><td><b style="color:var(--tier)" class="tier-bronze">ブロンズ</b></td><td class="num">3,000 〜 4,999</td><td>400LPごと</td></tr><tr><td><b style="color:var(--tier)" class="tier-silver">シルバー</b></td><td class="num">5,000 〜 8,999</td><td>800LPごと</td></tr><tr><td><b style="color:var(--tier)" class="tier-gold">ゴールド</b></td><td class="num">9,000 〜 12,999</td><td>800LPごと</td></tr><tr><td><b style="color:var(--tier)" class="tier-platinum">プラチナ</b></td><td class="num">13,000 〜 18,999</td><td>1,200LPごと</td></tr><tr><td><b style="color:var(--tier)" class="tier-diamond">ダイヤ</b></td><td class="num">19,000 〜 24,999</td><td>1,200LPごと</td></tr><tr><td><b style="color:var(--tier)" class="tier-master">マスター</b></td><td class="num">25,000〜</td><td>以降はMRで管理</td></tr></tbody>
+          </table>
+        </div>
+        <div class="callout callout--warn">「強さの目安」は当サイトの目安です。キャラや対戦相手によって体感は変わります。</div>
+      </section>
+      <section class="doc-section reveal" id="promotion">
+        <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">昇格・降格の仕組み</h2><span class="sec-en">PROMOTION RULES</span></div>
+
+        <p>ランク帯によって、負けた時の扱いが変わります。下のランクほど、負けてもランクが下がりにくく作られています。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>ランク帯</th><th>連勝ボーナス</th><th>負けた時</th></tr></thead>
+            <tbody>
+              <tr><td><b>ルーキー</b></td><td>あり</td><td>LPが減らない</td></tr>
+              <tr><td><b>アイアン〜ゴールド</b></td><td>あり</td><td>LPは減るが、下のランク帯（例：ゴールド→シルバー）には落ちない</td></tr>
+              <tr><td><b>プラチナ・ダイヤ</b></td><td>なし</td><td>LPが下回ると、下のランク帯へ降格することがある</td></tr>
+              <tr><td><b>マスター</b></td><td>なし</td><td>LPでは降格しない（MRが上下する）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>ランクアップ直後の保護</h3>
+        <p>アイアン〜ダイヤでは、ランクが上がった直後に1回負けても、すぐには下がらない<strong>保護</strong>があります。昇格直後に連敗しても、1回は踏みとどまれます。</p>
+        <h3>効率よく上げるコツ</h3>
+        <ul class="list">
+          <li>連勝ボーナスがある帯では、調子のいい時に続けて対戦する</li>
+          <li>連敗したら一度トレーニングで負けた場面を復習する</li>
+          <li>1キャラに絞って育てると、対策の知識が貯まりやすい</li>
+        </ul>
+      </section>
+      <section class="doc-section reveal" id="master-rate">
+        <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">マスターとMR帯</h2><span class="sec-en">MASTER RATE</span></div>
+
+        <p>マスターに到達すると、<strong>MR（マスターレート）</strong>という数値で強さが表されます。勝つとMRが上がり、負けると下がります。強い相手に勝つほど多く上がり、弱い相手に負けるほど多く下がる仕組みです。</p>
+        <ul class="list">
+          <li>MRは一定期間（シーズン）ごとにリセットされる。新シーズンの開始MRは、前シーズンの成績をもとに決まる</li>
+          <li>MRの中央値は<b>1500</b>。1500より上なら、マスターの中でも平均以上</li>
+          <li>MRが一定値に達すると、上位の称号（ハイマスター等）に昇格する</li>
+        </ul>
+        <div class="rank-ladder">
+          <div class="rank-card tier-master">
+            <div class="media-frame" data-label="MASTER"><img src="../images/ranks/master.png" alt="マスター"></div>
+            <p class="rank-name">マスター</p>
+            <p class="rank-en">MASTER</p>
+            <p class="rank-lp">MR 開始時（中央値1500）</p>
+            <p class="rank-desc">マスター到達時点。MRの中央値は1500で、勝敗で上下する。</p>
+          </div>
+          <div class="rank-card tier-platinum">
+            <div class="media-frame" data-label="HIGH MASTER"><img src="../images/ranks/high-master.png" alt="ハイマスター"></div>
+            <p class="rank-name">ハイマスター</p>
+            <p class="rank-en">HIGH MASTER</p>
+            <p class="rank-lp">MR 1600〜（目安）</p>
+            <p class="rank-desc">マスターの中でも一段上。安定して勝ち越せる実力。</p>
+          </div>
+          <div class="rank-card tier-diamond">
+            <div class="media-frame" data-label="GRAND MASTER"><img src="../images/ranks/grand-master.png" alt="グランドマスター"></div>
+            <p class="rank-name">グランドマスター</p>
+            <p class="rank-en">GRAND MASTER</p>
+            <p class="rank-lp">MR 1700〜（目安）</p>
+            <p class="rank-desc">大会でも上位を狙えるレベル。</p>
+          </div>
+          <div class="rank-card tier-master">
+            <div class="media-frame" data-label="ULTIMATE MASTER"><img src="../images/ranks/ultimate-master.png" alt="アルティメットマスター"></div>
+            <p class="rank-name">アルティメットマスター</p>
+            <p class="rank-en">ULTIMATE MASTER</p>
+            <p class="rank-lp">MR 1800〜（目安）</p>
+            <p class="rank-desc">トッププレイヤー級。</p>
+          </div>
+          <div class="rank-card tier-legend">
+            <div class="media-frame" data-label="LEGEND"><img src="../images/ranks/legend.png" alt="レジェンド"></div>
+            <p class="rank-name">レジェンド</p>
+            <p class="rank-en">LEGEND</p>
+            <p class="rank-lp">MR上位500人</p>
+            <p class="rank-desc">MRのランキングで上位500位以内に入ったプレイヤーだけの称号。</p>
+          </div>
+        </div>
+        <div class="callout callout--warn">ハイマスター・グランドマスター・アルティメットマスターのMR値は<b>目安</b>です。アップデートで変わることがあるため、最新の条件は公式情報で確認してください。</div>
+      </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="modes.html" class="pager-link"><small>← PREV</small><span>各モードの遊び方</span></a>
+          <a href="controls.html" class="pager-link pager-link--next"><small>NEXT →</small><span>基本操作方法</span></a>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

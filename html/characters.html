@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キャラクター選択 | SF6 攻略ガイド</title>
+  <meta name="description" content="SF6全キャラクターの攻略ページ一覧。キャラごとのコンボ・セットプレイへ。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <section class="page-hero" data-accent="purple">
+      <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+        <a href="../index.html">TOP</a><span aria-hidden="true">/</span><span>キャラクター選択</span>
+      </nav>
+      <p class="page-no reveal">05 — CHARACTER SELECT</p>
+      <h1 class="page-title reveal">キャラクター<span class="accent">選択</span></h1>
+      <p class="page-lead reveal">全32キャラクターの攻略ページへの入口です。カードにカーソルを合わせると左にプレビューが表示され、ドラッグすると光が追従します。</p>
+    </section>
+
+    <div class="select-layout">
+
+      <!-- プレビュー（ホバー中のキャラ） -->
+      <aside class="char-preview" id="charPreview" aria-live="polite">
+        <div class="media-frame" data-label=""><img src="" alt=""></div>
+        <div class="preview-body">
+          <p class="preview-en">—</p>
+          <p class="preview-name">—</p>
+          <div class="preview-meta"><span data-pv="year">—</span><span data-pv="status">—</span></div>
+          <a href="#" class="btn btn--primary preview-cta" aria-disabled="true">データ準備中</a>
+        </div>
+      </aside>
+
+      <section aria-labelledby="selectTitle">
+        <h2 class="sr-only" id="selectTitle">キャラクター一覧</h2>
+        <div class="select-tools">
+          <div class="filter-tabs" role="group" aria-label="追加時期で絞り込み"><button type="button" class="filter-tab" data-group="all" aria-pressed="true">ALL</button><button type="button" class="filter-tab" data-group="base" aria-pressed="false">初期キャラ</button><button type="button" class="filter-tab" data-group="y1" aria-pressed="false">Year 1</button><button type="button" class="filter-tab" data-group="y2" aria-pressed="false">Year 2</button><button type="button" class="filter-tab" data-group="y3" aria-pressed="false">Year 3</button><button type="button" class="filter-tab" data-group="y4" aria-pressed="false">Year 4</button></div>
+          <label class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20 L16 16"/></svg>
+            <input type="search" id="charSearch" placeholder="キャラ名で検索（例：りゅう / ryu）" aria-label="キャラ名で検索">
+          </label>
+        </div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+
+        <div class="char-grid" id="charGrid">
+          <a href="character-template.html" class="char-card" data-name="リュウ" data-en="RYU" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="ready" data-note="">
+            <span class="media-frame" data-label="リュ"><img src="../images/characters/ryu.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span><span class="char-badge">COMBO</span>
+            <span class="char-info"><span class="char-en">RYU</span><span class="char-name">リュウ</span></span>
+          </a>
+          <a href="character-luke.html" class="char-card" data-name="ルーク" data-en="LUKE" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ルー"><img src="../images/characters/luke.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">LUKE</span><span class="char-name">ルーク</span></span>
+          </a>
+          <a href="character-jamie.html" class="char-card" data-name="ジェイミー" data-en="JAMIE" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ジェ"><img src="../images/characters/jamie.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">JAMIE</span><span class="char-name">ジェイミー</span></span>
+          </a>
+          <a href="character-chunli.html" class="char-card" data-name="春麗" data-en="CHUN-LI" data-kana="チュンリー"
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="春麗"><img src="../images/characters/chunli.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">CHUN-LI</span><span class="char-name">春麗</span></span>
+          </a>
+          <a href="character-guile.html" class="char-card" data-name="ガイル" data-en="GUILE" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ガイ"><img src="../images/characters/guile.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">GUILE</span><span class="char-name">ガイル</span></span>
+          </a>
+          <a href="character-kimberly.html" class="char-card" data-name="キンバリー" data-en="KIMBERLY" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="キン"><img src="../images/characters/kimberly.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">KIMBERLY</span><span class="char-name">キンバリー</span></span>
+          </a>
+          <a href="character-juri.html" class="char-card" data-name="ジュリ" data-en="JURI" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ジュ"><img src="../images/characters/juri.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">JURI</span><span class="char-name">ジュリ</span></span>
+          </a>
+          <a href="character-ken.html" class="char-card" data-name="ケン" data-en="KEN" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ケン"><img src="../images/characters/ken.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">KEN</span><span class="char-name">ケン</span></span>
+          </a>
+          <a href="character-blanka.html" class="char-card" data-name="ブランカ" data-en="BLANKA" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ブラ"><img src="../images/characters/blanka.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">BLANKA</span><span class="char-name">ブランカ</span></span>
+          </a>
+          <a href="character-dhalsim.html" class="char-card" data-name="ダルシム" data-en="DHALSIM" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ダル"><img src="../images/characters/dhalsim.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">DHALSIM</span><span class="char-name">ダルシム</span></span>
+          </a>
+          <a href="character-ehonda.html" class="char-card" data-name="E.本田" data-en="E.HONDA" data-kana="エドモンドホンダ"
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="E."><img src="../images/characters/ehonda.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">E.HONDA</span><span class="char-name">E.本田</span></span>
+          </a>
+          <a href="character-deejay.html" class="char-card" data-name="ディージェイ" data-en="DEE JAY" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ディ"><img src="../images/characters/deejay.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">DEE JAY</span><span class="char-name">ディージェイ</span></span>
+          </a>
+          <a href="character-manon.html" class="char-card" data-name="マノン" data-en="MANON" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="マノ"><img src="../images/characters/manon.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">MANON</span><span class="char-name">マノン</span></span>
+          </a>
+          <a href="character-marisa.html" class="char-card" data-name="マリーザ" data-en="MARISA" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="マリ"><img src="../images/characters/marisa.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">MARISA</span><span class="char-name">マリーザ</span></span>
+          </a>
+          <a href="character-jp.html" class="char-card" data-name="JP" data-en="JP" data-kana="ジェイピー"
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="JP"><img src="../images/characters/jp.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">JP</span><span class="char-name">JP</span></span>
+          </a>
+          <a href="character-zangief.html" class="char-card" data-name="ザンギエフ" data-en="ZANGIEF" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ザン"><img src="../images/characters/zangief.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">ZANGIEF</span><span class="char-name">ザンギエフ</span></span>
+          </a>
+          <a href="character-lily.html" class="char-card" data-name="リリー" data-en="LILY" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="リリ"><img src="../images/characters/lily.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">LILY</span><span class="char-name">リリー</span></span>
+          </a>
+          <a href="character-cammy.html" class="char-card" data-name="キャミィ" data-en="CAMMY" data-kana=""
+             data-group="base" data-year-label="初期キャラ" data-status="wip" data-note="">
+            <span class="media-frame" data-label="キャ"><img src="../images/characters/cammy.png" alt="" loading="lazy"></span>
+            <span class="char-year">BASE</span>
+            <span class="char-info"><span class="char-en">CAMMY</span><span class="char-name">キャミィ</span></span>
+          </a>
+          <a href="character-rashid.html" class="char-card" data-name="ラシード" data-en="RASHID" data-kana=""
+             data-group="y1" data-year-label="Year 1 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ラシ"><img src="../images/characters/rashid.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 1</span>
+            <span class="char-info"><span class="char-en">RASHID</span><span class="char-name">ラシード</span></span>
+          </a>
+          <a href="character-aki.html" class="char-card" data-name="A.K.I." data-en="A.K.I." data-kana="アキ"
+             data-group="y1" data-year-label="Year 1 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="A."><img src="../images/characters/aki.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 1</span>
+            <span class="char-info"><span class="char-en">A.K.I.</span><span class="char-name">A.K.I.</span></span>
+          </a>
+          <a href="character-ed.html" class="char-card" data-name="エド" data-en="ED" data-kana=""
+             data-group="y1" data-year-label="Year 1 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="エド"><img src="../images/characters/ed.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 1</span>
+            <span class="char-info"><span class="char-en">ED</span><span class="char-name">エド</span></span>
+          </a>
+          <a href="character-akuma.html" class="char-card" data-name="豪鬼" data-en="AKUMA" data-kana="ゴウキ"
+             data-group="y1" data-year-label="Year 1 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="豪鬼"><img src="../images/characters/akuma.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 1</span>
+            <span class="char-info"><span class="char-en">AKUMA</span><span class="char-name">豪鬼</span></span>
+          </a>
+          <a href="character-mbison.html" class="char-card" data-name="ベガ" data-en="M.BISON" data-kana=""
+             data-group="y2" data-year-label="Year 2 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ベガ"><img src="../images/characters/mbison.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 2</span>
+            <span class="char-info"><span class="char-en">M.BISON</span><span class="char-name">ベガ</span></span>
+          </a>
+          <a href="character-terry.html" class="char-card" data-name="テリー" data-en="TERRY" data-kana=""
+             data-group="y2" data-year-label="Year 2 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="テリ"><img src="../images/characters/terry.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 2</span>
+            <span class="char-info"><span class="char-en">TERRY</span><span class="char-name">テリー</span></span>
+          </a>
+          <a href="character-mai.html" class="char-card" data-name="舞" data-en="MAI" data-kana="マイシラヌイ"
+             data-group="y2" data-year-label="Year 2 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="舞"><img src="../images/characters/mai.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 2</span>
+            <span class="char-info"><span class="char-en">MAI</span><span class="char-name">舞</span></span>
+          </a>
+          <a href="character-elena.html" class="char-card" data-name="エレナ" data-en="ELENA" data-kana=""
+             data-group="y2" data-year-label="Year 2 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="エレ"><img src="../images/characters/elena.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 2</span>
+            <span class="char-info"><span class="char-en">ELENA</span><span class="char-name">エレナ</span></span>
+          </a>
+          <a href="character-sagat.html" class="char-card" data-name="サガット" data-en="SAGAT" data-kana=""
+             data-group="y3" data-year-label="Year 3 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="サガ"><img src="../images/characters/sagat.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 3</span>
+            <span class="char-info"><span class="char-en">SAGAT</span><span class="char-name">サガット</span></span>
+          </a>
+          <a href="character-cviper.html" class="char-card" data-name="C.ヴァイパー" data-en="C.VIPER" data-kana="ヴァイパー"
+             data-group="y3" data-year-label="Year 3 DLC" data-status="ready" data-note="">
+            <span class="media-frame" data-label="ヴァ"><img src="../images/characters/cviper.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 3</span><span class="char-badge">COMBO</span>
+            <span class="char-info"><span class="char-en">C.VIPER</span><span class="char-name">C.ヴァイパー</span></span>
+          </a>
+          <a href="character-alex.html" class="char-card" data-name="アレックス" data-en="ALEX" data-kana=""
+             data-group="y3" data-year-label="Year 3 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="アレ"><img src="../images/characters/alex.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 3</span>
+            <span class="char-info"><span class="char-en">ALEX</span><span class="char-name">アレックス</span></span>
+          </a>
+          <a href="character-ingrid.html" class="char-card" data-name="イングリッド" data-en="INGRID" data-kana=""
+             data-group="y3" data-year-label="Year 3 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="イン"><img src="../images/characters/ingrid.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 3</span>
+            <span class="char-info"><span class="char-en">INGRID</span><span class="char-name">イングリッド</span></span>
+          </a>
+          <a href="character-yasmin.html" class="char-card" data-name="ヤスミン" data-en="YASMIN" data-kana=""
+             data-group="y4" data-year-label="Year 4 DLC" data-status="wip" data-note="">
+            <span class="media-frame" data-label="ヤス"><img src="../images/characters/yasmin.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 4</span>
+            <span class="char-info"><span class="char-en">YASMIN</span><span class="char-name">ヤスミン</span></span>
+          </a>
+          <a href="character-arjun.html" class="char-card" data-name="アルジュン" data-en="ARJUN" data-kana=""
+             data-group="y4" data-year-label="Year 4 DLC" data-status="soon" data-note="10月13日配信予定">
+            <span class="media-frame" data-label="アル"><img src="../images/characters/arjun.png" alt="" loading="lazy"></span>
+            <span class="char-year">YEAR 4</span><span class="char-badge char-badge--soon">SOON</span>
+            <span class="char-info"><span class="char-en">ARJUN</span><span class="char-name">アルジュン</span></span>
+          </a>
+        </div>
+        <p class="empty-msg" id="emptyMsg" hidden>該当するキャラクターがいません。</p>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゲームルール | SF6 攻略ガイド</title>
+  <meta name="description" content="SF6の基本ルール。体力バー、ドライブゲージ、SAゲージ、カウンター、パニッシュカウンター、リバーサルを解説。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- ページヒーロー -->
+    <section class="page-hero" data-accent="purple">
+      <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+        <a href="../index.html">TOP</a><span aria-hidden="true">/</span><span>ゲームルール</span>
+      </nav>
+      <p class="page-no reveal">01 — GAME RULES</p>
+      <h1 class="page-title reveal">ゲーム<span class="accent">ルール</span></h1>
+      <p class="page-lead reveal">試合の画面に出ているゲージや表示の意味を、ひとつずつ解説します。ここを押さえれば、試合で何が起きているかが分かるようになります。</p>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav>
+          <ol>
+            <li><a href="#about">格ゲーとは</a></li>
+            <li><a href="#hp">体力バー</a></li>
+            <li><a href="#drive">ODゲージ（ドライブゲージ）</a></li>
+            <li><a href="#sa">SAゲージ</a></li>
+            <li><a href="#counter">カウンターヒット</a></li>
+            <li><a href="#punish">パニッシュカウンター</a></li>
+            <li><a href="#hits">HITカウンター（ヒット数表示）</a></li>
+            <li><a href="#reversal">リバーサル行動</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <article class="article">
+      <section class="doc-section reveal" id="about">
+        <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">格ゲーとは</h2><span class="sec-en">WHAT IS FIGHTING GAME</span></div>
+
+        <div class="split">
+          <div>
+            <p>対戦格闘ゲーム（格ゲー）は、<strong>1対1で相手の体力をゼロにしたら勝ち</strong>というシンプルなルールの対戦ゲームです。歩く・跳ぶ・殴る・守るを組み合わせて、相手との距離と読み合いで勝負します。</p>
+            <p>SF6の1試合は<span class="em-cyan">ラウンド制</span>。基本は<strong>2ラウンド先取</strong>で勝利です。制限時間（99カウント）内に決着がつかなければ、残り体力が多い側がそのラウンドを取ります。</p>
+            <ul class="list">
+              <li><b>攻める</b>：パンチ・キック・必殺技で体力を削る</li>
+              <li><b>守る</b>：レバーを後ろに入れてガードする</li>
+              <li><b>読む</b>：相手の次の行動を予測して有利な行動を選ぶ</li>
+            </ul>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="対戦画面の全体像"><img src="../images/rules/about.png" alt="対戦画面の全体像" loading="lazy"></div><figcaption>対戦画面の各UIの位置</figcaption></figure>
+        </div>
+        <div class="callout">まず覚えるのは「<b>体力バー</b>」「<b>ドライブゲージ</b>」「<b>SAゲージ</b>」の3つ。この3つの管理が試合の流れを決めます。</div>
+      </section>
+      <section class="doc-section reveal" id="hp">
+        <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">体力バー</h2><span class="sec-en">VITALITY GAUGE</span></div>
+
+        <div class="split">
+          <div>
+            <p>画面上部の左右にある横長のバーが体力です。攻撃を受けると減り、<strong>ゼロになるとK.O.</strong>でラウンドを落とします。</p>
+            <p>SF6では体力の最大値は全キャラ共通（10,000）です。キャラごとの差は体力ではなく、技の性能やダメージで付けられています。</p>
+            <h3>知っておきたいポイント</h3>
+            <ul class="list">
+              <li>体力が少なくなるとバーの色が変わり、ピンチ状態がひと目で分かる</li>
+              <li>必殺技をガードすると少しだけ体力が減る（<span class="em-pink">削りダメージ</span>）が、通常時は削りでK.O.されない</li>
+              <li>相手の体力が少ない時は「リーサル（倒し切れるコンボ）」を意識する</li>
+            </ul>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="体力バー"><img src="../images/rules/hp-bar.png" alt="体力バー" loading="lazy"></div><figcaption>体力バーとラウンド表示</figcaption></figure>
+        </div>
+        <div class="gauge-demo" aria-hidden="true">
+          <div class="gauge-row"><span>体力バー</span><div class="gauge"><span class="gauge-fill gauge-fill--hp"></span></div></div>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="drive">
+        <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">ODゲージ（ドライブゲージ）</h2><span class="sec-en">DRIVE GAUGE</span></div>
+
+        <div class="split">
+          <div>
+            <p>体力バーのすぐ下にある<strong>6本のゲージ</strong>が、SF6の要となるドライブゲージです。OD技（強化版の必殺技）もこのゲージを使うため「ODゲージ」とも呼ばれます。時間経過や攻撃で自然に回復します。</p>
+            <p>ゲージを使う行動は以下のとおりです。攻めにも守りにも使えるので、<strong>どこで何本使うか</strong>が勝敗を分けます。</p>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="ドライブゲージ"><img src="../images/rules/drive-gauge.png" alt="ドライブゲージ" loading="lazy"></div><figcaption>6本のドライブゲージ</figcaption></figure>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>行動</th><th>消費</th><th>概要</th></tr></thead>
+            <tbody>
+              <tr><td>ドライブインパクト</td><td class="num">1本</td><td>アーマー付きの強力な一撃</td></tr>
+              <tr><td>ドライブパリィ</td><td class="num">押している間</td><td>攻撃を受け流す防御。成功すると少し回復</td></tr>
+              <tr><td>ドライブラッシュ（パリィから）</td><td class="num">1本</td><td>高速で前進して攻めに転じる</td></tr>
+              <tr><td>ドライブラッシュ（キャンセル）</td><td class="num">3本</td><td>技をキャンセルしてラッシュ。コンボの伸ばしに使う</td></tr>
+              <tr><td>ドライブリバーサル</td><td class="num">2本</td><td>ガード中に出せる切り返し</td></tr>
+              <tr><td>OD技</td><td class="num">2本</td><td>必殺技の強化版</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>バーンアウト</h3>
+        <p>ゲージを使い切ると<span class="em-pink">バーンアウト</span>状態になり、ドライブ系の行動が一切使えなくなります。さらに必殺技のガードで削られる、画面端でドライブインパクトをガードするとスタンするなど、大きく不利になります。一定時間で回復しますが、<strong>ゲージを0にしない管理</strong>が重要です。</p>
+        <div class="gauge-demo" aria-hidden="true">
+          <div class="gauge-row"><span>通常（4本）</span><div class="gauge-blocks gauge-blocks--drive"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div></div>
+          <div class="gauge-row"><span>バーンアウト</span><div class="gauge-blocks gauge-blocks--drive gauge-blocks--burn"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="sa">
+        <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">SAゲージ</h2><span class="sec-en">SUPER ART GAUGE</span></div>
+
+        <div class="split">
+          <div>
+            <p>画面下部にあるのがSA（スーパーアーツ）ゲージで、<strong>最大3本</strong>まで溜まります。攻撃をヒット・ガードさせることで増えていき、溜まった分で超必殺技を出せます。</p>
+            <ul class="list">
+              <li><b>SA1</b>：1本消費。コンボの締めや割り込みに</li>
+              <li><b>SA2</b>：2本消費。キャラごとに性能が大きく違う</li>
+              <li><b>SA3</b>：3本消費。最大ダメージの大技</li>
+            </ul>
+            <p>自分の体力が<span class="em-yellow">25%以下</span>の時にSA3を出すと、より強力な<strong>CA（クリティカルアーツ）</strong>に変化します。</p>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="SAゲージ"><img src="../images/rules/sa-gauge.png" alt="SAゲージ" loading="lazy"></div><figcaption>SAゲージ（最大3本）</figcaption></figure>
+        </div>
+        <div class="gauge-demo" aria-hidden="true">
+          <div class="gauge-row"><span>SAゲージ</span><div class="gauge-blocks gauge-blocks--sa"><span class="on"></span><span class="on"></span><span></span></div></div>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="counter">
+        <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">カウンターヒット</h2><span class="sec-en">COUNTER HIT</span></div>
+
+        <div class="split">
+          <div>
+            <p>相手の攻撃の<strong>出始め（発生前）</strong>に自分の攻撃を当てると「COUNTER」と表示され、カウンターヒットになります。</p>
+            <ul class="list">
+              <li>ダメージが通常より増える（約1.2倍）</li>
+              <li>相手ののけぞりが長くなり、普段つながらないコンボがつながる</li>
+            </ul>
+            <p>「相手も技を振ってきそう」なタイミングで発生の早い技を置いておくと狙えます。</p>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="カウンターヒット"><img src="../images/rules/counter.png" alt="カウンターヒット" loading="lazy"></div><figcaption>COUNTER表示</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="punish">
+        <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">パニッシュカウンター</h2><span class="sec-en">PUNISH COUNTER</span></div>
+
+        <div class="split">
+          <div>
+            <p>相手の攻撃の<strong>終わり際（硬直中）</strong>を攻撃すると「PUNISH COUNTER」（通称<span class="em-pink">パニカン</span>）になります。空振りやガードされた技の隙を叩いた時に発生します。</p>
+            <ul class="list">
+              <li>ダメージが増え、のけぞりもカウンターより長くなる</li>
+              <li>相手のドライブゲージを削り、自分のSAゲージも多く溜まる</li>
+              <li>一部の強攻撃は、パニカン時だけ特殊なやられ（膝崩れなど）になり大ダメージにつながる</li>
+              <li>ドライブパリィ中の相手を投げた場合もパニカン扱いになり、投げのダメージが大きく上がる</li>
+            </ul>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="パニッシュカウンター"><img src="../images/rules/punish-counter.png" alt="パニッシュカウンター" loading="lazy"></div><figcaption>PUNISH COUNTER表示</figcaption></figure>
+        </div>
+        <div class="callout"><b>リスクの大きい技をガードされたら、反撃でパニカンを取られる</b>と覚えておくと、無理な技振りが減ります。</div>
+      </section>
+      <section class="doc-section reveal" id="hits">
+        <div class="sec-head"><span class="sec-no">07</span><h2 class="sec-title">HITカウンター（ヒット数表示）</h2><span class="sec-en">HIT COUNT</span></div>
+
+        <div class="split">
+          <div>
+            <p>攻撃が連続でヒットすると、画面の横に「2 HITS」「3 HITS」のようにヒット数が表示されます。この数字が増え続けている間は<strong>相手がガードも反撃もできない＝コンボがつながっている</strong>という意味です。</p>
+            <ul class="list">
+              <li>途中でヒット数がリセットされたら、そこでコンボが途切れている</li>
+              <li>トレーニングモードでコンボ練習をする時の確認に使う</li>
+              <li>カウンター・パニカン時は、ヒット数の近くに表示が出るので一緒に確認する</li>
+            </ul>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="ヒット数表示"><img src="../images/rules/hit-count.png" alt="ヒット数表示" loading="lazy"></div><figcaption>ヒット数とダメージ表示</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="reversal">
+        <div class="sec-head"><span class="sec-no">08</span><h2 class="sec-title">リバーサル行動</h2><span class="sec-en">REVERSAL</span></div>
+
+        <div class="split">
+          <div>
+            <p>ダウンからの起き上がりや、ガード・のけぞりが解けた<strong>最初の1フレーム目</strong>に技を出すことをリバーサルと呼び、成功すると「REVERSAL」と表示されます。</p>
+            <ul class="list">
+              <li><b>無敵技</b>（昇竜系の技やSAなど）をリバーサルで出すと、重ねられた攻撃をすり抜けて反撃できる</li>
+              <li>ドライブリバーサル（ガード中に →+強P+強K）も切り返しの手段になる</li>
+              <li>ただしガードされると大きな隙をさらし、<span class="em-pink">パニカン</span>で大ダメージを受ける</li>
+            </ul>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="リバーサル"><img src="../images/rules/reversal.png" alt="リバーサル" loading="lazy"></div><figcaption>REVERSAL表示</figcaption></figure>
+        </div>
+        <div class="callout callout--warn">攻める側は、相手のゲージ状況（SAが溜まっているか、ドライブゲージが2本以上あるか）を見て<b>リバーサルを警戒する</b>のが基本です。</div>
+      </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="../index.html" class="pager-link"><small>← PREV</small><span>トップページ</span></a>
+          <a href="modes.html" class="pager-link pager-link--next"><small>NEXT →</small><span>各モードの遊び方</span></a>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

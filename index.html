@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SF6 攻略ガイド | ストリートファイター6 学習サイト</title>
+  <meta name="description" content="ストリートファイター6のルール、モード、ランク、操作方法、キャラ別コンボ・セットプレイ、シリーズの歴史をまとめた攻略・学習サイト。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 背景演出（グリッド＋グラフィティ風のにじみ） -->
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="index.html" class="drawer-link is-current"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="html/rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="html/modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="html/ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="html/controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="html/characters.html" class="drawer-link"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="html/history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="html/diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+    <div class="drawer-foot">
+      <button type="button" class="text-btn" id="reopenGuide">サイトの使い方をもう一度見る</button>
+    </div>
+  </nav>
+
+  <!-- ===== メイン ===== -->
+  <main class="main" id="main">
+
+    <!-- ヒーロー -->
+    <section class="hero">
+      <p class="hero-kicker reveal"><span class="kicker-dot"></span>STREET FIGHTER 6 LEARNING HUB</p>
+      <h1 class="hero-title reveal">
+        <span class="hero-line">勝ち方を、</span>
+        <span class="hero-line hero-line--accent" data-text="基礎から。">基礎から。</span>
+      </h1>
+      <p class="hero-lead reveal">
+        ルール・操作・ランクの仕組みから、キャラ別のコンボとセットプレイまで。<br class="pc-only">
+        SF6を「理解して上達する」ための攻略・学習サイトです。
+      </p>
+      <a href="#contents" class="hero-cta reveal">
+        <span>コンテンツを見る</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5 V19 M6 13 L12 19 L18 13"/></svg>
+      </a>
+    </section>
+
+    <!-- コンテンツカード -->
+    <section class="contents" id="contents" aria-labelledby="contentsTitle">
+      <div class="section-head reveal">
+        <span class="section-en">CONTENTS</span>
+        <h2 class="section-title" id="contentsTitle">学習メニュー</h2>
+        <p class="section-desc">カードはドラッグすると光が追従します。クリックで各ページへ。</p>
+      </div>
+
+      <div class="card-grid">
+
+        <a href="html/rules.html" class="card reveal" data-accent="purple">
+          <span class="card-glow" aria-hidden="true"></span>
+          <span class="card-trail" aria-hidden="true"></span>
+          <span class="card-no">01</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="4" y="12" width="40" height="8" rx="2"/><rect x="4" y="12" width="26" height="8" rx="2" class="fill"/><rect x="4" y="28" width="18" height="6" rx="2"/><rect x="26" y="28" width="18" height="6" rx="2"/></svg>
+          </span>
+          <span class="card-en">GAME RULES</span>
+          <h3 class="card-title">ゲームルール</h3>
+          <p class="card-desc">体力バー、ドライブゲージ、SAゲージ、パニッシュカウンターなど試合の基本を解説。</p>
+          <span class="card-tags"><span>体力バー</span><span>ゲージ</span><span>パニカン</span></span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="html/modes.html" class="card reveal" data-accent="cyan">
+          <span class="card-glow" aria-hidden="true"></span>
+          <span class="card-trail" aria-hidden="true"></span>
+          <span class="card-no">02</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="6" y="6" width="15" height="15" rx="3"/><rect x="27" y="6" width="15" height="15" rx="3" class="fill"/><rect x="6" y="27" width="15" height="15" rx="3"/><rect x="27" y="27" width="15" height="15" rx="3"/></svg>
+          </span>
+          <span class="card-en">GAME MODES</span>
+          <h3 class="card-title">各モードの遊び方</h3>
+          <p class="card-desc">アーケード、ランクマッチ、コンボトライアル、トレーニングなどの使い分け。</p>
+          <span class="card-tags"><span>アーケード</span><span>ランクマ</span><span>トライアル</span></span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="html/ranks.html" class="card reveal" data-accent="pink">
+          <span class="card-glow" aria-hidden="true"></span>
+          <span class="card-trail" aria-hidden="true"></span>
+          <span class="card-no">03</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 4 L30 17 L44 18 L33 28 L37 43 L24 35 L11 43 L15 28 L4 18 L18 17 Z" class="fill"/></svg>
+          </span>
+          <span class="card-en">RANK SYSTEM</span>
+          <h3 class="card-title">ランクについて</h3>
+          <p class="card-desc">ルーキーからマスターまでの段位、LPとMR（マスターレート）の仕組み。</p>
+          <span class="card-tags"><span>ルーキー</span><span>マスター</span><span>MR</span></span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="html/controls.html" class="card reveal" data-accent="yellow">
+          <span class="card-glow" aria-hidden="true"></span>
+          <span class="card-trail" aria-hidden="true"></span>
+          <span class="card-no">04</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="13" cy="24" r="8"/><circle cx="13" cy="24" r="3" class="fill"/><circle cx="30" cy="18" r="4" class="fill"/><circle cx="40" cy="18" r="4"/><circle cx="30" cy="30" r="4"/><circle cx="40" cy="30" r="4" class="fill"/></svg>
+          </span>
+          <span class="card-en">CONTROLS</span>
+          <h3 class="card-title">基本操作方法</h3>
+          <p class="card-desc">パッド／アケコン／レバーレス、クラシックとモダンの違いと選び方。</p>
+          <span class="card-tags"><span>デバイス</span><span>クラシック</span><span>モダン</span></span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="html/characters.html" class="card card--wide reveal" data-accent="purple">
+          <span class="card-glow" aria-hidden="true"></span>
+          <span class="card-trail" aria-hidden="true"></span>
+          <span class="card-no">05</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="15" r="8"/><path d="M8 43 C10 31 17 26 24 26 C31 26 38 31 40 43"/><path d="M24 26 L24 43" class="stroke-accent"/></svg>
+          </span>
+          <span class="card-en">CHARACTER SELECT</span>
+          <h3 class="card-title">キャラクター選択画面</h3>
+          <p class="card-desc">キャラクターごとのコンボレシピとセットプレイ（有利フレーム・重ね技）をまとめたデータベース。</p>
+          <span class="card-tags"><span>コンボ</span><span>セットプレイ</span><span>有利F</span></span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="html/history.html" class="card reveal" data-accent="cyan">
+          <span class="card-glow" aria-hidden="true"></span>
+          <span class="card-trail" aria-hidden="true"></span>
+          <span class="card-no">06</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M24 12 V24 L32 29" class="stroke-accent"/></svg>
+          </span>
+          <span class="card-en">HISTORY</span>
+          <h3 class="card-title">ストリートファイターの歴史</h3>
+          <p class="card-desc">初代から6まで、シリーズの歩みとシステムの変遷を年表で振り返る。</p>
+          <span class="card-tags"><span>シリーズ</span><span>年表</span><span>システム</span></span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="html/diary.html" class="card card--wide reveal" data-accent="pink">
+          <span class="card-glow" aria-hidden="true"></span>
+          <span class="card-trail" aria-hidden="true"></span>
+          <span class="card-no">07</span>
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="36" rx="4"/><path d="M15 16 H33 M15 24 H33 M15 32 H26" class="stroke-accent"/></svg>
+          </span>
+          <span class="card-en">DIARY</span>
+          <h3 class="card-title">投稿主の日記</h3>
+          <p class="card-desc">プレイ日記、アップデートの感想、サイトの更新情報をブログ形式で掲載しています。</p>
+          <span class="card-tags"><span>プレイ日記</span><span>アップデート</span><span>更新情報</span></span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== フッター ===== -->
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <!-- ===== 初回案内モーダル ===== -->
+  <div class="modal" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideTitle" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <span class="modal-en">HOW TO USE</span>
+      <h2 class="modal-title" id="guideTitle">サイトの使い方</h2>
+      <ol class="modal-steps">
+        <li><span class="step-no">1</span><div><b>トップのカードから学ぶテーマを選ぶ</b><p>初心者は「01 ゲームルール」→「04 基本操作方法」の順がおすすめ。</p></div></li>
+        <li><span class="step-no">2</span><div><b>右上の MENU からいつでも移動</b><p>どのページからでも各コンテンツへジャンプできます。</p></div></li>
+        <li><span class="step-no">3</span><div><b>キャラ対策は「05 キャラクター選択」へ</b><p>コンボは「技名＋矢印コマンド」、セットプレイは有利Fと重ね技で掲載。</p></div></li>
+      </ol>
+      <div class="modal-actions">
+        <button type="button" class="btn btn--ghost" id="guideSkip">スキップ</button>
+        <button type="button" class="btn btn--primary" id="guideStart">はじめる</button>
+      </div>
+      <p class="modal-hint">この案内は次回から表示されません（MENUから再表示できます）</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

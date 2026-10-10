@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基本操作方法 | SF6 攻略ガイド</title>
+  <meta name="description" content="SF6の基本操作。デバイスと操作タイプ、移動、攻撃、ガード、コマンド入力、硬直差、ドライブシステムを解説。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- ページヒーロー -->
+    <section class="page-hero" data-accent="yellow">
+      <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+        <a href="../index.html">TOP</a><span aria-hidden="true">/</span><span>基本操作方法</span>
+      </nav>
+      <p class="page-no reveal">04 — CONTROLS</p>
+      <h1 class="page-title reveal">基本<span class="accent">操作方法</span></h1>
+      <p class="page-lead reveal">コントローラー選びから、移動・攻撃・ガード、必殺技のコマンド、SF6独自のドライブシステムまで。操作の基礎をまとめました。</p>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav>
+          <ol>
+            <li><a href="#device">コントローラー選択</a></li>
+            <li><a href="#move">基本移動</a></li>
+            <li><a href="#attack">攻撃（弱P〜強K）</a></li>
+            <li><a href="#guard">ガード</a></li>
+            <li><a href="#command">コマンド入力</a></li>
+            <li><a href="#frame">硬直差（フレーム）</a></li>
+            <li><a href="#system">システム解説</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <article class="article">
+      <section class="doc-section reveal" id="device">
+        <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">コントローラー選択</h2><span class="sec-en">DEVICE</span></div>
+
+        <p>SF6はどの入力デバイスでも遊べます。<strong>正解はなく、自分が一番操作しやすいもの</strong>を選びましょう。</p>
+        <div class="info-grid">
+          <div class="info-card" data-accent="cyan">
+            <p class="info-label">PAD</p><p class="info-title">パッド</p>
+            <p>普段使いのゲームコントローラー。追加購入が不要で、十字キーでのコマンド入力が得意。まずはここから。</p>
+          </div>
+          <div class="info-card">
+            <p class="info-label">ARCADE STICK</p><p class="info-title">アケコン</p>
+            <p>レバーとボタンのゲームセンター型。レバーを回すコマンド入力が直感的で、ボタン配置も広い。</p>
+          </div>
+          <div class="info-card" data-accent="pink">
+            <p class="info-label">LEVERLESS</p><p class="info-title">レバーレス</p>
+            <p>方向入力もすべてボタンで行うタイプ。入力が速く正確だが、慣れるまで練習が必要。</p>
+          </div>
+        </div>
+        <h3>操作タイプ：クラシックとモダン</h3>
+        <div class="split">
+          <div>
+            <ul class="list">
+              <li><b>クラシック</b>：弱・中・強のパンチとキック（6ボタン）＋コマンド入力。従来のストリートファイターと同じ操作で、すべての技を自由に使える</li>
+              <li><b>モダン</b>：弱・中・強の攻撃ボタン＋必殺技（SP）ボタン＋アシストボタン。必殺技を方向＋1ボタンで出せて、アシストを押しながら連打するだけでコンボになる。代わりに一部の技が使えず、ボタンで出した必殺技はダメージが少し下がる</li>
+            </ul>
+            <p>操作タイプはキャラ選択時にいつでも切り替えできます。「まず勝負を楽しみたい」ならモダン、「全部の技を使いこなしたい」ならクラシックがおすすめです。</p>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="クラシックとモダン"><img src="../images/controls/control-type.png" alt="クラシックとモダン" loading="lazy"></div><figcaption>操作タイプの選択画面</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="move">
+        <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">基本移動</h2><span class="sec-en">MOVEMENT</span></div>
+
+        <p>このサイトの方向表記は<strong>キャラが右を向いている状態</strong>が基準です（相手が右側）。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>動作</th><th>入力</th><th>ポイント</th></tr></thead>
+            <tbody>
+              <tr><td>前歩き</td><td><span class="cmd">→</span></td><td>相手に近づく。最も基本の距離調整</td></tr>
+              <tr><td>後ろ歩き</td><td><span class="cmd">←</span></td><td>相手から離れる。同時に立ちガードにもなる</td></tr>
+              <tr><td>しゃがみ</td><td><span class="cmd">↓</span></td><td>しゃがみ技を出す。<span class="cmd">↙</span>でしゃがみガード</td></tr>
+              <tr><td>前ステップ</td><td><span class="cmd">→ →</span></td><td>素早く距離を詰める</td></tr>
+              <tr><td>バックステップ</td><td><span class="cmd">← ←</span></td><td>素早く下がる。出始めに無敵がある</td></tr>
+              <tr><td>ジャンプ</td><td><span class="cmd">↖</span> <span class="cmd">↑</span> <span class="cmd">↗</span></td><td>後ろ・垂直・前ジャンプ。前ジャンプは攻めの起点、ただし対空で落とされやすい</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="media"><div class="media-frame media-frame--wide" data-label="レバー方向の対応"><img src="../images/controls/lever-directions.png" alt="レバー方向の対応" loading="lazy"></div><figcaption>8方向とテンキー表記（1〜9）の対応</figcaption></figure>
+      </section>
+      <section class="doc-section reveal" id="attack">
+        <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">攻撃（弱P〜強K）</h2><span class="sec-en">ATTACKS</span></div>
+
+        <p>パンチ（P）とキック（K）に、それぞれ<strong>弱・中・強</strong>の3段階があります。立ち・しゃがみ・ジャンプのどの状態で押すかで、出る技が変わります。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>ボタン</th><th>特徴</th><th>主な使い方</th></tr></thead>
+            <tbody>
+              <tr><td><span class="btn-chip lp">弱P</span> <span class="btn-chip lk">弱K</span></td><td>発生が早く隙が少ない。ダメージは低い</td><td>割り込み、連打、コンボの始動</td></tr>
+              <tr><td><span class="btn-chip mp">中P</span> <span class="btn-chip mk">中K</span></td><td>速さとリーチのバランスが良い</td><td>牽制、コンボのつなぎ、ラッシュからの攻め</td></tr>
+              <tr><td><span class="btn-chip hp">強P</span> <span class="btn-chip hk">強K</span></td><td>ダメージ・リーチは大きいが隙も大きい</td><td>確定反撃、カウンター狙い、対空</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>投げ</h3>
+        <p><span class="btn-chip lp">弱P</span> + <span class="btn-chip lk">弱K</span> の同時押しで投げ。ガードしている相手にも決まります。相手の投げに合わせて同じ入力をすると<span class="em-cyan">投げ抜け</span>できます。</p>
+      </section>
+      <section class="doc-section reveal" id="guard">
+        <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">ガード</h2><span class="sec-en">GUARD</span></div>
+
+        <div class="split">
+          <div>
+            <p>相手と反対方向にレバーを入れるとガードになります。攻撃には<strong>上段・中段・下段</strong>があり、ガードの仕方で防げるものが変わります。</p>
+            <div class="table-wrap">
+              <table class="data-table" style="min-width:0">
+                <thead><tr><th>ガード</th><th>上段</th><th>中段</th><th>下段</th></tr></thead>
+                <tbody>
+                  <tr><td>立ちガード <span class="cmd">←</span></td><td>○</td><td>○</td><td class="em-pink">×</td></tr>
+                  <tr><td>しゃがみガード <span class="cmd">↙</span></td><td>○</td><td class="em-pink">×</td><td>○</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:12px">基本は<strong>しゃがみガード</strong>で待ち、中段技やジャンプ攻撃が来たら立ちガードに切り替えます。投げはガードできないので、投げ抜けかジャンプなどで対応します。</p>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="ガード"><img src="../images/controls/guard.png" alt="ガード" loading="lazy"></div><figcaption>立ちガードとしゃがみガード</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="command">
+        <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">コマンド入力</h2><span class="sec-en">COMMAND INPUT</span></div>
+
+        <p>必殺技は、決まった順番でレバーを動かしてからボタンを押して出します。代表的な3つの入力を覚えれば、ほとんどの必殺技に対応できます。</p>
+        <div class="info-grid">
+          <div class="info-card cmd-card" data-accent="cyan">
+            <p class="info-label">HADOKEN</p><p class="info-title">波動拳コマンド</p>
+            <span class="cmd cmd-big">↓↘→ + P</span>
+            <p>下から前へ半円の1/4を描く。飛び道具や突進技に多い。</p>
+          </div>
+          <div class="info-card cmd-card">
+            <p class="info-label">TATSUMAKI</p><p class="info-title">竜巻コマンド</p>
+            <span class="cmd cmd-big">↓↙← + K</span>
+            <p>波動拳の逆向き。下から後ろへ動かす。</p>
+          </div>
+          <div class="info-card cmd-card" data-accent="pink">
+            <p class="info-label">SHORYUKEN</p><p class="info-title">昇竜拳コマンド</p>
+            <span class="cmd cmd-big">→↓↘ + P</span>
+            <p>前・下・斜め前。対空や無敵技に多い。「Z」を描くイメージ。</p>
+          </div>
+        </div>
+        <h3>その他の入力</h3>
+        <ul class="list">
+          <li><b>溜め</b>：<span class="cmd">←</span>や<span class="cmd">↓</span>を一定時間入れっぱなしにしてから反対方向＋ボタン</li>
+          <li><b>一回転</b>：レバーを1周回してからボタン（投げ技に多い）</li>
+          <li>SA（スーパーアーツ）は、波動・竜巻コマンドを<b>2回続けて</b>入力するものが多い</li>
+        </ul>
+        <div class="callout">コマンドが出ない時は、トレーニングモードの<b>入力履歴</b>を表示して、どこで入力が抜けているか確認しましょう。</div>
+      </section>
+      <section class="doc-section reveal" id="frame">
+        <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">硬直差（フレーム）</h2><span class="sec-en">FRAME ADVANTAGE</span></div>
+
+        <div class="split">
+          <div>
+            <p>格ゲーの時間の単位は<strong>フレーム（F）</strong>で、1F = 1/60秒です。技を当てたりガードさせたりした後に、<strong>どちらが先に動けるか</strong>の差を「硬直差（有利・不利フレーム）」と呼びます。</p>
+            <ul class="list">
+              <li><span class="em-cyan">＋（プラス）</span>：自分が先に動ける＝有利。攻めを続けられる</li>
+              <li><span class="em-pink">−（マイナス）</span>：相手が先に動ける＝不利。ガードするのが安全</li>
+              <li>不利が大きい技をガードしたら、相手の反撃が確定する（<b>確定反撃</b>）</li>
+            </ul>
+            <p>トレーニングモードのフレームメーターで、技ごとの有利・不利を数字で確認できます。</p>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="フレームメーター"><img src="../images/controls/frame-meter.png" alt="フレームメーター" loading="lazy"></div><figcaption>フレームメーターの見方</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="system">
+        <div class="sec-head"><span class="sec-no">07</span><h2 class="sec-title">システム解説</h2><span class="sec-en">DRIVE SYSTEM</span></div>
+
+        <p>SF6独自の「ドライブシステム」と、関連する主要システムの操作です（クラシック操作）。</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>システム</th><th>入力</th><th>ゲージ</th><th>効果・使いどころ</th></tr></thead>
+            <tbody>
+              <tr><td><b>ドライブパリィ</b></td><td><span class="btn-chip mp">中P</span>+<span class="btn-chip mk">中K</span></td><td>押している間</td><td>打撃と飛び道具を受け流す。攻撃の瞬間に合わせると<span class="em-cyan">ジャストパリィ</span>になり反撃のチャンス。投げには弱い</td></tr>
+              <tr><td><b>ドライブラッシュ</b></td><td>パリィ中に <span class="cmd">→→</span><br>技のキャンセルで <span class="cmd">→→</span></td><td class="num">1本 / 3本</td><td>高速で前進し、続く技の有利が増える。攻めの起点とコンボの延長に使う</td></tr>
+              <tr><td><b>ドライブインパクト</b></td><td><span class="btn-chip hp">強P</span>+<span class="btn-chip hk">強K</span></td><td class="num">1本</td><td>攻撃を2回まで耐えるアーマー付きの一撃。画面端でガードさせると壁に叩きつけて大チャンス。<span class="em-cyan">インパクトにはインパクトで返す</span>のが基本</td></tr>
+              <tr><td><b>ドライブリバーサル</b></td><td>ガード中に <span class="cmd">→</span>+<span class="btn-chip hp">強P</span>+<span class="btn-chip hk">強K</span></td><td class="num">2本</td><td>相手の連係を割り込んで押し返す切り返し。ダメージは低め</td></tr>
+              <tr><td><b>OD技</b></td><td>必殺技を<b>同じ種類のボタン2つ</b>で出す</td><td class="num">2本</td><td>必殺技の強化版。無敵が付く、ダメージが増えるなど性能が上がる</td></tr>
+              <tr><td><b>SA</b></td><td>キャラごとのコマンド</td><td>SAゲージ 1〜3本</td><td>超必殺技。体力25%以下でSA3がCA（クリティカルアーツ）に</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="media"><div class="media-frame media-frame--wide" data-label="ドライブシステム"><img src="../images/controls/drive-system.png" alt="ドライブシステム" loading="lazy"></div><figcaption>ドライブシステムの各アクション</figcaption></figure>
+        <div class="callout callout--warn">ドライブゲージを使い切ると<b>バーンアウト</b>になります。詳しくは「<a href="rules.html#drive" class="em-cyan">ゲームルール：ODゲージ</a>」を参照してください。</div>
+      </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="ranks.html" class="pager-link"><small>← PREV</small><span>ランクについて</span></a>
+          <a href="characters.html" class="pager-link pager-link--next"><small>NEXT →</small><span>キャラクター選択</span></a>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

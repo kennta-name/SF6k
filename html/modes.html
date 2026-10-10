@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>各モードの遊び方 | SF6 攻略ガイド</title>
+  <meta name="description" content="SF6の各モード（アーケード、トレーニング、コンボトライアル、カジュアルマッチ、ランクマッチ、ルームマッチ）の遊び方。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- ページヒーロー -->
+    <section class="page-hero" data-accent="cyan">
+      <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+        <a href="../index.html">TOP</a><span aria-hidden="true">/</span><span>各モードの遊び方</span>
+      </nav>
+      <p class="page-no reveal">02 — GAME MODES</p>
+      <h1 class="page-title reveal">各モードの<span class="accent">遊び方</span></h1>
+      <p class="page-lead reveal">1人で練習するモードから、オンラインで競うモードまで。目的に合わせて使い分けると、効率よく上達できます。</p>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav>
+          <ol>
+            <li><a href="#arcade">アーケード</a></li>
+            <li><a href="#training">トレーニング</a></li>
+            <li><a href="#trial">コンボトライアル</a></li>
+            <li><a href="#casual">カジュアルマッチ</a></li>
+            <li><a href="#ranked">ランクマッチ</a></li>
+            <li><a href="#room">ルームマッチ</a></li>
+          </ol>
+        </nav>
+      </aside>
+
+      <article class="article">
+      <section class="doc-section reveal" id="arcade">
+        <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">アーケード</h2><span class="sec-en">ARCADE</span></div>
+
+        <div class="split">
+          <div>
+            <div class="mode-meta"><span class="">オフライン</span><span class="">1人用</span><span class="pink">初心者向け</span></div>
+            <p>CPUと連戦しながら、各キャラクターのストーリーを楽しめるモードです。ステージ数や難易度を選べるので、まずはキャラを触ってみたい時に最適です。</p>
+            <h3>こんな人におすすめ・ポイント</h3>
+            <ul class="list"><li>キャラの見た目・技・雰囲気をつかむ</li><li>難易度を下げれば格ゲー未経験でもクリアしやすい</li><li>クリア報酬でイラストなどのコレクションが増える</li></ul>
+            <h3>はじめ方</h3><ol class="step-list"><li>メインメニューから「ファイティンググラウンド」を選ぶ</li><li>「アーケード」を選択し、キャラクターを決める</li><li>ステージ数・難易度を選んでスタート</li></ol>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="アーケードモード"><img src="../images/modes/arcade.png" alt="アーケードモード" loading="lazy"></div><figcaption>アーケードモード</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="training">
+        <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">トレーニング</h2><span class="sec-en">TRAINING</span></div>
+
+        <div class="split">
+          <div>
+            <div class="mode-meta"><span class="">オフライン</span><span class="">練習</span><span class="pink">全レベル</span></div>
+            <p>相手（ダミー）の動きを自由に設定して、技やコンボを好きなだけ練習できるモードです。上達するうえで最も長く使うモードになります。</p>
+            <h3>こんな人におすすめ・ポイント</h3>
+            <ul class="list"><li>フレームメーターで、技の有利・不利が数字で見える</li><li>ダミーの行動を録画・再生して、対策を練習できる</li><li>入力履歴を表示して、コマンドが正しく入っているか確認できる</li><li>ゲージ量や体力を固定して、同じ状況を何度も再現できる</li></ul>
+            
+          </div>
+          <figure class="media"><div class="media-frame " data-label="トレーニングモード"><img src="../images/modes/training.png" alt="トレーニングモード" loading="lazy"></div><figcaption>トレーニングモード</figcaption></figure>
+        </div><div class="callout">上達のコツは「<b>実戦で困った場面を録画して再現する</b>」こと。負けた理由をその場で練習できます。</div>
+      </section>
+      <section class="doc-section reveal" id="trial">
+        <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボトライアル</h2><span class="sec-en">COMBO TRIAL</span></div>
+
+        <div class="split">
+          <div>
+            <div class="mode-meta"><span class="">オフライン</span><span class="">課題形式</span><span class="pink">基礎固め</span></div>
+            <p>キャラクターごとに用意されたコンボの課題を、順番にクリアしていくモードです。お手本の動きを見ながら挑戦できます。</p>
+            <h3>こんな人におすすめ・ポイント</h3>
+            <ul class="list"><li>そのキャラで使う基本の連続技・つなぎ方を覚えられる</li><li>後半ほど難しい課題になる。全部クリアできなくても問題なし</li><li>実戦で使う基本コンボだけを抜き出して、トレーニングで反復するのがおすすめ</li></ul>
+            
+          </div>
+          <figure class="media"><div class="media-frame " data-label="コンボトライアル"><img src="../images/modes/combo-trial.png" alt="コンボトライアル" loading="lazy"></div><figcaption>コンボトライアル</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="casual">
+        <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">カジュアルマッチ</h2><span class="sec-en">CASUAL MATCH</span></div>
+
+        <div class="split">
+          <div>
+            <div class="mode-meta"><span class="">オンライン</span><span class="">ランク変動なし</span><span class="pink">気軽に対戦</span></div>
+            <p>オンラインで他のプレイヤーと対戦できるモードです。勝ち負けでランクが変わらないので、気軽に対人戦を経験できます。</p>
+            <h3>こんな人におすすめ・ポイント</h3>
+            <ul class="list"><li>練習中のキャラやコンボを実戦で試したい時に</li><li>負けてもポイントが減らないので、新しい戦い方を試しやすい</li><li>ランクマッチの前のウォーミングアップにも使える</li></ul>
+            
+          </div>
+          <figure class="media"><div class="media-frame " data-label="カジュアルマッチ"><img src="../images/modes/casual.png" alt="カジュアルマッチ" loading="lazy"></div><figcaption>カジュアルマッチ</figcaption></figure>
+        </div>
+      </section>
+      <section class="doc-section reveal" id="ranked">
+        <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">ランクマッチ</h2><span class="sec-en">RANKED MATCH</span></div>
+
+        <div class="split">
+          <div>
+            <div class="mode-meta"><span class="">オンライン</span><span class="">ランク変動あり</span><span class="pink">本番</span></div>
+            <p>勝敗によってポイントが増減し、ランクが上下するモードです。ランクはキャラクターごとに個別に管理されます。</p>
+            <h3>こんな人におすすめ・ポイント</h3>
+            <ul class="list"><li>初回は数試合の振り分け戦（プレイスメント）で開始ランクが決まる</li><li>勝つとLP（リーグポイント）が増え、一定値でランクアップ</li><li>最上位のマスターではMR（マスターレート）で強さを競う</li></ul>
+            
+          </div>
+          <figure class="media"><div class="media-frame " data-label="ランクマッチ"><img src="../images/modes/ranked.png" alt="ランクマッチ" loading="lazy"></div><figcaption>ランクマッチ</figcaption></figure>
+        </div><div class="callout">ランクの詳しい仕組みは「<a href="ranks.html" class="em-cyan">ランクについて</a>」のページで解説しています。</div>
+      </section>
+      <section class="doc-section reveal" id="room">
+        <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">ルームマッチ</h2><span class="sec-en">ROOM MATCH</span></div>
+
+        <div class="split">
+          <div>
+            <div class="mode-meta"><span class="">オンライン</span><span class="">フレンドと</span><span class="pink">ルール自由</span></div>
+            <p>自分でルームを作るか、他の人のルームに入って対戦するモードです。フレンドや仲間内で集まって遊ぶ時に使います。</p>
+            <h3>こんな人におすすめ・ポイント</h3>
+            <ul class="list"><li>ラウンド数や制限時間などのルールを自由に設定できる</li><li>パスワードを付けて、身内だけの部屋にできる</li><li>対戦の観戦や、順番待ちをしながら交代で遊べる</li></ul>
+            <h3>はじめ方</h3><ol class="step-list"><li>「ルームマッチ」から「ルーム作成」を選ぶ</li><li>ルールとパスワードを設定する</li><li>フレンドに部屋を探してもらうか招待する</li></ol>
+          </div>
+          <figure class="media"><div class="media-frame " data-label="ルームマッチ"><img src="../images/modes/room.png" alt="ルームマッチ" loading="lazy"></div><figcaption>ルームマッチ</figcaption></figure>
+        </div>
+      </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="rules.html" class="pager-link"><small>← PREV</small><span>ゲームルール</span></a>
+          <a href="ranks.html" class="pager-link pager-link--next"><small>NEXT →</small><span>ランクについて</span></a>
+        </nav>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
