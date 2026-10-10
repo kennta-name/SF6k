@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@500;700;800&family=M+PLUS+1+Code:wght@400;500;700&family=Dela+Gothic+One&display=swap");
 /* =========================================================
    SF6 攻略ガイド — 共通スタイル
    ========================================================= */
@@ -1153,3 +1154,195 @@ h1, h2, h3, p { margin: 0; }
 /* 大きな英字名がパンくずリンクのクリックを妨げないように */
 .chara-name-en { pointer-events: none; position: relative; z-index: 0; }
 .breadcrumb { position: relative; z-index: 1; }
+
+
+/* =========================================================
+   REDESIGN v2 — 角張った格ゲーUIへ
+   ・色と動き（グロー／フェード／ドラッグ追従）は従来どおり
+   ・丸み・グラデ文字・ピル型タグをやめ、直線と斜めカットで構成
+   ・学習メニューは「ゲームのメニューバー」型の配置に変更
+   ========================================================= */
+
+/* ---------- 1. フォント（四角いフォントへ） ---------- */
+:root {
+  --font-display: "Dela Gothic One", "M PLUS 1 Code", sans-serif;
+  --font-en: "Oxanium", "M PLUS 1 Code", sans-serif;
+  --font-body: "M PLUS 1 Code", "Noto Sans JP", sans-serif;
+  --radius: 0px;
+  --cut: 14px;   /* 角の斜めカット量 */
+}
+body { font-family: var(--font-body); letter-spacing: .01em; }
+.logo-main, .menu-btn-label, .hero-kicker, .section-en, .card-en, .card-no,
+.drawer-no, .drawer-en, .page-no, .sec-no, .sec-en, .toc-title, .info-label,
+.combo-id, .tl-year, .rank-en, .char-en, .preview-en, .result-count, .modal-en { font-family: var(--font-en); }
+.section-en, .card-en, .page-no, .sec-en, .toc-title, .modal-en, .hero-kicker, .drawer-en { letter-spacing: .14em; }
+
+/* ---------- 2. 共通：丸みをなくし、斜めカットに ---------- */
+.menu-btn, .drawer-link, .drawer-close, .hero-cta, .btn, .card, .card-icon, .card-arrow,
+.modal-panel, .modal-steps li, .step-no, .doc-section, .toc, .toc a, .media-frame, .info-card,
+.callout, .table-wrap, .gauge, .gauge-blocks span, .pager-link, .rank-card, .char-card,
+.char-preview, .filter-tab, .search-box input, .tab-btn, .combo-card, .chara-stat, .chara-hero .media-frame,
+.pros-cons > div, .tl-item, .person-card, .person-card .media-frame, .work-item, .work-item .media-frame,
+.music-card, .post-card, .side-box, .side-filter button, .toast, .empty-msg, .logo-mark { border-radius: 0; }
+
+/* 右下を斜めにカットした格ゲー風パネル */
+.doc-section, .post-card, .modal-panel, .toc, .side-box, .char-preview, .pager-link, .info-card, .combo-card, .tl-item {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
+
+/* タグ類：ピル型 → 平行四辺形 */
+.card-tags span, .mode-meta span, .tl-tags span, .preview-meta span, .post-tags a, .post-cat,
+.work-kind, .sample-tag, .char-badge, .btn-chip, .cmd {
+  border-radius: 0;
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  padding-left: 10px; padding-right: 10px;
+}
+.cmd { clip-path: none; border-radius: 0; border-width: 1px 1px 1px 3px; }
+
+/* グラデーション文字 → 単色＋シアンのずれ影（グリッチ風） */
+.hero-line--accent, .page-title .accent {
+  background: none; -webkit-background-clip: border-box; background-clip: border-box;
+  color: var(--purple);
+  text-shadow: 3px 3px 0 rgba(6, 182, 212, .55);
+  filter: none;
+}
+
+/* ---------- 3. ヘッダー ---------- */
+.logo-mark { transform: none; clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); }
+.logo-mark svg { transform: none; }
+.logo:hover .logo-mark { transform: scale(1.06); }
+.logo-main { font-weight: 800; font-size: 24px; letter-spacing: .04em; }
+.logo-sub { letter-spacing: .12em; }
+
+.menu-btn {
+  height: 44px; padding: 0 18px;
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-left: 3px solid var(--purple);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, calc(100% - 10px) 100%, 0 100%);
+}
+.menu-btn-label { font-weight: 800; }
+
+/* ---------- 4. ドロワー ---------- */
+.drawer { background: linear-gradient(to bottom, var(--bg-2), var(--bg-0)); }
+.drawer-link { border: 0; border-bottom: 1px solid var(--line-soft); padding: 14px 12px; }
+.drawer-link:hover { transform: translateX(-6px); background: rgba(139, 92, 246, .12); box-shadow: inset 4px 0 0 var(--purple), 0 0 18px rgba(139, 92, 246, .3); }
+.drawer-link.is-current { border-color: var(--line-soft); box-shadow: inset 4px 0 0 var(--cyan); }
+.drawer-no { font-size: 22px; font-weight: 800; }
+
+/* ---------- 5. ヒーロー ---------- */
+.hero-kicker {
+  border: 0; border-radius: 0; background: none; padding: 0 0 0 14px;
+  border-left: 3px solid var(--cyan);
+}
+.kicker-dot { display: none; }
+.hero-title { letter-spacing: 0; }
+.hero-cta {
+  padding: 16px 30px 16px 26px; border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  font-family: var(--font-body); letter-spacing: .06em;
+}
+
+/* ---------- 6. セクション見出し ---------- */
+.section-head { display: grid; grid-template-columns: auto 1fr; column-gap: 18px; align-items: end; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.section-en { grid-column: 1 / -1; }
+.section-title { margin: 0; }
+.section-desc { margin: 0 0 6px; text-align: right; font-size: 13px; }
+
+/* ---------- 7. 学習メニュー：メニューバー型の配置 ---------- */
+.card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  counter-reset: none;
+}
+.card-grid .card--wide { grid-column: auto; }
+/* 05 キャラクター選択はメインコンテンツなので横いっぱいに */
+.card-grid .card:nth-child(5) { grid-column: 1 / -1; min-height: 150px; }
+.card-grid .card:nth-child(5) .card-title { font-size: 26px; }
+
+.card {
+  min-height: 132px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) 64px;
+  grid-template-areas:
+    "no en    arrow"
+    "no title arrow"
+    "no desc  arrow"
+    "no tags  arrow";
+  grid-template-rows: auto auto 1fr auto;
+  align-items: start;
+  background: var(--bg-2);
+  border: 1px solid var(--line-soft);
+  border-left: 0;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+}
+.card::before { left: 92px; right: 0; top: auto; bottom: 0; height: 2px; }
+.card::after { right: 40px; bottom: -60px; width: 160px; height: 160px; border-radius: 0; transform: rotate(45deg); }
+.card:hover::after { transform: rotate(45deg) scale(1.15); }
+
+/* 番号ブロック（アクセント色の帯） */
+.card-no {
+  grid-area: no; position: static; align-self: stretch;
+  display: grid; place-items: center;
+  font-size: 40px; font-weight: 800; line-height: 1;
+  color: var(--bg-0); -webkit-text-stroke: 0;
+  background: var(--accent);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  transition: filter .3s, box-shadow .3s, transform .5s var(--ease-out);
+}
+.card:hover .card-no { -webkit-text-stroke: 0; transform: none; filter: brightness(1.15) drop-shadow(0 0 10px rgba(var(--accent-rgb), .9)); }
+
+.card-icon { display: none; }
+.card-en { grid-area: en; margin: 18px 0 0 16px; font-size: 11.5px; font-weight: 700; }
+.card-title { grid-area: title; margin: 2px 0 0 16px; font-size: 20px; font-family: var(--font-body); font-weight: 700; letter-spacing: .02em; }
+.card-desc { grid-area: desc; margin: 6px 0 0 16px; font-size: 13px; line-height: 1.65; }
+.card-tags { grid-area: tags; margin: 0 0 16px 16px; padding-top: 12px; }
+.card-tags span { background: rgba(var(--accent-rgb), .1); border: 0; color: var(--text-sub); font-size: 11px; }
+
+.card-arrow {
+  grid-area: arrow; position: static; align-self: stretch; width: auto; height: auto;
+  display: grid; place-items: center; border: 0; border-left: 1px solid var(--line-soft);
+  font-size: 22px; color: var(--accent); background: transparent;
+}
+.card:hover .card-arrow { background: rgba(var(--accent-rgb), .14); color: var(--accent); transform: none; box-shadow: none; }
+.card:hover .card-arrow { text-shadow: 0 0 10px rgba(var(--accent-rgb), .9); }
+
+/* ---------- 8. 下層ページの部品 ---------- */
+.doc-section { border-left: 0; }
+.doc-section::before { width: 4px; background: var(--purple); }
+.sec-no { -webkit-text-stroke: 0; color: var(--bg-0); background: var(--purple); font-size: 22px; font-weight: 800; padding: 4px 14px 4px 10px; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.sec-title { font-family: var(--font-body); font-weight: 700; }
+.doc-section h3::before { border-radius: 0; transform: none; width: 4px; height: 16px; }
+.toc a::before { border-radius: 0; }
+.list li::before { border-radius: 0; width: 6px; height: 6px; transform: rotate(45deg); }
+.data-table th { letter-spacing: .04em; }
+.callout { border-width: 0 0 0 3px; }
+.callout::before { font-family: var(--font-en); }
+.chara-name-en { font-weight: 800; }
+.step-list li::before { border-radius: 0; }
+.tab-btn[aria-selected="true"], .filter-tab[aria-pressed="true"] { clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.filter-tab, .tab-btn { clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
+.btn { clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+.tl-item::before { border-radius: 0; transform: rotate(45deg); }
+.char-card { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%); }
+
+/* ---------- 9. 学習メニューのレスポンシブ ---------- */
+@media (max-width: 960px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .card-grid .card:nth-child(5) { grid-column: auto; }
+}
+@media (max-width: 640px) {
+  .section-head { grid-template-columns: 1fr; }
+  .section-desc { text-align: left; }
+  .card { grid-template-columns: 64px minmax(0, 1fr) 44px; min-height: 0; }
+  .card::before { left: 64px; }
+  .card-no { font-size: 28px; }
+  .card-title { font-size: 17px; }
+  .card-grid .card:nth-child(5) .card-title { font-size: 19px; }
+  .card-desc { font-size: 12.5px; }
+  .card-tags { display: none; }
+  .card-desc { margin-bottom: 14px; }
+}
+
+/* メニューバーでは装飾ストライプを出さない（文字の背後がうるさくなるため） */
+.card-grid .card::after { display: none; }
