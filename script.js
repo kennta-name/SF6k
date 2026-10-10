@@ -374,6 +374,12 @@
         pv.cta.setAttribute('aria-disabled', ready ? 'false' : 'true');
         pv.cta.textContent = ready ? `${d.name} の攻略を見る` : 'データ準備中';
         pv.frame.dataset.label = d.name;
+        // カードに書いた写真の位置（--img-x / --img-y / --img-zoom）をプレビューにも反映
+        const cardFrame = card.querySelector('.media-frame');
+        ['--img-x', '--img-y', '--img-zoom'].forEach(v => {
+          const val = cardFrame.style.getPropertyValue(v);
+          val ? pv.frame.style.setProperty(v, val) : pv.frame.style.removeProperty(v);
+        });
         pv.frame.classList.remove('is-missing');
         pv.img.alt = d.name;
         pv.img.src = card.querySelector('img').getAttribute('src');

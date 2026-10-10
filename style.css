@@ -1346,3 +1346,73 @@ body { font-family: var(--font-body); letter-spacing: .01em; }
 
 /* メニューバーでは装飾ストライプを出さない（文字の背後がうるさくなるため） */
 .card-grid .card::after { display: none; }
+
+/* =========================================================
+   キャラ紹介ページの写真：枠線なし＋背景になじませる
+   ---------------------------------------------------------
+   ▼ 位置の調整はこの4つの数値だけ変えればOK
+     --img-x     : 横の位置（0% = 左寄せ / 50% = 中央 / 100% = 右寄せ）
+     --img-y     : 縦の位置（0% = 上寄せ / 50% = 中央 / 100% = 下寄せ）
+     --img-zoom  : 拡大率（1 = 等倍、1.2 = 1.2倍）
+     --img-shift : 写真全体を左右に動かす量（マイナスで左、プラスで右）
+     ▼ フェード（ぼかし）の長さ。数値が大きいほど、長く・ゆるやかに消える
+     --fade-top    : 上側（標準 18%）
+     --fade-bottom : 下側（標準 45%）
+     --fade-left   : 左側（標準 14%）
+     --fade-right  : 右側（標準 14%）
+     ※ 0% にするとその辺はフェードしない
+   ========================================================= */
+.chara-hero .media {
+  --img-x: 50%;
+  --img-y: 15%;
+  --img-zoom: 1;
+  --img-shift: 0px;
+  position: relative;
+  transform: translateX(var(--img-shift));
+}
+
+/* 写真の後ろに紫とシアンの光をにじませて、背景と一体化させる */
+.chara-hero .media::before {
+  content: ""; position: absolute; inset: 8% -10% 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 45%, rgba(139, 92, 246, .45), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 70% 75%, rgba(6, 182, 212, .25), transparent 70%);
+  filter: blur(20px);
+}
+
+/* 画像がある時：枠線・背景の斜線・影を消し、端をフェードアウト */
+.chara-hero .media-frame:not(.is-missing) {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  clip-path: none;
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 var(--fade-top, 18%), #000 calc(100% - var(--fade-bottom, 45%)), transparent 98%),
+    linear-gradient(to right, transparent 0%, #000 var(--fade-left, 14%), #000 calc(100% - var(--fade-right, 14%)), transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 var(--fade-top, 18%), #000 calc(100% - var(--fade-bottom, 45%)), transparent 98%),
+    linear-gradient(to right, transparent 0%, #000 var(--fade-left, 14%), #000 calc(100% - var(--fade-right, 14%)), transparent 100%);
+          mask-composite: intersect;
+}
+.chara-hero .media-frame img {
+  object-fit: cover;
+  object-position: var(--img-x) var(--img-y);
+  transform: scale(var(--img-zoom));
+  transform-origin: var(--img-x) var(--img-y);
+}
+
+/* =========================================================
+   キャラ選択カードの写真位置（HTMLの span に style="--img-x:…" で個別調整）
+   ========================================================= */
+.char-card .media-frame img,
+.char-preview .media-frame img {
+  object-fit: cover;
+  object-position: var(--img-x, 50%) var(--img-y, 15%);
+  transform-origin: var(--img-x, 50%) var(--img-y, 15%);
+}
+.char-card .media-frame img { transform: scale(calc(var(--img-zoom, 1) * 1.02)); }
+.char-card:hover .media-frame img, .char-card:focus-visible .media-frame img,
+.char-card.is-active .media-frame img, .char-card.is-dragging .media-frame img { transform: scale(calc(var(--img-zoom, 1) * 1.1)); }
+.char-preview .media-frame img { transform: scale(var(--img-zoom, 1)); }
+.char-preview.is-switching .media-frame img { transform: scale(calc(var(--img-zoom, 1) * 1.04)) translateX(12px); }
