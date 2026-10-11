@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ディージェイ（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="ディージェイの立ち回り方針、技コマンド、コンボ、生ラッシュ、セットプレイ（有利フレーム・重ね技）。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20261010">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- データ元：sf6-pdf/data/deejay.json（ディージェイ 立ち回り＆コンボ資料） -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>ディージェイ</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">DEE JAY</p>
+        <h1 class="page-title reveal">ディージェイ</h1>
+        <p class="page-lead reveal">弾・サマー・長い牽制を持つが、牽制の先端当てを続ける戦い方ではリターン負けする。今作のディージェイは全キャラ最強クラスの「生ラッシュ」と長いジャンプで、相手が意識していない距離からいきなり襲いかかる「強襲キャラ」。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>強襲・ラッシュ</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>ふつう</b><div class="meter" aria-label="難易度 5段階中3"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          <div class="chara-stat"><small>DATA</small><b>コンボ8・連携7</b></div>
+        </div>
+      </div>
+      <!-- 画像の位置・フェードは style の値で調整できます -->
+      <figure class="media reveal" style="--img-y: 15%; --img-zoom: 1; --img-shift: 0px; --fade-top: 18%; --fade-bottom: 45%; --fade-left: 14%; --fade-right: 14%;">
+        <div class="media-frame" data-label="ディ"><img src="../images/characters/deejay.png" alt="ディージェイ" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">技・コマンド</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#rush">生ラッシュ行動</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+            <li><a href="#source">出典・用語</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+
+          <h3>ODゲージがある時</h3>
+          <ul class="list"><li>生ラッシュが最強の選択肢。ラッシュ→中Pガードで+6。投げ／弱P弱P／暴れ潰し／シミー／もう一度ラッシュ中P、などで攻める。</li><li>崩せなくても連携でドライブゲージがほぼ回復し、相手のゲージを1.5本以上削れる＝止められない限りやり得。</li><li>ラッシュを見てからインパクトする相手には、ラッシュ→立ち弱P（発生が早くインパクトに勝つ）に切り替える。</li><li>ラッシュ→中P の利点はヒット確認ができること。ヒットなら強Kなどのコンボ、ガードなら連携へ。</li><li>画面端で立ち中Pなどの後にOD エアスラッシャーでキャンセルすると、ガードでもプラスで割り込まれない。ODジョスクールの入れ込みもリスクの小さい二択になる。</li></ul>
+          <h3>ODゲージがない時</h3>
+          <ul class="list"><li>中距離で牽制を振り合うとリターン負けする。もっと内側でまとわりつくか、離れて生ラッシュ／飛びの射程をキープする。</li><li>追い払う能力は高い（中K・強K・ソバット等）。</li><li>ガイルのように溜めて待つ戦い方は、遅い弾がないためどこかで限界が来る。</li></ul>
+          <h3>差し合い</h3>
+          <ul class="list"><li>生ラッシュとジャンプの射程が長く、画面の遠い位置からプレッシャーを与えられる。</li><li>近づいたら ↓+弱K ニーショット（中段）との二択もある。</li><li>中足はダウンを取れるがリターンが小さい（約300）。</li><li>前中K（サンライズヒール）はガードで有利を取れる。</li></ul>
+          <h3>対空</h3>
+          <ul class="list"><li>溜めがあればジャックナイフマキシマム（サマー）、なければ引き強K等で対空。</li><li>ジャンプ中Pの空対空は溜めを作らずに対空しやすい。</li><li>対空（ジャンプ中P対空など）は約1400＋前ステップで+8と起き攻めまでつき、中足（約300）とリターンが段違い。対空は頑張る価値が高い。</li></ul>
+          <h3>画面端</h3>
+          <ul class="list"><li>投げ後は全キャラ屈指の状況（+15前後）。前ステップから立ち弱P→攻め、グラップにはシミー。</li><li>立ち弱P→少し歩く→前中K（+3）など、ため（溜め）を作りつつ投げ間合いに入れる連携が強い。</li><li>画面端では様子見の対応幅が最大だが、面倒なら最速の入れ込み連携でもよい。立ち中Pは+2。</li><li>前・後ろジャンプでも溜めが作れる。</li></ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>生ラッシュの性能が全キャラ最強クラス。</li><li>ジャンプが長く遠距離から強襲できる。</li><li>画面端の投げ後の状況が非常に良い。</li><li>ガード後もプラスを取れる技や連携が多く、ドライブゲージを削る力が高い。</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>中距離の牽制合戦ではリターン負けしやすい。</li><li>対空がやや難しい（溜めがない時）。</li><li>生ラッシュ中Pを見てからインパクトされると確定を受ける（弱Pで対策）。</li><li>ザンギエフなど投げ間合いの広い相手には、投げ後の状況で後ろ歩きが必要。</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">技・コマンド（クラシック）</h2><span class="sec-en">MOVES</span></div>
+          <p>公式コマンドリストで確認したコマンドです。（溜め）＝溜め入力、一回転＝レバー1回転。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>備考</th></tr></thead>
+            <tbody><tr><td><b>エアスラッシャー</b></td><td><span class="cmd">←(溜め)→+P</span></td><td>—</td></tr><tr><td><b>ジャックナイフマキシマム</b></td><td><span class="cmd">↓(溜め)↑+K</span></td><td>—</td></tr><tr><td><b>フェイクロールステップ</b></td><td><span class="cmd">↓↘→+弱K</span></td><td>—</td></tr><tr><td><b>クイックローリングソバット</b></td><td><span class="cmd">↓↘→+中K</span></td><td>—</td></tr><tr><td><b>ダブルローリングソバット</b></td><td><span class="cmd">↓↘→+強K</span></td><td>—</td></tr><tr><td><b>マシンガンアッパー</b></td><td><span class="cmd">↓↙←+P</span></td><td>—</td></tr><tr><td><b>ジョスクール</b></td><td><span class="cmd">↓↙←+K</span></td><td>弱K/中K/強K・→+Pで派生</td></tr><tr><td><b>SA1 グレイテストソバット</b></td><td><span class="cmd">↓↘→↓↘→+K</span></td><td>—</td></tr><tr><td><b>SA2 サンライズフェスティバル</b></td><td><span class="cmd">↓↘→↓↘→+P</span></td><td>続けて弱P&gt;中P&gt;強P&gt;弱K&gt;中K&gt;強K</td></tr><tr><td><b>SA3 サタデーナイト</b></td><td><span class="cmd">↓↙←↓↙←+P</span></td><td>体力25%以下で性能アップ</td></tr><tr><td><b>ニーショット</b></td><td><span class="cmd">↓+弱K</span></td><td>前ジャンプ中に</td></tr><tr><td><b>サンライズヒール</b></td><td><span class="cmd">→+中K</span></td><td>—</td></tr><tr><td><b>フェイスブレイカー</b></td><td><span class="cmd">←+強K</span></td><td>—</td></tr><tr><td><b>3ビートコンボ</b></td><td><span class="cmd">弱P &gt; 中K &gt; 中K</span></td><td>—</td></tr><tr><td><b>ディージェイスペシャル</b></td><td><span class="cmd">中P &gt; 強P &gt; 強K</span></td><td>—</td></tr><tr><td><b>ファンキーダンス</b></td><td><span class="cmd">中P &gt; 中P &gt; 強P</span></td><td>—</td></tr><tr><td><b>マラカスビート</b></td><td><span class="cmd">↓↓+PP</span></td><td>ホールドで継続</td></tr><tr><td><b>スタンプ・ザ・ビート</b></td><td><span class="cmd">N or →+弱P弱K</span></td><td>通常投げ</td></tr><tr><td><b>フリップスルー</b></td><td><span class="cmd">←+弱P弱K</span></td><td>通常投げ</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span></div>
+
+          <p>始動技の種類ごとにタブで切り替えられます。コマンドは「›」の順に入力します。</p>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類"><button type="button" role="tab" class="tab-btn" id="tab-enders" aria-controls="combo-enders" aria-selected="false">締めパーツ<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-light" aria-controls="combo-light" aria-selected="false">小技始動<span class="count">3</span></button><button type="button" role="tab" class="tab-btn" id="tab-medium" aria-controls="combo-medium" aria-selected="false">中攻撃始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-counter" aria-controls="combo-counter" aria-selected="false">カウンター<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-impact" aria-controls="combo-impact" aria-selected="false">インパクト<span class="count">1</span></button></div>
+          <div class="tab-panel" role="tabpanel" id="combo-enders" aria-labelledby="tab-enders" hidden>
+            <p class="tab-desc">コンボ後半の締めルート。以降のコンボの最後に付ける。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-e1">
+                <div class="combo-top"><span class="combo-id">E1</span><h4 class="combo-recipe">サマー締め</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓(溜め)↑+K ジャックナイフマキシマム</span></div>
+                
+                <p class="combo-note">相手が立っている時の締め。</p>
+              </article>
+              <article class="combo-card" id="cb-e2">
+                <div class="combo-top"><span class="combo-id">E2</span><h4 class="combo-recipe">ソバット締め</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+中K クイックローリングソバット</span></div>
+                
+                <p class="combo-note">相手がしゃがんでいる時の締め。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-light" aria-labelledby="tab-light" hidden>
+            <p class="tab-desc">差し合いや暴れ潰しで小技が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-l1">
+                <div class="combo-top"><span class="combo-id">L1</span><h4 class="combo-recipe">弱P（相手しゃがみ）</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+中K クイックローリングソバット</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱P</b></span></div>
+                <p class="combo-note">しゃがみ食らいなら中ソバット一択。</p>
+              </article>
+              <article class="combo-card" id="cb-l2">
+                <div class="combo-top"><span class="combo-id">L2</span><h4 class="combo-recipe">弱P（相手立ち）</h4></div>
+                <div class="combo-cmd"><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓(溜め)↑+K ジャックナイフマキシマム</span></div>
+                <div class="combo-stats"><span>始動 <b>弱P</b></span></div>
+                <p class="combo-note">立ち食らいならサマー。</p>
+              </article>
+              <article class="combo-card" id="cb-l3">
+                <div class="combo-top"><span class="combo-id">L3</span><h4 class="combo-recipe">弱K始動</h4></div>
+                <div class="combo-cmd"><span class="cmd">弱K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+強K ダブルローリングソバット</span></div>
+                <div class="combo-stats"><span>始動 <b>弱K</b></span></div>
+                <p class="combo-note">弱Kは+5で弱Pなども繋がるが、弱Kヒットなら強ソバット確定でこれ一択。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-medium" aria-labelledby="tab-medium" hidden>
+            <p class="tab-desc">中攻撃（置き・差し返し）が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-m1">
+                <div class="combo-top"><span class="combo-id">M1</span><h4 class="combo-recipe">しゃがみ中P始動</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←+K(OD) ジョスクール</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">しゃがみ中Pヒット時に繋がるものが増える。弱Pからも繋がるが弱P×2以降は繋がらないため、飛び込みやカウンターからの使用が主。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-counter" aria-labelledby="tab-counter" hidden>
+            <p class="tab-desc">カウンターヒットした時の追撃。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-c1">
+                <div class="combo-top"><span class="combo-id">C1</span><h4 class="combo-recipe">カウンター弱P→しゃがみ中P</h4></div>
+                <div class="combo-cmd"><span class="cmd">弱P(カウンター)</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">OD ジョスクール</span></div>
+                <div class="combo-stats"><span>始動 <b>弱P(カウンター)</b></span></div>
+                <p class="combo-note">カウンターでしゃがみPが連続ヒットする時に。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-impact" aria-labelledby="tab-impact" hidden>
+            <p class="tab-desc">ドライブインパクトがヒットした時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-i1">
+                <div class="combo-top"><span class="combo-id">I1</span><h4 class="combo-recipe">画面端インパクト後の詐欺飛び</h4></div>
+                <div class="combo-cmd"><span class="cmd">インパクト（ヒット or ガード）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強サマー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱サマー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ジャンプ</span></div>
+                <div class="combo-stats"><span>始動 <b>インパクト（ヒット or ガード）</b></span></div>
+                <p class="combo-note">詐欺飛びルート。ジャストパリィにも対応。</p>
+              </article>
+            </div>
+          </div>
+          </div>
+          <div class="callout">動画内で紹介なし：強攻撃始動／パニカン／SAゲージ活用／SAゲージ回収</div>
+        </section>
+
+        <!-- ④ 生ラッシュ -->
+        <section class="doc-section reveal" id="rush">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">よく使う生ラッシュ行動</h2><span class="sec-en">DRIVE RUSH</span></div>
+          <div class="table-wrap"><table class="data-table" style="min-width:780px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:170px">行動</th><th>コマンド</th><th style="width:120px">有利F</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">R1</td><td><b>生ラッシュ中P</b></td><td><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P →（ヒット）強Kなど／（ガード）連携</span></td><td class="num"><span>ガード+6</span></td><td>ヒット確認できるのが中Pの利点。</td></tr><tr><td class="num">R2</td><td><b>生ラッシュ弱P</b></td><td><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span></td><td class="num"><span style="color:var(--text-dim)">—</span></td><td>発生が早く、ラッシュを見てからのインパクトに勝てる。</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ⑤ セットプレイ -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">セットプレイ・起き攻め</h2><span class="sec-en">SET PLAY</span></div>
+          <p>起点（締めや状況）ごとに、その後の行動・有利フレーム・重ねる技をまとめています。</p>
+          <div class="table-wrap"><table class="data-table" style="min-width:1100px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:190px">起点（締め）</th><th style="width:170px">その後の行動</th><th style="width:230px">コマンド</th><th style="width:120px">有利F</th><th style="width:140px">重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">K1</td><td>画面端 投げ</td><td>前ステップ→立ち弱P</td><td><span class="cmd">投げ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">投げ／シミー</span></td><td class="num"><span>約+15</span></td><td>立ち弱P</td><td>投げ後の状況が全キャラでもトップクラス。ザンギ相手だけは一歩後ろ歩きして投げ間合いに注意。</td></tr><tr><td class="num">K2</td><td>立ち弱P</td><td>少し歩いて前中K</td><td><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">少し歩く</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→+中K サンライズヒール</span></td><td class="num"><span>+3</span></td><td>—</td><td>思った以上に投げ間合いが届く。前中Kの全体フレームが長いので溜めも作れる。</td></tr><tr><td class="num">K3</td><td>地上の相手に強サマー</td><td>最速ニーショット→詐欺飛び</td><td><span class="cmd">↓(溜め)↑+強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">最速 ↓+弱K ニーショット</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ジャンプ</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>ジャンプ攻撃（詐欺飛び）</td><td>5F詐欺はジャストパリィされても-2で反撃なし（全キャラ共通の知識）。</td></tr><tr><td class="num">K4</td><td>画面端インパクト</td><td>強サマー→弱サマー→ジャンプ</td><td><span class="cmd">インパクト</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強サマー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱サマー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ジャンプ</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>ジャンプ攻撃（詐欺飛び）</td><td>ヒット・ガードどちらでも可。</td></tr><tr><td class="num">K5</td><td>画面端 中Pガード</td><td>OD エアスラッシャー</td><td><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">OD ←(溜め)→+P</span></td><td class="num"><span>プラス</span></td><td>—</td><td>ガードしかしない相手にも割られない連携。</td></tr></tbody>
+          </table></div>
+          <div class="callout">「数値表記なし」は動画内で有利Fが示されていない連携です。トレーニングモードのフレームメーターで計測して追記してください。</div>
+        </section>
+
+        <!-- ⑥ 出典・用語 -->
+        <section class="doc-section reveal" id="source">
+          <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">出典・用語</h2><span class="sec-en">SOURCE</span></div>
+          <p>このページの内容は、以下の解説動画の内容を整理したものです（クラシック）。技コマンドはCAPCOM公式コマンドリスト（クラシック）で確認しています。</p>
+          <div class="info-grid">
+            <a class="info-card" data-accent="pink" href="https://www.youtube.com/watch?v=yKILclTtq5c" target="_blank" rel="noopener">
+              <p class="info-label">YOUTUBE ／ 14:50</p>
+              <p class="info-title">【スト６】立ち回りから詐欺飛びルートまで！ ディージェイの基本をまるっと解説！</p>
+              <p>投稿者：どぐら 生駒デビル</p>
+            </a>
+          </div>
+          <h3>動画内用語</h3>
+          <div class="table-wrap"><table class="data-table" style="min-width:0">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody><tr><td><b>強襲</b></td><td>相手が意識していない距離からいきなり攻め込むこと。</td></tr><tr><td><b>サマー</b></td><td>ジャックナイフマキシマム（↓溜め↑+K）。</td></tr><tr><td><b>ソバット</b></td><td>ローリングソバット系の必殺技（↓↘→+K）。</td></tr><tr><td><b>ニーショット</b></td><td>↓+弱Kの中段。</td></tr><tr><td><b>シミー</b></td><td>投げを見せて下がり、投げ抜けを空振りさせて反撃する行動。</td></tr><tr><td><b>詐欺飛び</b></td><td>無敵技はガードでき、何もしなければ当たる飛び。</td></tr><tr><td><b>5F詐欺</b></td><td>着地まで5Fで重ねる詐欺飛び。ジャストパリィされても-2。</td></tr></tbody>
+          </table></div>
+          <h3>摘要（字幕・補足）</h3>
+          <ul class="list"><li>コンボのルール：弱Pヒットで相手しゃがみ→中ソバット、立ち→サマー／弱Kヒット→強ソバット／しゃがみ中Pヒット→ODジョスクール。この3つでほぼOK。</li><li>中足（約300）より対空ジャンプ中P（約1400＋前ステ+8）の方がリターンが大きい。</li><li>投稿者は難しいコンボはあまりやらない方針。必要なものだけ紹介されている。</li></ul>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="character-ehonda.html" class="pager-link"><small>← PREV</small><span>エドモンド本田</span></a>
+          <a href="character-manon.html" class="pager-link pager-link--next"><small>NEXT →</small><span>マノン</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js?v=20261010"></script>
+</body>
+</html>

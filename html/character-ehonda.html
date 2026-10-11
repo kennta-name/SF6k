@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エドモンド本田（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="エドモンド本田の立ち回り方針、技コマンド、コンボ、生ラッシュ、セットプレイ（有利フレーム・重ね技）。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20261010">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- データ元：sf6-pdf/data/ehonda.json（エドモンド本田 立ち回り＆コンボ資料） -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>エドモンド本田</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">E.HONDA</p>
+        <h1 class="page-title reveal">エドモンド本田</h1>
+        <p class="page-lead reveal">スーパー頭突きで相手の動きを咎め、OD鉄砲（ガード+3）から「コマンド投げ／弱弱中頭突き／遅らせ投げ」の三択で崩すキャラクター。ゲージが減ったら下がって回復し、攻めてくる相手を頭突きで迎撃する。初心者帯から上位帯まで通用する。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>突進・投げ択</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>やや低め</b><div class="meter" aria-label="難易度 5段階中2"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div>
+          <div class="chara-stat"><small>DATA</small><b>コンボ12・連携7</b></div>
+        </div>
+      </div>
+      <!-- 画像の位置・フェードは style の値で調整できます -->
+      <figure class="media reveal" style="--img-y: 15%; --img-zoom: 1; --img-shift: 0px; --fade-top: 18%; --fade-bottom: 45%; --fade-left: 14%; --fade-right: 14%;">
+        <div class="media-frame" data-label="エド"><img src="../images/characters/ehonda.png" alt="エドモンド本田" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">技・コマンド</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#rush">生ラッシュ行動</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+            <li><a href="#source">出典・用語</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+
+          <h3>ODゲージがある時</h3>
+          <ul class="list"><li>自分から仕掛ける時はOD鉄砲（相撲ステップ→P のOD版）。ガードさせて+3で、相手がボタンを押していても打ち勝てる。生でも、長くて強い立ち中Pからでも出してよい。</li><li>OD鉄砲ガード後の三択：①コマンド投げ（大銀杏投げ）②弱→弱→中頭突き（ジャンプやインパクトを潰す）③少しガードしてから通常投げ（無敵技を警戒）。</li><li>ODスーパー頭突きは相手の打撃に全部勝つ切り返し。ラッシュで攻めてくる相手にも有効。</li><li>ドライブゲージが5本程度あれば積極的に攻めてよい。</li></ul>
+          <h3>ODゲージがない時</h3>
+          <ul class="list"><li>ドライブゲージが3本以下になったらバーンアウトを避けるため下がって回復する。</li><li>下がりながら頭突きを撃つのが強い。前歩きには強頭突き、ジャンプには中頭突きで対空。</li><li>相手が頭突きを警戒して待ってくれるならゲージが回復するので、それでOK。</li><li>ノーマル鉄砲もガードで反撃がないので、ゲージを使わない攻めとして使える。</li></ul>
+          <h3>差し合い</h3>
+          <ul class="list"><li>最初に練習すること：①←溜め→+強Pで強スーパー頭突き ②↙溜め↗+強Kでスーパー百貫落とし（↗と同時にボタン）。</li><li>頭突きは自分から当てに行くとSAや昇龍で落とされやすい。相手に攻めさせて、引きながら撃つ。</li><li>頭突きガード後は ↓弱P → ↓弱P → 中頭突き を試し、打ち返されるならOD頭突き・ガード・パリィで読み合う。</li><li>立ち中Pが非常に強い。中距離で困ったら立ち中P連打、慣れたらキャンセルラッシュ仕込み。</li><li>立ち中P→百裂張り手の入れ込みも、ガードで反撃がなく強い。</li></ul>
+          <h3>対空</h3>
+          <ul class="list"><li>中スーパー頭突きで対空（下がりながら）。</li><li>ラッシュにはOD頭突き、通常の飛びにはノーマル頭突き、と使い分けられるとよい。</li></ul>
+          <h3>画面端</h3>
+          <ul class="list"><li>画面端の基本：ジャンプ強 → 立ち中P → 弱 → 弱 → 中頭突き。</li><li>中頭突き等を当てた後、すぐにしゃがみ強を1回空振り → 強攻撃とコマンド投げが重なり二択。</li><li>画面端近くで締めた後のインパクトは相手が飛べず強力。画面端を背負って後ろ投げした後もインパクトが強い。</li><li>後ろ投げ後はインパクト／前ステップOD コマ投げ／前ステップ弱弱 などで攻める。</li></ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>スーパー頭突きの圧力と対空性能。</li><li>OD鉄砲（ガード+3）からの完全三択。</li><li>SA2（スーパー鬼無双）が弾抜けとして全キャラ最強クラス（画面端でも抜けられる）。</li><li>画面端で気合注入中は強アシスト→立ち弱×2→頭突き→安全飛びのループが可能。</li><li>バーンアウトさせた相手には鉄砲がガードでも有利になり一方的に攻められる。</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>飛び道具の強い相手には待つ時間が増える（ジャンプ・パリィ・SA2で対処）。</li><li>OD頭突きは打撃には勝つが投げに負ける。</li><li>遅らせグラップで守る都合上、遅らせグラップ狩りには弱い。</li><li>百貫落としはガード後の距離が離れやすく、以前ほど強くない。</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">技・コマンド（クラシック）</h2><span class="sec-en">MOVES</span></div>
+          <p>公式コマンドリストで確認したコマンドです。（溜め）＝溜め入力、一回転＝レバー1回転。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>備考</th></tr></thead>
+            <tbody><tr><td><b>百裂張り手</b></td><td><span class="cmd">↓↙←+P</span></td><td>肩屋入り中に性質変化</td></tr><tr><td><b>スーパー頭突き</b></td><td><span class="cmd">←(溜め)→+P</span></td><td>—</td></tr><tr><td><b>スーパー百貫落とし</b></td><td><span class="cmd">↓(溜め)↑+K</span></td><td>—</td></tr><tr><td><b>大銀杏投げ</b></td><td><span class="cmd">→↘↓↙←+K</span></td><td>近距離で</td></tr><tr><td><b>相撲ステップ</b></td><td><span class="cmd">↓↘→+K</span></td><td>P&gt;P:鉄砲／↓+P:大砲</td></tr><tr><td><b>猫だまし</b></td><td><span class="cmd">↓↓+P</span></td><td>—</td></tr><tr><td><b>肩屋入り</b></td><td><span class="cmd">↓↓+K</span></td><td>—</td></tr><tr><td><b>SA1 発揮爆砕</b></td><td><span class="cmd">↓↘→↓↘→+P</span></td><td>—</td></tr><tr><td><b>SA2 スーパー鬼無双</b></td><td><span class="cmd">←(溜め)→←→+K</span></td><td>—</td></tr><tr><td><b>SA3 千秋楽</b></td><td><span class="cmd">↓↙←↓↙←+P</span></td><td>体力25%以下で性能アップ</td></tr><tr><td><b>払い蹴り</b></td><td><span class="cmd">→+強K</span></td><td>—</td></tr><tr><td><b>力足</b></td><td><span class="cmd">↘+強K</span></td><td>—</td></tr><tr><td><b>フライングスモウプレス</b></td><td><span class="cmd">↓+中K</span></td><td>前ジャンプ中に</td></tr><tr><td><b>連ね張り手</b></td><td><span class="cmd">弱P &gt; 中P</span></td><td>—</td></tr><tr><td><b>地鎮</b></td><td><span class="cmd">中P &gt; ↘+強K</span></td><td>↓+強Kで肩屋入りにキャンセル可能</td></tr><tr><td><b>さば折り</b></td><td><span class="cmd">N or →+弱P弱K</span></td><td>通常投げ</td></tr><tr><td><b>俵投げ</b></td><td><span class="cmd">←+弱P弱K</span></td><td>通常投げ</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span></div>
+
+          <p>始動技の種類ごとにタブで切り替えられます。コマンドは「›」の順に入力します。</p>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類"><button type="button" role="tab" class="tab-btn" id="tab-enders" aria-controls="combo-enders" aria-selected="false">締めパーツ<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-light" aria-controls="combo-light" aria-selected="false">小技始動<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-medium" aria-controls="combo-medium" aria-selected="false">中攻撃始動<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-heavy" aria-controls="combo-heavy" aria-selected="false">強攻撃始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-impact" aria-controls="combo-impact" aria-selected="false">インパクト<span class="count">3</span></button><button type="button" role="tab" class="tab-btn" id="tab-sa_use" aria-controls="combo-sa_use" aria-selected="false">SAゲージ活用<span class="count">2</span></button></div>
+          <div class="tab-panel" role="tabpanel" id="combo-enders" aria-labelledby="tab-enders" hidden>
+            <p class="tab-desc">コンボ後半の締めルート。以降のコンボの最後に付ける。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-e1">
+                <div class="combo-top"><span class="combo-id">E1</span><h4 class="combo-recipe">頭突き締め</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">←(溜め)→+中P スーパー頭突き</span></div>
+                
+                <p class="combo-note">一番使う締め。頭突き後は距離が離れるので気合注入。</p>
+              </article>
+              <article class="combo-card" id="cb-e2">
+                <div class="combo-top"><span class="combo-id">E2</span><h4 class="combo-recipe">百貫締め</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓(溜め)↑+K スーパー百貫落とし</span></div>
+                
+                <p class="combo-note">相手が立ち食らいの時のみ当たる。頭突きよりダメージも攻めも強い。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-light" aria-labelledby="tab-light" hidden>
+            <p class="tab-desc">差し合いや暴れ潰しで小技が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-l1">
+                <div class="combo-top"><span class="combo-id">L1</span><h4 class="combo-recipe">弱連打→中頭突き</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P →（弱P）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">←(溜め)→+中P スーパー頭突き</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱P</b></span></div>
+                <p class="combo-note">一番使うコンボ。コマンドで出すとワンボタンよりダメージが高い。</p>
+              </article>
+              <article class="combo-card" id="cb-l2">
+                <div class="combo-top"><span class="combo-id">L2</span><h4 class="combo-recipe">しゃがみ弱→百貫</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓(溜め)↑+K スーパー百貫落とし</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱P</b></span></div>
+                <p class="combo-note">相手立ち時のみ。しゃがみなら頭突きに切り替え。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-medium" aria-labelledby="tab-medium" hidden>
+            <p class="tab-desc">中攻撃（置き・差し返し）が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-m1">
+                <div class="combo-top"><span class="combo-id">M1</span><h4 class="combo-recipe">OD鉄砲後</h4></div>
+                <div class="combo-cmd"><span class="cmd">OD 相撲ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">P（鉄砲）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">←(溜め)→+中P スーパー頭突き</span></div>
+                <div class="combo-stats"><span>始動 <b>OD 相撲ステップ</b></span></div>
+                <p class="combo-note">鉄砲の3段目が出ないよう、弱弱はゆっくり押す。ガードされても中頭突きまで出してOK。</p>
+              </article>
+              <article class="combo-card" id="cb-m2">
+                <div class="combo-top"><span class="combo-id">M2</span><h4 class="combo-recipe">画面端 立ち中P始動</h4></div>
+                <div class="combo-cmd"><span class="cmd">ジャンプ強</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中頭突き</span></div>
+                <div class="combo-stats"><span>始動 <b>ジャンプ強</b></span></div>
+                <p class="combo-note">画面端で多用。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-heavy" aria-labelledby="tab-heavy" hidden>
+            <p class="tab-desc">確定反撃や強攻撃ヒット時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-h1">
+                <div class="combo-top"><span class="combo-id">H1</span><h4 class="combo-recipe">強アシストコンボ（モダン）</h4></div>
+                <div class="combo-cmd"><span class="cmd">強アシスト（OD張り手まで）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">百貫落とし</span></div>
+                <div class="combo-stats"><span>始動 <b>強アシスト（OD張り手まで）</b></span></div>
+                <p class="combo-note">ジャンプ攻撃が通った時・インパクト返し後・自分のインパクト後は強アシストでOK。最後の弱P→百貫は自分で入力すると攻めが強くなる。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-impact" aria-labelledby="tab-impact" hidden>
+            <p class="tab-desc">ドライブインパクトがヒットした時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-i1">
+                <div class="combo-top"><span class="combo-id">I1</span><h4 class="combo-recipe">画面端インパクト後</h4></div>
+                <div class="combo-cmd"><span class="cmd">インパクト</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←+強P 百裂張り手</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→↓↘→+P SA1</span></div>
+                <div class="combo-stats"><span>始動 <b>インパクト</b></span></div>
+                <p class="combo-note">ダメージが取れておすすめ。</p>
+              </article>
+              <article class="combo-card" id="cb-i2">
+                <div class="combo-top"><span class="combo-id">I2</span><h4 class="combo-recipe">インパクト後（ゲージ余裕）</h4></div>
+                <div class="combo-cmd"><span class="cmd">インパクト</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強百裂張り手</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">OD スーパー百貫落とし</span></div>
+                <div class="combo-stats"><span>始動 <b>インパクト</b></span></div>
+                <p class="combo-note">ドライブゲージに余裕があればダメージを伸ばせる。</p>
+              </article>
+              <article class="combo-card" id="cb-i3">
+                <div class="combo-top"><span class="combo-id">I3</span><h4 class="combo-recipe">インパクト後（気合注入中）</h4></div>
+                <div class="combo-cmd"><span class="cmd">インパクト</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強百裂張り手</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強スーパー頭突き</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ジャンプ（安全飛び）</span></div>
+                <div class="combo-stats"><span>始動 <b>インパクト</b></span></div>
+                <p class="combo-note">気合注入中のみ頭突きが繋がり、飛びの攻めに行ける。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-sa_use" aria-labelledby="tab-sa_use" hidden>
+            <p class="tab-desc">SAゲージを使ってダメージを伸ばすコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-s1">
+                <div class="combo-top"><span class="combo-id">S1</span><h4 class="combo-recipe">張り手→SA3</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強百裂張り手</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←↓↙←+P SA3 千秋楽</span></div>
+                
+                <p class="combo-note">SA3があれば張り手からキャンセルしてダメージを伸ばす。</p>
+              </article>
+              <article class="combo-card" id="cb-s2">
+                <div class="combo-top"><span class="combo-id">S2</span><h4 class="combo-recipe">SA2弾抜け</h4></div>
+                <div class="combo-cmd"><span class="cmd">←(溜め)→←→+K SA2 スーパー鬼無双</span></div>
+                <div class="combo-stats"><span>始動 <b>←(溜め)→←→+K SA2 スーパー鬼無双</b></span></div>
+                <p class="combo-note">モダンは後ろ溜め中に←+SA。弾抜け性能が最強クラス。</p>
+              </article>
+            </div>
+          </div>
+          </div>
+          <div class="callout">動画内で紹介なし：カウンター／パニカン／SAゲージ回収</div>
+        </section>
+
+        <!-- ④ 生ラッシュ -->
+        <section class="doc-section reveal" id="rush">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">よく使う生ラッシュ行動</h2><span class="sec-en">DRIVE RUSH</span></div>
+          <div class="table-wrap"><table class="data-table" style="min-width:780px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:170px">行動</th><th>コマンド</th><th style="width:120px">有利F</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">R1</td><td><b>中P→キャンセルラッシュ</b></td><td><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">…</span></td><td class="num"><span style="color:var(--text-dim)">—</span></td><td>慣れてきたら立ち中Pにキャンセルラッシュを仕込む（伸びしろ）。基本はOD鉄砲でよい。</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ⑤ セットプレイ -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">セットプレイ・起き攻め</h2><span class="sec-en">SET PLAY</span></div>
+          <p>起点（締めや状況）ごとに、その後の行動・有利フレーム・重ねる技をまとめています。</p>
+          <div class="table-wrap"><table class="data-table" style="min-width:1100px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:190px">起点（締め）</th><th style="width:170px">その後の行動</th><th style="width:230px">コマンド</th><th style="width:120px">有利F</th><th style="width:140px">重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">K1</td><td>OD鉄砲ガード</td><td>三択</td><td><span class="cmd">コマンド投げ（→↘↓↙←+K 大銀杏投げ／モダン↓+SP）／弱P→弱P→中頭突き／少しガード→投げ</span></td><td class="num"><span>+3</span></td><td>—</td><td>ジャンプはコマ投げに対する逃げ→弱弱中頭突きで潰す。無敵技は少し待って投げで対処。</td></tr><tr><td class="num">K2</td><td>百貫落とし締め</td><td>前ステップ→三択</td><td><span class="cmd">前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">コマンド投げ／強攻撃／少し待って投げ</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>強攻撃</td><td>OD鉄砲後と同じ三択。頭突きより百貫締めを狙いたい理由。</td></tr><tr><td class="num">K3</td><td>投げ後</td><td>百貫落とし</td><td><span class="cmd">投げ（モーション中に↙溜め）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強スーパー百貫落とし</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>百貫落とし</td><td>相手の後頭部に当たりガードも対空もしにくい。ガード後は立ち中Pなどを当てる。</td></tr><tr><td class="num">K4</td><td>画面端 強アシスト（気合注入中）</td><td>立ち弱×2→頭突き→安全飛び</td><td><span class="cmd">強アシスト</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中頭突き</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ジャンプ強</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>ジャンプ強（安全飛び）</td><td>無敵技をガードできる。飛びが当たれば再び弱弱中頭突きでループ。練習はダウンリバーサルにルークのOD ライジングアッパーを設定。</td></tr><tr><td class="num">K5</td><td>画面端 中頭突きヒット</td><td>しゃがみ強を空振り</td><td><span class="cmd">中頭突き</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強（空振り）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強攻撃 or コマンド投げ</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>強攻撃</td><td>タイミングを覚えれば簡単な二択。</td></tr><tr><td class="num">K6</td><td>画面端近くで締め／画面端背負いで後ろ投げ</td><td>インパクト</td><td><span class="cmd">→ ドライブインパクト</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>ドライブインパクト</td><td>相手は飛べないのでインパクトで返すしかない。</td></tr></tbody>
+          </table></div>
+          <div class="callout">「数値表記なし」は動画内で有利Fが示されていない連携です。トレーニングモードのフレームメーターで計測して追記してください。</div>
+        </section>
+
+        <!-- ⑥ 出典・用語 -->
+        <section class="doc-section reveal" id="source">
+          <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">出典・用語</h2><span class="sec-en">SOURCE</span></div>
+          <p>このページの内容は、以下の解説動画の内容を整理したものです（モダン前提（クラシックもほぼ共通））。技コマンドはCAPCOM公式コマンドリスト（クラシック）で確認しています。</p>
+          <div class="info-grid">
+            <a class="info-card" data-accent="pink" href="https://www.youtube.com/watch?v=SgBhgRoufXk" target="_blank" rel="noopener">
+              <p class="info-label">YOUTUBE ／ 29:45</p>
+              <p class="info-title">【スト6、SF6】初心者向けランクSSS！エドモンド本田の使い方講座【モダン、クラシック】</p>
+              <p>投稿者：ACQUA</p>
+            </a>
+          </div>
+          <h3>動画内用語</h3>
+          <div class="table-wrap"><table class="data-table" style="min-width:0">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody><tr><td><b>頭（頭突き）</b></td><td>スーパー頭突き（←溜め→+P）。</td></tr><tr><td><b>百貫</b></td><td>スーパー百貫落とし（↓溜め↑+K）。</td></tr><tr><td><b>鉄砲</b></td><td>相撲ステップ（↓↘→+K）からの張り手。OD版はガード+3。</td></tr><tr><td><b>コマ投げ</b></td><td>大銀杏投げ（→↘↓↙←+K）。ガード・投げ抜け不可。</td></tr><tr><td><b>気合注入</b></td><td>↓↓+中で張り手マークをため、一部コンボを強化する。張り手系の技で消費。</td></tr><tr><td><b>安全飛び（詐欺飛び）</b></td><td>相手の無敵技はガードでき、何もしなければ当たる飛び。</td></tr><tr><td><b>遅らせグラップ</b></td><td>打撃はガードでき、投げは抜けられるタイミングで投げを入力する守り方。</td></tr></tbody>
+          </table></div>
+          <h3>摘要（字幕・補足）</h3>
+          <ul class="list"><li>守り方：画面端で攻められている時は遅らせグラップが基本。打撃重ねが多いならOD頭突き、投げが多いなら垂直ジャンプ。SA1は投げにも打撃にも勝つので苦しい時の最終手段。</li><li>遅らせグラップの練習：ジェイミーに「投げ→前ステ弱P」「投げ→前ステ投げ」を記録させて対応する。</li><li>モダンでは弱・中アシストコンボは使わず、強アシストコンボのみでよい。</li><li>バーンアウト中の相手には頭突きは不要。中P→ノーマル鉄砲で削り、画面端で中Pからインパクトでスタンを狙う。スタン後は気合注入してからアシストコンボ。</li><li>カウンター始動・パニカン始動・SAゲージ回収の専用コンボは動画内で紹介なし。</li></ul>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="character-blanka.html" class="pager-link"><small>← PREV</small><span>ブランカ</span></a>
+          <a href="character-deejay.html" class="pager-link pager-link--next"><small>NEXT →</small><span>ディージェイ</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js?v=20261010"></script>
+</body>
+</html>

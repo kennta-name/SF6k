@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キャミィ（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="キャミィの立ち回り方針、技コマンド、コンボ、生ラッシュ、セットプレイ（有利フレーム・重ね技）。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20261010">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- データ元：sf6-pdf/data/cammy.json（キャミィ 立ち回り＆コンボ資料） -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>キャミィ</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">CAMMY</p>
+        <h1 class="page-title reveal">キャミィ</h1>
+        <p class="page-lead reveal">弾を持たず、歩きの速さと豊富な接近手段（キャノンストライク・アクセルスピンナックル）で触りに行くキャラクター。立ち中Kの先端距離をキープし、ストライクで有利を取ってからの小技、スパイラルアロー→前ステップの持続当てループで攻め続ける。初心者〜ダイヤ帯向けの基礎解説。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>接近・持続当て</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>ふつう</b><div class="meter" aria-label="難易度 5段階中3"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          <div class="chara-stat"><small>DATA</small><b>コンボ6・連携3</b></div>
+        </div>
+      </div>
+      <!-- 画像の位置・フェードは style の値で調整できます -->
+      <figure class="media reveal" style="--img-y: 15%; --img-zoom: 1; --img-shift: 0px; --fade-top: 18%; --fade-bottom: 45%; --fade-left: 14%; --fade-right: 14%;">
+        <div class="media-frame" data-label="キャ"><img src="../images/characters/cammy.png" alt="キャミィ" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">技・コマンド</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#rush">生ラッシュ行動</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+            <li><a href="#source">出典・用語</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+
+          <h3>ODゲージがある時</h3>
+          <ul class="list"><li>動画内でドライブゲージ使用時の解説はなし。</li></ul>
+          <h3>ODゲージがない時</h3>
+          <ul class="list"><li>遠くからストライクやナックルで突っ込むと迎撃されやすい。歩きが速いので、しっかり歩いて近づくことが大事。</li><li>立ち中Kの先端が当たる距離・中足が届く距離をキープする。</li><li>技を置きたくなる距離からキャノンストライク。足元に近いほどキャミィ側の有利が大きい。</li><li>有利を取ったらしゃがみ弱Pを置いて相手の暴れを潰すのが基本。</li></ul>
+          <h3>差し合い</h3>
+          <ul class="list"><li>立ち中K：当てると相手が後ろに下がるので距離をキープしやすく、ラインも押しやすい優秀な技。</li><li>キャノンストライク（空中 ↓↙←+K）が小技を当てる一番の狙い目。</li><li>ステップ（前ステ・バクステ）を多用するキャラなので、スムーズに出せるよう練習する。</li></ul>
+          <h3>対空</h3>
+          <ul class="list"><li>動画内で紹介なし。</li></ul>
+          <h3>画面端</h3>
+          <ul class="list"><li>動画内で画面端特有の解説はなし。</li></ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>接近手段が豊富。</li><li>歩きが速い。</li><li>スパイラルアロー→前ステップからの持続当てループで攻めが途切れない。</li><li>立ち中Kでラインを押しやすい。</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>飛び道具（弾）がなく、自分の体で触りに行く必要がある。</li><li>遠距離からの突進技は迎撃されやすい。</li><li>持続当てやステップのタイミング練習が必要。</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">技・コマンド（クラシック）</h2><span class="sec-en">MOVES</span></div>
+          <p>公式コマンドリストで確認したコマンドです。（溜め）＝溜め入力、一回転＝レバー1回転。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>備考</th></tr></thead>
+            <tbody><tr><td><b>スパイラルアロー</b></td><td><span class="cmd">↓↘→+K</span></td><td>強はホールド可</td></tr><tr><td><b>キャノンスパイク</b></td><td><span class="cmd">→↓↘+K</span></td><td>強はホールド可</td></tr><tr><td><b>アクセルスピンナックル</b></td><td><span class="cmd">↓↙←+P</span></td><td>—</td></tr><tr><td><b>キャノンストライク</b></td><td><span class="cmd">↓↙←+K</span></td><td>前ジャンプ中に</td></tr><tr><td><b>フーリガンコンビネーション</b></td><td><span class="cmd">↓↘→+P</span></td><td>強はホールド可・派生多数</td></tr><tr><td><b>SA1 スピンドライブスマッシャー</b></td><td><span class="cmd">↓↘→↓↘→+K</span></td><td>—</td></tr><tr><td><b>SA2 キラービースピン</b></td><td><span class="cmd">↓↙←↓↙←+P</span></td><td>空中版あり</td></tr><tr><td><b>SA3 デルタレッドアサルト</b></td><td><span class="cmd">↓↘→↓↘→+P</span></td><td>体力25%以下で性能アップ</td></tr><tr><td><b>リフトアッパー</b></td><td><span class="cmd">←+中P</span></td><td>—</td></tr><tr><td><b>ディレイリーパー</b></td><td><span class="cmd">→+強K</span></td><td>—</td></tr><tr><td><b>アサルトブレード</b></td><td><span class="cmd">←+強K</span></td><td>—</td></tr><tr><td><b>リフトコンビネーション</b></td><td><span class="cmd">←+中P &gt; 強K</span></td><td>—</td></tr><tr><td><b>スイングコンビネーション</b></td><td><span class="cmd">強P &gt; 強K</span></td><td>—</td></tr><tr><td><b>ラフランディング</b></td><td><span class="cmd">N or →+弱P弱K</span></td><td>通常投げ</td></tr><tr><td><b>デルタスルー</b></td><td><span class="cmd">←+弱P弱K</span></td><td>通常投げ</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span></div>
+
+          <p>始動技の種類ごとにタブで切り替えられます。コマンドは「›」の順に入力します。</p>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類"><button type="button" role="tab" class="tab-btn" id="tab-enders" aria-controls="combo-enders" aria-selected="false">締めパーツ<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-light" aria-controls="combo-light" aria-selected="false">小技始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-medium" aria-controls="combo-medium" aria-selected="false">中攻撃始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-heavy" aria-controls="combo-heavy" aria-selected="false">強攻撃始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-punish" aria-controls="combo-punish" aria-selected="false">パニカン<span class="count">2</span></button></div>
+          <div class="tab-panel" role="tabpanel" id="combo-enders" aria-labelledby="tab-enders" hidden>
+            <p class="tab-desc">コンボ後半の締めルート。以降のコンボの最後に付ける。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-e1">
+                <div class="combo-top"><span class="combo-id">E1</span><h4 class="combo-recipe">アロー締め→前ステップ</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+K スパイラルアロー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span></div>
+                
+                <p class="combo-note">アローの後に素早く前ステップを入れるのが最初の練習ポイント。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-light" aria-labelledby="tab-light" hidden>
+            <p class="tab-desc">差し合いや暴れ潰しで小技が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-l1">
+                <div class="combo-top"><span class="combo-id">L1</span><h4 class="combo-recipe">小技始動（基本ループ）</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+中K スパイラルアロー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P（持続当て）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+強K スパイラルアロー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P（持続当て）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">…</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱P</b></span></div>
+                <p class="combo-note">前ステ立ち中Pが当たれば強Pが繋がる。強アロー後は前ステしゃがみ強P、当たればまた強Pへ。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-medium" aria-labelledby="tab-medium" hidden>
+            <p class="tab-desc">中攻撃（置き・差し返し）が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-m1">
+                <div class="combo-top"><span class="combo-id">M1</span><h4 class="combo-recipe">前ステ立ち中P</h4></div>
+                <div class="combo-cmd"><span class="cmd">（中アロー後）前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強アロー</span></div>
+                <div class="combo-stats"><span>始動 <b>（中アロー後）前ステップ</b></span></div>
+                <p class="combo-note">持続当て。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-heavy" aria-labelledby="tab-heavy" hidden>
+            <p class="tab-desc">確定反撃や強攻撃ヒット時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-h1">
+                <div class="combo-top"><span class="combo-id">H1</span><h4 class="combo-recipe">前ステしゃがみ強P</h4></div>
+                <div class="combo-cmd"><span class="cmd">（強アロー後）前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強アロー</span></div>
+                <div class="combo-stats"><span>始動 <b>（強アロー後）前ステップ</b></span></div>
+                <p class="combo-note">持続当てで強Pが繋がる。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-punish" aria-labelledby="tab-punish" hidden>
+            <p class="tab-desc">パニッシュカウンター・確定反撃時の高火力コンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-p1">
+                <div class="combo-top"><span class="combo-id">P1</span><h4 class="combo-recipe">無敵技ガード後</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+強K スパイラルアロー</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">前ステ後に無敵技を読んでガードした時。当たれば最初のループに戻る。</p>
+              </article>
+              <article class="combo-card" id="cb-p2">
+                <div class="combo-top"><span class="combo-id">P2</span><h4 class="combo-recipe">シミー成功（投げスカり）</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強 ↓↙←+P アクセルスピンナックル</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中アロー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span></div>
+                <div class="combo-stats"><span>始動 <b>強P</b></span></div>
+                <p class="combo-note">強アロー後に前ステして少し下がり、相手の投げ空振りを見たら。中アロー後は前ステすると下がれないのでバックステップを使う。</p>
+              </article>
+            </div>
+          </div>
+          </div>
+          <div class="callout">動画内で紹介なし：カウンター／インパクト／SAゲージ活用／SAゲージ回収</div>
+        </section>
+
+        <!-- ④ 生ラッシュ -->
+        <section class="doc-section reveal" id="rush">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">よく使う生ラッシュ行動</h2><span class="sec-en">DRIVE RUSH</span></div>
+          <div class="callout">参考動画では生ラッシュのコンボ・行動の紹介はありません。</div>
+        </section>
+
+        <!-- ⑤ セットプレイ -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">セットプレイ・起き攻め</h2><span class="sec-en">SET PLAY</span></div>
+          <p>起点（締めや状況）ごとに、その後の行動・有利フレーム・重ねる技をまとめています。</p>
+          <div class="table-wrap"><table class="data-table" style="min-width:1100px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:190px">起点（締め）</th><th style="width:170px">その後の行動</th><th style="width:230px">コマンド</th><th style="width:120px">有利F</th><th style="width:140px">重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">K1</td><td>中スパイラルアロー</td><td>前ステップ→立ち中P持続当て</td><td><span class="cmd">中アロー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>立ち中P</td><td>ヒットなら強P→強アローへ。</td></tr><tr><td class="num">K2</td><td>強スパイラルアロー</td><td>前ステップ→しゃがみ強P持続当て</td><td><span class="cmd">強アロー</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>しゃがみ強P</td><td>打撃重ね・無敵技読みのガード・シミー（下がって投げを見る）の三択の読み合い。</td></tr><tr><td class="num">K3</td><td>キャノンストライク</td><td>足元に当てて有利→小技</td><td><span class="cmd">↓↙←+K キャノンストライク（足元）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span></td><td class="num"><span>有利（足元ほど大）</span></td><td>しゃがみ弱P</td><td>小技を当てる一番の狙い目。</td></tr></tbody>
+          </table></div>
+          <div class="callout">「数値表記なし」は動画内で有利Fが示されていない連携です。トレーニングモードのフレームメーターで計測して追記してください。</div>
+        </section>
+
+        <!-- ⑥ 出典・用語 -->
+        <section class="doc-section reveal" id="source">
+          <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">出典・用語</h2><span class="sec-en">SOURCE</span></div>
+          <p>このページの内容は、以下の解説動画の内容を整理したものです（クラシック）。技コマンドはCAPCOM公式コマンドリスト（クラシック）で確認しています。</p>
+          <div class="info-grid">
+            <a class="info-card" data-accent="pink" href="https://www.youtube.com/watch?v=x8ZSMq0ogww" target="_blank" rel="noopener">
+              <p class="info-label">YOUTUBE ／ 8:10</p>
+              <p class="info-title">【ストリートファイター6】全一キャミィ使いの、キャミィ基本講座！！【さうたむ】</p>
+              <p>投稿者：SETOUCHI SPARKS（解説：さうたむ）</p>
+            </a>
+          </div>
+          <h3>動画内用語</h3>
+          <div class="table-wrap"><table class="data-table" style="min-width:0">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody><tr><td><b>アロー</b></td><td>スパイラルアロー（↓↘→+K）。</td></tr><tr><td><b>ストライク</b></td><td>キャノンストライク（空中 ↓↙←+K）。</td></tr><tr><td><b>ナックル</b></td><td>アクセルスピンナックル（↓↙←+P）。</td></tr><tr><td><b>持続当て</b></td><td>技の持続部分を起き上がりに重ねて有利を大きくすること。</td></tr><tr><td><b>シミー</b></td><td>少し下がって相手の投げを空振りさせ反撃すること。</td></tr><tr><td><b>前ステ／バクステ</b></td><td>前ステップ／バックステップ。</td></tr></tbody>
+          </table></div>
+          <h3>摘要（字幕・補足）</h3>
+          <ul class="list"><li>このIDの動画は、YouTubeの推奨音声トラックが英語（AI吹き替え）になっている場合がある。日本語のオリジナル音声で確認。</li><li>まとめ：立ち中Kを振りつつストライクを当て、当たったら弱P→中アロー→前ステ立ち中P。その後は「打撃重ね／ガード／バックステップ（シミー）」の三択の読み合い。</li><li>まず練習するのは「アロー→前ステップ」を速く綺麗に入れること。</li><li>生ラッシュ・インパクト・SA関連の紹介は動画内でなし。</li></ul>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="character-lily.html" class="pager-link"><small>← PREV</small><span>リリー</span></a>
+          <a href="character-rashid.html" class="pager-link pager-link--next"><small>NEXT →</small><span>ラシード</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js?v=20261010"></script>
+</body>
+</html>

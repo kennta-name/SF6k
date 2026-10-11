@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ジェイミー（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="ジェイミーの立ち回り方針、技コマンド、コンボ、生ラッシュ、セットプレイ（有利フレーム・重ね技）。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20261010">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- データ元：sf6-pdf/data/jamie.json（ジェイミー 立ち回り＆コンボ資料） -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>ジェイミー</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">JAMIE</p>
+        <h1 class="page-title reveal">ジェイミー</h1>
+        <p class="page-lead reveal">酒（魔身 ↓↓+P）を飲むほど強くなるキャラクター。0杯は全キャラ最弱クラスだが、飲むと技が増え火力も上がる。ドライブゲージを削ってバーンアウトさせ、画面端で勝つのが基本の戦い方。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>成長型（飲酒）</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>やや高め</b><div class="meter" aria-label="難易度 5段階中4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          <div class="chara-stat"><small>DATA</small><b>コンボ22・連携7</b></div>
+        </div>
+      </div>
+      <!-- 画像の位置・フェードは style の値で調整できます -->
+      <figure class="media reveal" style="--img-y: 15%; --img-zoom: 1; --img-shift: 0px; --fade-top: 18%; --fade-bottom: 45%; --fade-left: 14%; --fade-right: 14%;">
+        <div class="media-frame" data-label="ジェ"><img src="../images/characters/jamie.png" alt="ジェイミー" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">技・コマンド</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#rush">生ラッシュ行動</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+            <li><a href="#source">出典・用語</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+
+          <h3>ODゲージがある時</h3>
+          <ul class="list"><li>飲むと自分のドライブゲージが回復するため、ドライブラッシュを多用して相手のゲージを削りに行ける。</li><li>相手のドライブゲージが残り1本程度なら、大K→ラッシュ→立ち中P→しゃがみ中P→弱流酔拳 などの連続ガードでバーンアウト確定。4杯ならさらに削れる。</li><li>OD張弓腿をガード→インパクト→SA で一気にバーンアウトさせられる。</li><li>OD無影蹴（1杯以上）が非常に強力。まず1杯飲みたい理由の一つ。</li><li>画面端が近く、ドライブゲージが4本以上あるなら、コンボを天晴脚ルート（ラッシュ）にして締めで起き攻めまで行う。</li></ul>
+          <h3>ODゲージがない時</h3>
+          <ul class="list"><li>ドライブゲージが少ない時は、飲むより攻めてバーンアウトを狙う判断が大事（攻められる方が相手は嫌）。</li></ul>
+          <h3>差し合い</h3>
+          <ul class="list"><li>一番強い技は立ち中K。開幕位置くらいの距離で、酔疾歩（先端）と立ち中K→ラッシュ強Pを混ぜて戦う。これより離れると届く技が少なく強くない。</li><li>牽制技（立ち中K・中Kなど）に流酔拳や酔疾歩をキャンセルで仕込む。立ち中Kは足元に判定がなく足払い系にほぼ勝てる。</li><li>酔疾歩はめり込むと-6で確定反撃あり、先端なら-3〜-4で反撃を受けにくい。弱と中を距離で使い分ける。</li><li>OD酔疾歩はガードされても-1で確定反撃なし。当たると相手が転がるので飲める。</li><li>しゃがみ強K（大足）を当てると飲めて、ドライブゲージも約1.5本回復する。</li><li>ラッシュ強Pで突っ込むのが雑に強い（ヒットで+5F。しゃがみ弱Pから流酔拳へ）。ただしラッシュ強Pガード後は+1しかなく、崩しというより攻め終わり。</li><li>基本は待ち寄りのキャラ。遠距離が強いキャラ（ダルシム・ガイル・JPなど）には、1杯飲んだら近づいて離さない攻め重視で。</li></ul>
+          <h3>対空</h3>
+          <ul class="list"><li>対空後（張弓腿・空中技など）は距離が離れるので飲める。対空は発生の早い弱張弓腿を使う。</li><li>張弓腿（昇龍系）は全キャラの中でもかなり弱い部類。キャミィのキャノンストライクなどの空中技やインパクトに勝てない。</li></ul>
+          <h3>画面端</h3>
+          <ul class="list"><li>中央では飲むと起き攻めができないが、画面端なら飲みつつ起き攻めができるため強い。なるべく画面端に運びたい。</li><li>画面端で強張弓腿・強爆廻・中酔疾歩などが当たったら、後ろジャンプ（上入れっぱなし）で安全飛びが重なる（42F）。相手の昇龍拳をガードできるので無敵技を怖がらなくてよい。</li></ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>飲むほど強くなる（0杯90%→4杯110%の火力補正）。</li><li>ドライブゲージを回復しながら相手のゲージを削り、バーンアウトさせやすい。</li><li>弾以外の技（突進技・昇龍系・空中技など）が一通り揃っている。</li><li>OD無影蹴が非常に強力。</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>0杯の時は使える技が少なく火力も低い（全キャラ最弱クラス）。</li><li>リーチが短く、リーチの長いキャラが苦手。</li><li>張弓腿が弱い昇龍系。</li><li>コンボの締めで飲むと中央では起き攻めできない。</li><li>苦手キャラ：リリー・ガイル・エド（ベガも同距離で技が強い）。</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">技・コマンド（クラシック）</h2><span class="sec-en">MOVES</span></div>
+          <p>公式コマンドリストで確認したコマンドです。（溜め）＝溜め入力、一回転＝レバー1回転。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>備考</th></tr></thead>
+            <tbody><tr><td><b>魔身</b></td><td><span class="cmd">↓↓+P</span></td><td>ボタンホールドで動作継続</td></tr><tr><td><b>流酔拳</b></td><td><span class="cmd">↓↘→+P &gt; →+P &gt; →+P</span></td><td>酔いLv4以上で動作変化</td></tr><tr><td><b>流酔脚</b></td><td><span class="cmd">↓↘→+P &gt; →+K &gt; →+K</span></td><td>—</td></tr><tr><td><b>酔疾歩</b></td><td><span class="cmd">↓↙←+P</span></td><td>—</td></tr><tr><td><b>張弓腿</b></td><td><span class="cmd">→↓↘+K</span></td><td>—</td></tr><tr><td><b>無影蹴</b></td><td><span class="cmd">↓↙←+K</span></td><td>酔いLv1以上・前ジャンプ中に</td></tr><tr><td><b>爆廻</b></td><td><span class="cmd">↓↘→+K</span></td><td>酔いLv2以上</td></tr><tr><td><b>点辰</b></td><td><span class="cmd">→↘↓↙←+K</span></td><td>酔いLv3以上・近距離で</td></tr><tr><td><b>疾歩仙掌</b></td><td><span class="cmd">↓↙←+P &gt; →+P</span></td><td>酔いLv4以上</td></tr><tr><td><b>SA1 武麗禽</b></td><td><span class="cmd">↓↘→↓↘→+K</span></td><td>ホールドで性質変化</td></tr><tr><td><b>SA2 絶唱魔身</b></td><td><span class="cmd">↓↙←↓↙←+P</span></td><td>—</td></tr><tr><td><b>SA3 月牙叉炮</b></td><td><span class="cmd">↓↘→↓↘→+P</span></td><td>体力25%以下で性能アップ</td></tr><tr><td><b>天晴脚</b></td><td><span class="cmd">↓+KK</span></td><td>—</td></tr><tr><td><b>幻酔舞</b></td><td><span class="cmd">↓+強K &gt; 強K &gt; P</span></td><td>—</td></tr><tr><td><b>落星脚</b></td><td><span class="cmd">→+中K</span></td><td>—</td></tr><tr><td><b>仙姑肘</b></td><td><span class="cmd">←+強P</span></td><td>—</td></tr><tr><td><b>旋影脚</b></td><td><span class="cmd">→+強K</span></td><td>—</td></tr><tr><td><b>鋭鍾打</b></td><td><span class="cmd">弱P &gt; 弱K &gt; 中P</span></td><td>酔いLv1以上</td></tr><tr><td><b>円月脚</b></td><td><span class="cmd">→+中K &gt; 中K &gt; P</span></td><td>酔いLv2以上</td></tr><tr><td><b>酩酊襲</b></td><td><span class="cmd">←+強P &gt; 強P &gt; 強K</span></td><td>酔いLv3以上</td></tr><tr><td><b>乱酔旋</b></td><td><span class="cmd">→+強K &gt; ←+強K &gt; P</span></td><td>酔いLv4以上</td></tr><tr><td><b>背剪手</b></td><td><span class="cmd">N or →+弱P弱K</span></td><td>通常投げ・ホールドで性質変化</td></tr><tr><td><b>転輪衝</b></td><td><span class="cmd">←+弱P弱K</span></td><td>通常投げ</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span></div>
+
+          <p>始動技の種類ごとにタブで切り替えられます。コマンドは「›」の順に入力します。</p>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類"><button type="button" role="tab" class="tab-btn" id="tab-enders" aria-controls="combo-enders" aria-selected="false">締めパーツ<span class="count">4</span></button><button type="button" role="tab" class="tab-btn" id="tab-light" aria-controls="combo-light" aria-selected="false">小技始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-medium" aria-controls="combo-medium" aria-selected="false">中攻撃始動<span class="count">3</span></button><button type="button" role="tab" class="tab-btn" id="tab-heavy" aria-controls="combo-heavy" aria-selected="false">強攻撃始動<span class="count">3</span></button><button type="button" role="tab" class="tab-btn" id="tab-counter" aria-controls="combo-counter" aria-selected="false">カウンター<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-punish" aria-controls="combo-punish" aria-selected="false">パニカン<span class="count">4</span></button><button type="button" role="tab" class="tab-btn" id="tab-impact" aria-controls="combo-impact" aria-selected="false">インパクト<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-sa_use" aria-controls="combo-sa_use" aria-selected="false">SAゲージ活用<span class="count">3</span></button><button type="button" role="tab" class="tab-btn" id="tab-sa_build" aria-controls="combo-sa_build" aria-selected="false">SAゲージ回収<span class="count">1</span></button></div>
+          <div class="tab-panel" role="tabpanel" id="combo-enders" aria-labelledby="tab-enders" hidden>
+            <p class="tab-desc">コンボ後半の締めルート。以降のコンボの最後に付ける。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-e-1">
+                <div class="combo-top"><span class="combo-id">E-1</span><h4 class="combo-recipe">… → 強張弓腿（締めで飲む）</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↓P（魔身）</span></div>
+                
+                <p class="combo-note">0〜1杯の基本の締め。距離が離れて飲める。起き攻めしたい時は弱張弓腿（前ステ2回で+4F）。</p>
+              </article>
+              <article class="combo-card" id="cb-e-2">
+                <div class="combo-top"><span class="combo-id">E-2</span><h4 class="combo-recipe">… → 天晴脚 → ジャンプ強K → 幻酔舞</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓+KK</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↗強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓+強K&gt;強K&gt;P</span></div>
+                
+                <p class="combo-note">画面端が近い時の締め。飲みつつ起き攻めまで行ける。</p>
+              </article>
+              <article class="combo-card" id="cb-e-3">
+                <div class="combo-top"><span class="combo-id">E-3</span><h4 class="combo-recipe">… → 強爆廻（2杯以上）</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span></div>
+                
+                <p class="combo-note">2杯以上は締めを強爆廻にすると威力が上がり、ゲージ回収もできる。起き攻めしたい時は弱爆廻（+4F）。</p>
+              </article>
+              <article class="combo-card" id="cb-e-4">
+                <div class="combo-top"><span class="combo-id">E-4</span><h4 class="combo-recipe">… → 疾歩仙掌（4杯）</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P&gt;→+P</span></div>
+                
+                <p class="combo-note">4杯時。基本的に締めで飲まず火力を取る。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-light" aria-labelledby="tab-light" hidden>
+            <p class="tab-desc">差し合いや暴れ潰しで小技が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-l-1">
+                <div class="combo-top"><span class="combo-id">L-1</span><h4 class="combo-recipe">しゃがみ弱P → 流酔拳</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→P（&gt;→+P&gt;→+P）</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱P</b></span></div>
+                <p class="combo-note">ノーマルヒット時の簡単ルート。しゃがみ弱P→張弓腿が難しい場合の代わり。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-medium" aria-labelledby="tab-medium" hidden>
+            <p class="tab-desc">中攻撃（置き・差し返し）が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-m-1">
+                <div class="combo-top"><span class="combo-id">M-1</span><h4 class="combo-recipe">立ち中K → ラッシュ → 立ち中P → しゃがみ強P → 強張弓腿</h4></div>
+                <div class="combo-cmd"><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→（キャンセルラッシュ）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘強K</span></div>
+                <div class="combo-stats"><span>始動 <b>中K</b></span></div>
+                <p class="combo-note">ヒット確認できる人向けの最大ルート。確認できない場合はラッシュ後をしゃがみ弱Pにする。</p>
+              </article>
+              <article class="combo-card" id="cb-m-2">
+                <div class="combo-top"><span class="combo-id">M-2</span><h4 class="combo-recipe">立ち中K → ラッシュ → 天晴脚 → ジャンプ強K → 幻酔舞</h4></div>
+                <div class="combo-cmd"><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓+KK</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↗強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓+強K&gt;強K&gt;P</span></div>
+                <div class="combo-stats"><span>始動 <b>中K</b></span></div>
+                <p class="combo-note">画面端が近い時。</p>
+              </article>
+              <article class="combo-card" id="cb-m-3">
+                <div class="combo-top"><span class="combo-id">M-3</span><h4 class="combo-recipe">大K → ラッシュ → 立ち中P → しゃがみ中P → 弱流酔拳（削り連携）</h4></div>
+                <div class="combo-cmd"><span class="cmd">強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→弱P</span></div>
+                <div class="combo-stats"><span>始動 <b>強K</b></span></div>
+                <p class="combo-note">相手のドライブゲージを削る連続ガード。4杯なら流酔拳の派生まで連続ガードになりさらに削れる。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-heavy" aria-labelledby="tab-heavy" hidden>
+            <p class="tab-desc">確定反撃や強攻撃ヒット時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-h-1">
+                <div class="combo-top"><span class="combo-id">H-1</span><h4 class="combo-recipe">ジャンプ強P → しゃがみ強P → 強張弓腿</h4></div>
+                <div class="combo-cmd"><span class="cmd">↗強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘強K</span></div>
+                <div class="combo-stats"><span>始動 <b>↗強P</b></span></div>
+                <p class="combo-note">0杯の基本（飛び込みが当たった時）。ゲージを使ってもダメージはあまり変わらないので、基本はこれで飲む。</p>
+              </article>
+              <article class="combo-card" id="cb-h-2">
+                <div class="combo-top"><span class="combo-id">H-2</span><h4 class="combo-recipe">ジャンプ強P → しゃがみ強P → 強爆廻（2杯以上）</h4></div>
+                <div class="combo-cmd"><span class="cmd">↗強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span></div>
+                <div class="combo-stats"><span>始動 <b>↗強P</b></span></div>
+                <p class="combo-note">昇龍（張弓腿）ではなく強爆廻で締めると威力アップ＆飲める。</p>
+              </article>
+              <article class="combo-card" id="cb-h-3">
+                <div class="combo-top"><span class="combo-id">H-3</span><h4 class="combo-recipe">ジャンプ強P → しゃがみ強P → 疾歩仙掌（4杯）</h4></div>
+                <div class="combo-cmd"><span class="cmd">↗強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←P&gt;→+P</span></div>
+                <div class="combo-stats"><span>始動 <b>↗強P</b></span></div>
+                <p class="combo-note">4杯時。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-counter" aria-labelledby="tab-counter" hidden>
+            <p class="tab-desc">カウンターヒットした時の追撃。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-c-1">
+                <div class="combo-top"><span class="combo-id">C-1</span><h4 class="combo-recipe">ラッシュ → 立ち強P（カウンター） → しゃがみ中P → 鋭鍾打 → 強張弓腿</h4></div>
+                <div class="combo-cmd"><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P（CH）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P&gt;弱K&gt;中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘強K</span></div>
+                <div class="combo-stats"><span>始動 <b>→→</b></span></div>
+                <p class="combo-note">カウンター時はしゃがみ中Pがつながる。目安：ノーマル→しゃがみ弱P、カウンター→しゃがみ中P、パニカン→しゃがみ強P。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-punish" aria-labelledby="tab-punish" hidden>
+            <p class="tab-desc">パニッシュカウンター・確定反撃時の高火力コンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-p-1">
+                <div class="combo-top"><span class="combo-id">P-1</span><h4 class="combo-recipe">強K（パニカン） → 前ステ → しゃがみ強P → 強張弓腿</h4></div>
+                <div class="combo-cmd"><span class="cmd">強K（PC）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘強K</span></div>
+                <div class="combo-stats"><span>始動 <b>強K（PC）</b></span></div>
+                <p class="combo-note">張弓腿・SAなどをガードした後の反撃にも（モダン・クラシック共通）。</p>
+              </article>
+              <article class="combo-card" id="cb-p-2">
+                <div class="combo-top"><span class="combo-id">P-2</span><h4 class="combo-recipe">強K（パニカン） → 前ステ → しゃがみ強P → OD酔疾歩 → 幻酔舞</h4></div>
+                <div class="combo-cmd"><span class="cmd">強K（PC）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←PP</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓+強K&gt;強K&gt;P</span></div>
+                <div class="combo-stats"><span>始動 <b>強K（PC）</b></span></div>
+                <p class="combo-note">画面端が近い時。</p>
+              </article>
+              <article class="combo-card" id="cb-p-3">
+                <div class="combo-top"><span class="combo-id">P-3</span><h4 class="combo-recipe">強K（パニカン） → 前ステ → しゃがみ強P → 強爆廻（2杯以上）</h4></div>
+                <div class="combo-cmd"><span class="cmd">強K（PC）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→強K</span></div>
+                <div class="combo-stats"><span>始動 <b>強K（PC）</b></span></div>
+                
+              </article>
+              <article class="combo-card" id="cb-p-4">
+                <div class="combo-top"><span class="combo-id">P-4</span><h4 class="combo-recipe">しゃがみ強P（パニカン） → OD酔疾歩 → 立ち強P → 弱張弓腿</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P（PC）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↙←PP</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘弱K</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P（PC）</b></span></div>
+                <p class="combo-note">シミー成功時の大事なルート。ターゲットコンボだと酔疾歩がつながらない。約3000ダメージ＋1杯飲めて起き攻めも可能。立ち強Pのパニカンは+5しかなくOD酔疾歩に行けないので注意。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-impact" aria-labelledby="tab-impact" hidden>
+            <p class="tab-desc">ドライブインパクトがヒットした時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-i-1">
+                <div class="combo-top"><span class="combo-id">I-1</span><h4 class="combo-recipe">インパクト（パニカン） → しゃがみ強P → 強張弓腿</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P強K（PC）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘強K</span></div>
+                <div class="combo-stats"><span>始動 <b>強P強K（PC）</b></span></div>
+                <p class="combo-note">飛び込みが当たった時と同じ判断でよい。</p>
+              </article>
+              <article class="combo-card" id="cb-i-2">
+                <div class="combo-top"><span class="combo-id">I-2</span><h4 class="combo-recipe">インパクト（パニカン） → しゃがみ強P → ラッシュ → 天晴脚 → ジャンプ強K → 幻酔舞</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P強K（PC）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓+KK</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↗強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓+強K&gt;強K&gt;P</span></div>
+                <div class="combo-stats"><span>始動 <b>強P強K（PC）</b></span></div>
+                <p class="combo-note">画面端が近い時。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-sa_use" aria-labelledby="tab-sa_use" hidden>
+            <p class="tab-desc">SAゲージを使ってダメージを伸ばすコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-sa-1">
+                <div class="combo-top"><span class="combo-id">SA-1</span><h4 class="combo-recipe">… → SA1（武麗禽）で締め（画面端）</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→↓↘→K</span></div>
+                
+                <p class="combo-note">SA1は基本的に画面端だけで使う。端でSA1締め→ドライブゲージ約0.5回復＋4F。SA1後も飲める。中央では無理して使わなくてよい。</p>
+              </article>
+              <article class="combo-card" id="cb-sa-2">
+                <div class="combo-top"><span class="combo-id">SA-2</span><h4 class="combo-recipe">OD張弓腿ガード → インパクト → SA</h4></div>
+                <div class="combo-cmd"><span class="cmd">（OD張弓腿ガード）→ 強P強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">SA</span></div>
+                <div class="combo-stats"><span>始動 <b>（OD張弓腿ガード）→ 強P強K</b></span></div>
+                <p class="combo-note">相手のドライブゲージを一気に削ってバーンアウト。</p>
+              </article>
+              <article class="combo-card" id="cb-sa-3">
+                <div class="combo-top"><span class="combo-id">SA-3</span><h4 class="combo-recipe">投げ → 直接SA（3杯以上・点辰）</h4></div>
+                <div class="combo-cmd"><span class="cmd">→↘↓↙←K（点辰）→ SA</span></div>
+                <div class="combo-stats"><span>始動 <b>→↘↓↙←K（点辰）→ SA</b></span></div>
+                <p class="combo-note">投げから直接SAが一番減る。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-sa_build" aria-labelledby="tab-sa_build" hidden>
+            <p class="tab-desc">SAゲージの回収を優先するコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-sb-1">
+                <div class="combo-top"><span class="combo-id">SB-1</span><h4 class="combo-recipe">爆廻を当てる（2杯以上）</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓↘→K</span></div>
+                <div class="combo-stats"><span>始動 <b>↓↘→K</b></span></div>
+                <p class="combo-note">爆廻はSAゲージが大きく溜まる（強攻撃を絡めると半分近く）。OD爆廻は開幕位置程度から届き、SAにキャンセル可能。</p>
+              </article>
+            </div>
+          </div>
+          </div>
+          
+        </section>
+
+        <!-- ④ 生ラッシュ -->
+        <section class="doc-section reveal" id="rush">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">よく使う生ラッシュ行動</h2><span class="sec-en">DRIVE RUSH</span></div>
+          <div class="table-wrap"><table class="data-table" style="min-width:780px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:170px">行動</th><th>コマンド</th><th style="width:120px">有利F</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">R-1</td><td><b>生ラッシュ → 強P → しゃがみ弱P → 流酔拳</b></td><td><span class="cmd">中P中K →→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→P</span></td><td class="num"><span>ヒット +5F／ガード +1F</span></td><td>とりあえずの突っ込みとして強い。流酔拳の派生は入れても入れなくてもダメージはほぼ同じ。</td></tr><tr><td class="num">R-2</td><td><b>ラッシュ → 立ち強P（カウンター） → しゃがみ中P → 鋭鍾打 → 強張弓腿</b></td><td><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強P（CH）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P&gt;弱K&gt;中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→↓↘強K</span></td><td class="num"><span>—</span></td><td>カウンター確認時。</td></tr><tr><td class="num">R-3</td><td><b>大K → ラッシュ → 立ち中P → しゃがみ中P → 弱流酔拳</b></td><td><span class="cmd">強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→弱P</span></td><td class="num"><span>—</span></td><td>ドライブゲージ削り。相手のゲージが少ない時はバーンアウト確定。</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ⑤ セットプレイ -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">セットプレイ・起き攻め</h2><span class="sec-en">SET PLAY</span></div>
+          <p>起点（締めや状況）ごとに、その後の行動・有利フレーム・重ねる技をまとめています。</p>
+          <div class="table-wrap"><table class="data-table" style="min-width:1100px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:190px">起点（締め）</th><th style="width:170px">その後の行動</th><th style="width:230px">コマンド</th><th style="width:120px">有利F</th><th style="width:140px">重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">S-1</td><td>… → 弱張弓腿（締め）</td><td>前ステップ2回</td><td><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span></td><td class="num"><span>+4F</span></td><td>投げ／打撃（立ち中Pが期待値高い）</td><td>飲まずに起き攻めしたい時。威力が低いので数回ループが必要。</td></tr><tr><td class="num">S-2</td><td>… → 弱爆廻（締め・2杯以上）</td><td>前ステップ2回</td><td><span class="cmd">→→</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">→→</span></td><td class="num"><span>+4F</span></td><td>投げ／打撃</td><td>2杯以上は弱張弓腿より火力が高い弱爆廻で締める。</td></tr><tr><td class="num">S-3</td><td>画面端 強張弓腿／強爆廻／中酔疾歩 ヒット</td><td>後ろジャンプ（安全飛び）</td><td><span class="cmd">↖（上入れっぱなし）</span></td><td class="num"><span>42F後に重なる</span></td><td>ジャンプ攻撃（安全飛び）</td><td>相手の昇龍拳をガードできる。</td></tr><tr><td class="num">S-4</td><td>前投げ（飲む）</td><td>立ち中K → しゃがみ弱P</td><td><span class="cmd">↓↓P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span></td><td class="num"><span>—</span></td><td>立ち中K</td><td>立ち中K→しゃがみ弱Pが連続ガードで無敵技やジャスパで割られない。しゃがみ中P入れ込みは割られる危険あり。後ろ投げは9割のキャラに確定反撃をもらうので飲まない。</td></tr></tbody>
+          </table></div>
+          <div class="callout">「数値表記なし」は動画内で有利Fが示されていない連携です。トレーニングモードのフレームメーターで計測して追記してください。</div>
+        </section>
+
+        <!-- ⑥ 出典・用語 -->
+        <section class="doc-section reveal" id="source">
+          <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">出典・用語</h2><span class="sec-en">SOURCE</span></div>
+          <p>このページの内容は、以下の解説動画の内容を整理したものです（クラシック（一部モダンの言及あり））。技コマンドはCAPCOM公式コマンドリスト（クラシック）で確認しています。</p>
+          <div class="info-grid">
+            <a class="info-card" data-accent="pink" href="https://www.youtube.com/watch?v=_o-JqpS05Og" target="_blank" rel="noopener">
+              <p class="info-label">YOUTUBE ／ 32:11</p>
+              <p class="info-title">【超講座】知らないと損！うりょが教えるジェイミーの全て【スト6】【うりょ】</p>
+              <p>投稿者：うりょ</p>
+            </a>
+          </div>
+          <h3>動画内用語</h3>
+          <div class="table-wrap"><table class="data-table" style="min-width:0">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody><tr><td><b>酒／杯</b></td><td>魔身（↓↓+P）で溜める酔いLv。0〜4杯で使える技と火力が変わる</td></tr><tr><td><b>水尻尾</b></td><td>酔疾歩（↓↙←P）の動画内呼称</td></tr><tr><td><b>大爆／爆廻</b></td><td>爆廻（↓↘→K・2杯以上）</td></tr><tr><td><b>天晴脚</b></td><td>↓+KK</td></tr><tr><td><b>幻酔舞</b></td><td>↓+強K&gt;強K&gt;P</td></tr><tr><td><b>張弓腿</b></td><td>昇龍系の技（→↓↘K）</td></tr><tr><td><b>シミー</b></td><td>投げを見せて下がり、投げ抜けを狩る行動</td></tr></tbody>
+          </table></div>
+          <h3>摘要（字幕・補足）</h3>
+          <ul class="list"><li>酒Lvごとの追加要素：1杯＝無影蹴・鋭鍾打、2杯＝爆廻・円月脚（中段からの派生、ガードされるとフルコン）、3杯＝点辰、4杯＝乱酔旋・流酔拳強化（初段止めガード-3）。</li><li>火力が出ない原因はターゲットコンボに頼りすぎて補正がかかること。シミー成功時などはOD酔疾歩のルートを選ぶ。</li><li>飲まない方がいい状況：体力で大きく負けている時、あと1回で勝てる時、ドライブゲージが少ない時、遠距離キャラ相手の時。</li></ul>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="character-ryu.html" class="pager-link"><small>← PREV</small><span>リュウ</span></a>
+          <a href="character-chunli.html" class="pager-link pager-link--next"><small>NEXT →</small><span>春麗</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js?v=20261010"></script>
+</body>
+</html>

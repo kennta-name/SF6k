@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>イングリッド（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="イングリッドの立ち回り方針、技コマンド、コンボ、生ラッシュ、セットプレイ（有利フレーム・重ね技）。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20261010">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- データ元：sf6-pdf/data/ingrid.json（イングリッド 立ち回り＆コンボ資料） -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>イングリッド</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">INGRID</p>
+        <h1 class="page-title reveal">イングリッド</h1>
+        <p class="page-lead reveal">ストック（最初は1）を2以上に貯め、強化ビーム（サンシュート系）が当たった時に凄まじい火力のコンボを決めて一発で倒すキャラクター。ストックが1以下の時は「のらりくらり」としのぎながら貯めるのが立ち回りの軸。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>ストック管理・高火力</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>やや高め</b><div class="meter" aria-label="難易度 5段階中4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+          <div class="chara-stat"><small>DATA</small><b>コンボ14・連携5</b></div>
+        </div>
+      </div>
+      <!-- 画像の位置・フェードは style の値で調整できます -->
+      <figure class="media reveal" style="--img-y: 15%; --img-zoom: 1; --img-shift: 0px; --fade-top: 18%; --fade-bottom: 45%; --fade-left: 14%; --fade-right: 14%;">
+        <div class="media-frame" data-label="イン"><img src="../images/characters/ingrid.png" alt="イングリッド" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">技・コマンド</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#rush">生ラッシュ行動</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+            <li><a href="#source">出典・用語</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+
+          <h3>ODゲージがある時</h3>
+          <ul class="list"><li>ストック2以上の時、ODビームを唐突に撃つ：見てからのガードが難しい。当たったら↓派生→中サンライズで3000以上＋前ステップで起き攻め。</li><li>前強P→強化ビーム（空中版）が当たると、生ラッシュ→しゃがみ強P→強サンライズ→チャージ→前ステップで+6、約3900。</li><li>しゃがみ強P→ラッシュ→しゃがみ強Pは、ガードされても連続ガードで+3（投げ・シミーへ）。ヒットなら強サンライズに繋がる。</li></ul>
+          <h3>ODゲージがない時</h3>
+          <ul class="list"><li>ストック1の時の貯め方：①前強P→中ビーム（ストック不使用）②中ビームを飛び道具として撃ち、当たったら貯める ③しゃがみ強Pを置き、当たったら貯める（ガード-4だがレガで割り込まれにくい）④引き中Kを置き、当たってそうなら追撃→確定で貯める ⑤弱ビームとOD中ビームなどで弾幕を張ってから貯める ⑥コンボ時に起き攻めを放棄して貯める。</li><li>強サンライズ（発生が遅い）を当てた後にチャージ→前ステップで起き攻め。ラッシュしゃがみ強Pからは強サンライズが繋がる。</li><li>中足ラッシュは先端だと弱Pから投げ間合いにならないので、あまり強くない。</li></ul>
+          <h3>差し合い</h3>
+          <ul class="list"><li>前強P：当たってそうな時だけビームを出せると一番良い（ガードでも有利なので入れ込みも可）。ガードされると反撃を受けやすい技もあるので散らす。</li><li>相手に触りたい／追い払いたい時の技：ガードされて-2で反撃なし、ノーマルヒットで立ち弱Pが繋がり中サンライズで起き攻め。カウンターならターゲットコンボまで入る。</li><li>SAがあり相手の体力が半分程度なら、離れて様子を見ながらビーム一択。波動拳などを見てからビームで潰し、当たったらSA3で一気に5000級。</li><li>ストック2以上なら、ビームを2回撃てる（当たったのを見てから追加）。</li></ul>
+          <h3>対空</h3>
+          <ul class="list"><li>動画内で対空の具体的解説はなし。</li></ul>
+          <h3>画面端</h3>
+          <ul class="list"><li>画面端では条件が揃えば前強P始動で約7900の超火力コンボもある（ストック4・ゲージ十分など）。</li></ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>ストック2以上のビームからの火力が凄まじい。</li><li>ODビームは見てからガードしにくい。</li><li>起き攻め（中サンライズ・強サンライズ＋チャージ）に行きやすい。</li><li>ストック・ゲージ次第でコンボの伸びしろが大きい。</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>ストック1以下だとできることが少ない（レベル2ビームも大したことがない）。</li><li>前強Pはガードされると反撃を受けやすい。</li><li>しゃがみ強Pは発生がやや遅い。</li><li>中足ラッシュが強くない。</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">技・コマンド（クラシック）</h2><span class="sec-en">MOVES</span></div>
+          <p>公式コマンドリストで確認したコマンドです。（溜め）＝溜め入力、一回転＝レバー1回転。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>備考</th></tr></thead>
+            <tbody><tr><td><b>サンシュート</b></td><td><span class="cmd">↓↘→+P</span></td><td>ホールドで性質変化</td></tr><tr><td><b>サンフレア</b></td><td><span class="cmd">↓↙←+P</span></td><td>空中版：ソーラーフレア</td></tr><tr><td><b>サンライズ</b></td><td><span class="cmd">↓↘→+K</span></td><td>—</td></tr><tr><td><b>サンヴェール</b></td><td><span class="cmd">↓↓+K</span></td><td>—</td></tr><tr><td><b>サンバニッシュ</b></td><td><span class="cmd">←/↓/→+KKK</span></td><td>—</td></tr><tr><td><b>SA1 サンシャイン</b></td><td><span class="cmd">↓↘→↓↘→+K</span></td><td>—</td></tr><tr><td><b>SA2 サンオーダー</b></td><td><span class="cmd">↓↙←↓↙←+P</span></td><td>—</td></tr><tr><td><b>SA3 コズミックレイ</b></td><td><span class="cmd">↓↘→↓↘→+P</span></td><td>体力25%以下で性能アップ</td></tr><tr><td><b>サンブライト</b></td><td><span class="cmd">→+中P</span></td><td>—</td></tr><tr><td><b>ヘイローステップ</b></td><td><span class="cmd">→+強P</span></td><td>—</td></tr><tr><td><b>エアリートス</b></td><td><span class="cmd">中P &gt; 中K</span></td><td>—</td></tr><tr><td><b>グロータッチ</b></td><td><span class="cmd">←+中K &gt; 強P</span></td><td>—</td></tr><tr><td><b>ルミナスアッパー</b></td><td><span class="cmd">←+強P &gt; 強P</span></td><td>—</td></tr><tr><td><b>サテライトリープ</b></td><td><span class="cmd">強K &gt; 強K</span></td><td>ジャンプ中に</td></tr><tr><td><b>ストレンジナックル</b></td><td><span class="cmd">N or →+弱P弱K</span></td><td>通常投げ</td></tr><tr><td><b>グラビティードロップ</b></td><td><span class="cmd">←+弱P弱K</span></td><td>通常投げ</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span></div>
+
+          <p>始動技の種類ごとにタブで切り替えられます。コマンドは「›」の順に入力します。</p>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類"><button type="button" role="tab" class="tab-btn" id="tab-enders" aria-controls="combo-enders" aria-selected="false">締めパーツ<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-light" aria-controls="combo-light" aria-selected="false">小技始動<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-medium" aria-controls="combo-medium" aria-selected="false">中攻撃始動<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-heavy" aria-controls="combo-heavy" aria-selected="false">強攻撃始動<span class="count">3</span></button><button type="button" role="tab" class="tab-btn" id="tab-counter" aria-controls="combo-counter" aria-selected="false">カウンター<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-punish" aria-controls="combo-punish" aria-selected="false">パニカン<span class="count">2</span></button><button type="button" role="tab" class="tab-btn" id="tab-sa_use" aria-controls="combo-sa_use" aria-selected="false">SAゲージ活用<span class="count">2</span></button></div>
+          <div class="tab-panel" role="tabpanel" id="combo-enders" aria-labelledby="tab-enders" hidden>
+            <p class="tab-desc">コンボ後半の締めルート。以降のコンボの最後に付ける。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-e1">
+                <div class="combo-top"><span class="combo-id">E1</span><h4 class="combo-recipe">中サンライズ締め</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+中K サンライズ</span></div>
+                
+                <p class="combo-note">お手軽で、その後投げもしっかり重なる起き攻めができる。</p>
+              </article>
+              <article class="combo-card" id="cb-e2">
+                <div class="combo-top"><span class="combo-id">E2</span><h4 class="combo-recipe">強サンライズ→チャージ</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓↘→+強K サンライズ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">チャージ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span></div>
+                
+                <p class="combo-note">+6で中央でもがっつり起き攻め。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-light" aria-labelledby="tab-light" hidden>
+            <p class="tab-desc">差し合いや暴れ潰しで小技が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-l1">
+                <div class="combo-top"><span class="combo-id">L1</span><h4 class="combo-recipe">小技→中サンライズ</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中サンライズ</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱P</b></span></div>
+                <p class="combo-note">小技からはビームが繋がらないので変わらずライズへ。</p>
+              </article>
+              <article class="combo-card" id="cb-l2">
+                <div class="combo-top"><span class="combo-id">L2</span><h4 class="combo-recipe">小技→ラッシュ</h4></div>
+                <div class="combo-cmd"><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強サンライズ</span></div>
+                <div class="combo-stats"><span>始動 <b>弱P</b></span></div>
+                <p class="combo-note">しゃがみ中Pラッシュはしゃがみ強Pに繋がる。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-medium" aria-labelledby="tab-medium" hidden>
+            <p class="tab-desc">中攻撃（置き・差し返し）が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-m1">
+                <div class="combo-top"><span class="combo-id">M1</span><h4 class="combo-recipe">しゃがみ中P→中ビーム</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中ビーム（ストック溜め）</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">ストックなし時。</p>
+              </article>
+              <article class="combo-card" id="cb-m2">
+                <div class="combo-top"><span class="combo-id">M2</span><h4 class="combo-recipe">しゃがみ中P→ラッシュ</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">チャージ</span></div>
+                <div class="combo-stats"><span>始動 <b>↓中P</b></span></div>
+                <p class="combo-note">ラッシュを仕込んでおき、当たったら貯める。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-heavy" aria-labelledby="tab-heavy" hidden>
+            <p class="tab-desc">確定反撃や強攻撃ヒット時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-h1">
+                <div class="combo-top"><span class="combo-id">H1</span><h4 class="combo-recipe">前強P→ビーム（ストックなし）</h4></div>
+                <div class="combo-cmd"><span class="cmd">→+強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中ビーム</span></div>
+                <div class="combo-stats"><span>始動 <b>→+強P</b></span></div>
+                <p class="combo-note">ほぼ安全に貯められる。</p>
+              </article>
+              <article class="combo-card" id="cb-h2">
+                <div class="combo-top"><span class="combo-id">H2</span><h4 class="combo-recipe">前強P→強化ビーム（ストック2以上）</h4></div>
+                <div class="combo-cmd"><span class="cmd">→+強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">OD/強化ビーム</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強サンライズ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">チャージ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span></div>
+                <div class="combo-stats"><span>始動 <b>→+強P</b></span></div>
+                <p class="combo-note">約3900＋起き攻め。</p>
+              </article>
+              <article class="combo-card" id="cb-h3">
+                <div class="combo-top"><span class="combo-id">H3</span><h4 class="combo-recipe">しゃがみ強P→ラッシュ</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強サンライズ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">チャージ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前ステップ</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P</b></span></div>
+                <p class="combo-note">ガードされても+3。しゃがみ強Pからのラッシュは基本これ1つでよい。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-counter" aria-labelledby="tab-counter" hidden>
+            <p class="tab-desc">カウンターヒットした時の追撃。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-c1">
+                <div class="combo-top"><span class="combo-id">C1</span><h4 class="combo-recipe">追い払い技カウンター</h4></div>
+                <div class="combo-cmd"><span class="cmd">（カウンター）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ターゲットコンボ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中サンライズ</span></div>
+                <div class="combo-stats"><span>始動 <b>（カウンター）</b></span></div>
+                <p class="combo-note">ストック2以上ならターゲットコンボ→ビームで約4000、+44F。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-punish" aria-labelledby="tab-punish" hidden>
+            <p class="tab-desc">パニッシュカウンター・確定反撃時の高火力コンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-p1">
+                <div class="combo-top"><span class="combo-id">P1</span><h4 class="combo-recipe">しゃがみ強Pパニカン</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓強P（パニカン）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強サンライズ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">チャージ</span></div>
+                <div class="combo-stats"><span>始動 <b>↓強P（パニカン）</b></span></div>
+                <p class="combo-note">ジャストパリィを取った時など。</p>
+              </article>
+              <article class="combo-card" id="cb-p2">
+                <div class="combo-top"><span class="combo-id">P2</span><h4 class="combo-recipe">シミー成功時</h4></div>
+                <div class="combo-cmd"><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ターゲットコンボ（or 立ち強K パニカン）</span></div>
+                <div class="combo-stats"><span>始動 <b>中P</b></span></div>
+                <p class="combo-note">もっとダメージが欲しければしゃがみ強Pを投げ抜けを見ずに押し、投げ抜けが見えたら強サンライズ。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-sa_use" aria-labelledby="tab-sa_use" hidden>
+            <p class="tab-desc">SAゲージを使ってダメージを伸ばすコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-s1">
+                <div class="combo-top"><span class="combo-id">S1</span><h4 class="combo-recipe">ビーム→SA3</h4></div>
+                <div class="combo-cmd"><span class="cmd">ビーム（ヒット）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">SA3 コズミックレイ</span></div>
+                <div class="combo-stats"><span>始動 <b>ビーム（ヒット）</b></span></div>
+                <p class="combo-note">キャンセルせず、当たった後に普通にSA3を撃つだけで5000級。</p>
+              </article>
+              <article class="combo-card" id="cb-s2">
+                <div class="combo-top"><span class="combo-id">S2</span><h4 class="combo-recipe">ストックなしでSA3</h4></div>
+                <div class="combo-cmd"><span class="cmd">…</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ビーム</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">SAキャンセル</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">SA3</span></div>
+                
+                <p class="combo-note">ストックがなくてもSA3に行きたい時はとにかくビームを経由。</p>
+              </article>
+            </div>
+          </div>
+          </div>
+          <div class="callout">動画内で紹介なし：インパクト／SAゲージ回収</div>
+        </section>
+
+        <!-- ④ 生ラッシュ -->
+        <section class="doc-section reveal" id="rush">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">よく使う生ラッシュ行動</h2><span class="sec-en">DRIVE RUSH</span></div>
+          <div class="table-wrap"><table class="data-table" style="min-width:780px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:170px">行動</th><th>コマンド</th><th style="width:120px">有利F</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">R1</td><td><b>生ラッシュ→しゃがみ強P</b></td><td><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">強サンライズ</span></td><td class="num"><span style="color:var(--text-dim)">—</span></td><td>強サンライズを当てるためのルート。</td></tr><tr><td class="num">R2</td><td><b>中足ラッシュ</b></td><td><span class="cmd">↓中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">立ち強K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ターゲットコンボ</span></td><td class="num"><span style="color:var(--text-dim)">—</span></td><td>先端からだと投げ間合い外なので注意。</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ⑤ セットプレイ -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">セットプレイ・起き攻め</h2><span class="sec-en">SET PLAY</span></div>
+          <p>起点（締めや状況）ごとに、その後の行動・有利フレーム・重ねる技をまとめています。</p>
+          <div class="table-wrap"><table class="data-table" style="min-width:1100px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:190px">起点（締め）</th><th style="width:170px">その後の行動</th><th style="width:230px">コマンド</th><th style="width:120px">有利F</th><th style="width:140px">重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">K1</td><td>中サンライズ／しゃがみ強Pラッシュ（+3）</td><td>弱P×2／投げ／シミー</td><td><span class="cmd">弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">弱P／投げ／下がる</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>—</td><td>シミー成功時は立ち中P→ターゲットコンボが一番簡単。</td></tr><tr><td class="num">K2</td><td>強サンライズ→チャージ</td><td>前ステップ</td><td><span class="cmd">→ 前ステップ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">起き攻め</span></td><td class="num"><span>+6</span></td><td>—</td><td>—</td></tr><tr><td class="num">K3</td><td>ターゲットコンボ→OD</td><td>前ステップ2回</td><td><span class="cmd">→ 前ステップ ×2</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>—</td><td>かなり運んで起き攻めに行ける。</td></tr></tbody>
+          </table></div>
+          <div class="callout">「数値表記なし」は動画内で有利Fが示されていない連携です。トレーニングモードのフレームメーターで計測して追記してください。</div>
+        </section>
+
+        <!-- ⑥ 出典・用語 -->
+        <section class="doc-section reveal" id="source">
+          <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">出典・用語</h2><span class="sec-en">SOURCE</span></div>
+          <p>このページの内容は、以下の解説動画の内容を整理したものです（クラシック）。技コマンドはCAPCOM公式コマンドリスト（クラシック）で確認しています。</p>
+          <div class="info-grid">
+            <a class="info-card" data-accent="pink" href="https://www.youtube.com/watch?v=n4rawE-AhvU" target="_blank" rel="noopener">
+              <p class="info-label">YOUTUBE ／ 22:16</p>
+              <p class="info-title">とりあえずコレ!!プロが教えるイングリッド立ち回り解説【ぷげら/スト6】</p>
+              <p>投稿者：ぷげら pugera</p>
+            </a>
+          </div>
+          <h3>動画内用語</h3>
+          <div class="table-wrap"><table class="data-table" style="min-width:0">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody><tr><td><b>ストック</b></td><td>ゲージ横のリソース。2以上で強化ビームなどが強力に。</td></tr><tr><td><b>ビーム</b></td><td>サンシュート系の光線（↓↘→+P）。</td></tr><tr><td><b>ライズ</b></td><td>サンライズ（↓↘→+K）。</td></tr><tr><td><b>チャージ</b></td><td>ストックを貯める動作。</td></tr><tr><td><b>たゲコ</b></td><td>ターゲットコンボ。</td></tr><tr><td><b>シミー</b></td><td>投げを見せて下がり、投げ抜けを空振りさせる。</td></tr></tbody>
+          </table></div>
+          <h3>摘要（字幕・補足）</h3>
+          <ul class="list"><li>「できることが多く今後開拓されて変わりそう」と投稿者が注記。</li><li>条件が揃えば画面端で約7900のコンボも可能（ストック4など）。</li><li>ストック0の時に強ビームを撃ってしまうと辛くなるので注意。</li><li>技名は動画内の呼称（ビーム・ライズ・チャージ等）で記載。正式名は技表を参照。</li></ul>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="character-alex.html" class="pager-link"><small>← PREV</small><span>アレックス</span></a>
+          <a href="character-yasmin.html" class="pager-link pager-link--next"><small>NEXT →</small><span>ヤスミン</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js?v=20261010"></script>
+</body>
+</html>

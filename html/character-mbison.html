@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ベガ（キャラクター詳細） | SF6 攻略ガイド</title>
+  <meta name="description" content="ベガの立ち回り方針、技コマンド、コンボ、生ラッシュ、セットプレイ（有利フレーム・重ね技）。">
+  <meta name="theme-color" content="#050508">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Chakra+Petch:wght@500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20261010">
+</head>
+<body>
+
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-splash bg-splash--purple"></div>
+    <div class="bg-splash bg-splash--cyan"></div>
+    <div class="bg-splash bg-splash--pink"></div>
+    <div class="bg-noise"></div>
+  </div>
+
+  <!-- ===== 共通ヘッダー ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="../index.html" class="logo" aria-label="SF6 攻略ガイド トップへ">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M6 30 L18 6 L22 16 L34 10 L24 34 L20 24 Z"/></svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-main">SF6</span>
+          <span class="logo-sub">攻略ガイド</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button"
+              aria-controls="drawer" aria-expanded="false" aria-label="メニューを開く">
+        <span class="menu-btn-label">MENU</span>
+        <span class="menu-btn-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ドロワーメニュー ===== -->
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+  <nav class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU</span>
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="メニューを閉じる">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5 L19 19 M19 5 L5 19"/></svg>
+      </button>
+    </div>
+    <ol class="drawer-list">
+      <li><a href="../index.html" class="drawer-link"><span class="drawer-no">00</span><span class="drawer-name">トップページ</span><span class="drawer-en">HOME</span></a></li>
+      <li><a href="rules.html" class="drawer-link"><span class="drawer-no">01</span><span class="drawer-name">ゲームルール</span><span class="drawer-en">RULES</span></a></li>
+      <li><a href="modes.html" class="drawer-link"><span class="drawer-no">02</span><span class="drawer-name">各モードの遊び方</span><span class="drawer-en">MODES</span></a></li>
+      <li><a href="ranks.html" class="drawer-link"><span class="drawer-no">03</span><span class="drawer-name">ランクについて</span><span class="drawer-en">RANK</span></a></li>
+      <li><a href="controls.html" class="drawer-link"><span class="drawer-no">04</span><span class="drawer-name">基本操作方法</span><span class="drawer-en">CONTROLS</span></a></li>
+      <li><a href="characters.html" class="drawer-link is-current" aria-current="page"><span class="drawer-no">05</span><span class="drawer-name">キャラクター選択</span><span class="drawer-en">CHARACTERS</span></a></li>
+      <li><a href="history.html" class="drawer-link"><span class="drawer-no">06</span><span class="drawer-name">ストリートファイターの歴史</span><span class="drawer-en">HISTORY</span></a></li>
+      <li><a href="diary.html" class="drawer-link"><span class="drawer-no">07</span><span class="drawer-name">投稿主の日記</span><span class="drawer-en">DIARY</span></a></li>
+    </ol>
+  </nav>
+
+  <main class="main" id="main">
+
+    <!-- データ元：sf6-pdf/data/mbison.json（ベガ 立ち回り＆コンボ資料） -->
+    <section class="chara-hero">
+      <div>
+        <nav class="breadcrumb reveal" aria-label="パンくずリスト">
+          <a href="../index.html">TOP</a><span aria-hidden="true">/</span>
+          <a href="characters.html">キャラクター選択</a><span aria-hidden="true">/</span><span>ベガ</span>
+        </nav>
+        <p class="chara-name-en reveal" aria-hidden="true">M.BISON</p>
+        <h1 class="page-title reveal">ベガ</h1>
+        <p class="page-lead reveal">ランクマッチで勝ちやすくなる立ち回りに絞った解説。①生ラッシュを擦る ②立ち強Pを擦る ③立ち中Kガード後の読み合いを持つ ④ラッシュ持続小足、の4点。</p>
+        <div class="chara-stats reveal">
+          <div class="chara-stat"><small>TYPE</small><b>ラッシュ・攻め</b></div>
+          <div class="chara-stat"><small>DIFFICULTY</small><b>ふつう</b><div class="meter" aria-label="難易度 5段階中3"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+          <div class="chara-stat"><small>DATA</small><b>コンボ5・連携6</b></div>
+        </div>
+      </div>
+      <!-- 画像の位置・フェードは style の値で調整できます -->
+      <figure class="media reveal" style="--img-y: 15%; --img-zoom: 1; --img-shift: 0px; --fade-top: 18%; --fade-bottom: 45%; --fade-left: 14%; --fade-right: 14%;">
+        <div class="media-frame" data-label="ベガ"><img src="../images/characters/mbison.png" alt="ベガ" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <div class="page-layout">
+      <aside class="toc" aria-label="このページの目次">
+        <p class="toc-title">INDEX</p>
+        <nav><ol>
+            <li><a href="#overview">概要・立ち回り方針</a></li>
+            <li><a href="#moves">技・コマンド</a></li>
+            <li><a href="#combos">コンボ</a></li>
+            <li><a href="#rush">生ラッシュ行動</a></li>
+            <li><a href="#setplay">セットプレイ・起き攻め</a></li>
+            <li><a href="#source">出典・用語</a></li>
+        </ol></nav>
+      </aside>
+
+      <article class="article">
+
+        <!-- ① 概要・立ち回り -->
+        <section class="doc-section reveal" id="overview">
+          <div class="sec-head"><span class="sec-no">01</span><h2 class="sec-title">概要・立ち回り方針</h2><span class="sec-en">OVERVIEW</span></div>
+
+          <h3>ODゲージがある時</h3>
+          <ul class="list"><li>ラッシュできる時はとりあえず生ラッシュ。ゲージ1本で、当たれば大ダメージ、ガードでもプラス、離れていても撃てる最強クラスの行動。</li><li>止められても、MR1500以下でラッシュ止めから正しいコンボまで安定して繋げられる人はほぼいない＝リスクリターンが見合っている。</li><li>ラッシュを止められるのは相手が「しゃがみ中P」を合わせた時など限定的。止められるならジャストパリィで対処すればよい。</li><li>ラッシュ→小足（しゃがみ弱K）の持続当てが強い（サイコマイン付与後・投げ後）。ヒットでゲージ回収・マイン起爆ルート、倒し切れるならODサイコ系へ。</li></ul>
+          <h3>ODゲージがない時</h3>
+          <ul class="list"><li>立ち中Kはゲージがない時や画面端に追い詰めた時の「ごまかし」に使われがちだが、ガード後の読み合いにつなげる技として使う。</li><li>立ち中Kガード後：打ち返し→差し返し／何もしない→ダブルニープレス／垂直ジャンプで待つ→逆サイコで落とす。全部対応は難しいので、まず垂直ジャンプだけ見て空対空で取るのが簡単。</li></ul>
+          <h3>差し合い</h3>
+          <ul class="list"><li>立ち強Pを擦る：上手いベガほど立ち強Pの使い方が上手い。発生が遅く、ガードで+1。</li><li>立ち強Pガード後は歩いて投げる。暴れてくる相手にはしゃがみ弱P→しゃがみ中Pを入れ込む（しゃがみ中P直接の入れ込みは暴れに負ける）。</li><li>パニカン時はコンボへ（立ち中Pが繋がる。近ければ膝も）。カウンター確認はできる人だけでよい。</li><li>立ち強Pを振る距離のコツは、弱ダブルニープレスを撃つ距離より少し近いくらい。</li></ul>
+          <h3>対空</h3>
+          <ul class="list"><li>立ち中Kガード後に垂直ジャンプで待つ相手には逆サイコで落とす。</li><li>ジャンプだけ見るなら空対空でリターンを取るのが簡単。</li></ul>
+          <h3>画面端</h3>
+          <ul class="list"><li>立ち中Kは画面端に追い詰めた時のごまかしにも使われる。</li></ul>
+          <div class="pros-cons">
+            <div class="pros"><h4>強み</h4><ul class="list"><li>生ラッシュの総合的な強さ。</li><li>立ち強Pガード後+1から理不尽に投げに行ける展開。</li><li>ラッシュ持続小足からの攻め・削り。</li></ul></div>
+            <div class="cons"><h4>弱み</h4><ul class="list"><li>立ち強Pは発生が遅く、近距離で振ると発生負けしやすい。</li><li>立ち強Pは有利+1なので、確認せずに入れ込むと暴れに負ける。</li><li>投げ後の持続小足は距離が離れ、その後の入れ込みができない。</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ② 技 -->
+        <section class="doc-section reveal" id="moves">
+          <div class="sec-head"><span class="sec-no">02</span><h2 class="sec-title">技・コマンド（クラシック）</h2><span class="sec-en">MOVES</span></div>
+          <p>公式コマンドリストで確認したコマンドです。（溜め）＝溜め入力、一回転＝レバー1回転。</p>
+          <div class="table-wrap"><table class="data-table">
+            <thead><tr><th>技名</th><th>コマンド</th><th>備考</th></tr></thead>
+            <tbody><tr><td><b>サイコクラッシャーアタック</b></td><td><span class="cmd">←(溜め)→+P</span></td><td>サイコマイン付着時性能変化</td></tr><tr><td><b>ダブルニープレス</b></td><td><span class="cmd">↓↘→+K</span></td><td>—</td></tr><tr><td><b>バックフィストコンボ</b></td><td><span class="cmd">↓↙←+P</span></td><td>サイコマイン付着時性能変化</td></tr><tr><td><b>シャドウライズ</b></td><td><span class="cmd">↓(溜め)↑+K</span></td><td>K:ヘッドプレス／P:デビルリバース</td></tr><tr><td><b>SA1 ニープレスナイトメア</b></td><td><span class="cmd">↓↘→↓↘→+K</span></td><td>—</td></tr><tr><td><b>SA2 サイコパニッシャー</b></td><td><span class="cmd">↓↙←↓↙←+K</span></td><td>—</td></tr><tr><td><b>SA3 アンリミテッドサイコクラッシャー</b></td><td><span class="cmd">↓↘→↓↘→+P</span></td><td>体力25%以下で性能アップ</td></tr><tr><td><b>サイコハンマー</b></td><td><span class="cmd">→+強P</span></td><td>—</td></tr><tr><td><b>イビルニー</b></td><td><span class="cmd">←+強K</span></td><td>—</td></tr><tr><td><b>ホバーキック</b></td><td><span class="cmd">↘+強K</span></td><td>—</td></tr><tr><td><b>シャドウハンマー</b></td><td><span class="cmd">中P &gt; →+強P</span></td><td>—</td></tr><tr><td><b>シャドウスピア</b></td><td><span class="cmd">中P &gt; ↓+強K</span></td><td>—</td></tr><tr><td><b>デッドリースルー</b></td><td><span class="cmd">N or →+弱P弱K</span></td><td>通常投げ</td></tr><tr><td><b>デスタワー</b></td><td><span class="cmd">←+弱P弱K</span></td><td>通常投げ</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ③ コンボ -->
+        <section class="doc-section reveal" id="combos">
+          <div class="sec-head"><span class="sec-no">03</span><h2 class="sec-title">コンボ</h2><span class="sec-en">COMBOS</span></div>
+
+          <p>始動技の種類ごとにタブで切り替えられます。コマンドは「›」の順に入力します。</p>
+          <div class="tabs" data-tabs id="comboTabs">
+            <div class="tab-list" role="tablist" aria-label="コンボの分類"><button type="button" role="tab" class="tab-btn" id="tab-light" aria-controls="combo-light" aria-selected="false">小技始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-medium" aria-controls="combo-medium" aria-selected="false">中攻撃始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-heavy" aria-controls="combo-heavy" aria-selected="false">強攻撃始動<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-counter" aria-controls="combo-counter" aria-selected="false">カウンター<span class="count">1</span></button><button type="button" role="tab" class="tab-btn" id="tab-sa_build" aria-controls="combo-sa_build" aria-selected="false">SAゲージ回収<span class="count">1</span></button></div>
+          <div class="tab-panel" role="tabpanel" id="combo-light" aria-labelledby="tab-light" hidden>
+            <p class="tab-desc">差し合いや暴れ潰しで小技が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-l1">
+                <div class="combo-top"><span class="combo-id">L1</span><h4 class="combo-recipe">暴れ潰し</h4></div>
+                <div class="combo-cmd"><span class="cmd">↓弱P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓中P</span></div>
+                <div class="combo-stats"><span>始動 <b>↓弱P</b></span></div>
+                <p class="combo-note">立ち強Pガード後に暴れる相手に入れ込む。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-medium" aria-labelledby="tab-medium" hidden>
+            <p class="tab-desc">中攻撃（置き・差し返し）が当たった時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-m1">
+                <div class="combo-top"><span class="combo-id">M1</span><h4 class="combo-recipe">立ち中P始動（パニカン後）</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P（パニカン）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">…</span></div>
+                <div class="combo-stats"><span>始動 <b>強P（パニカン）</b></span></div>
+                <p class="combo-note">詳細レシピは投稿者の別のコンボ動画参照。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-heavy" aria-labelledby="tab-heavy" hidden>
+            <p class="tab-desc">確定反撃や強攻撃ヒット時のコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-h1">
+                <div class="combo-top"><span class="combo-id">H1</span><h4 class="combo-recipe">立ち強Pパニカン</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P（パニッシュカウンター）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P（近ければ膝）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">コンボ</span></div>
+                <div class="combo-stats"><span>始動 <b>強P（パニッシュカウンター）</b></span></div>
+                <p class="combo-note">パニカン時は必ずコンボへ。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-counter" aria-labelledby="tab-counter" hidden>
+            <p class="tab-desc">カウンターヒットした時の追撃。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-c1">
+                <div class="combo-top"><span class="combo-id">C1</span><h4 class="combo-recipe">立ち強Pカウンター確認</h4></div>
+                <div class="combo-cmd"><span class="cmd">強P（カウンター確認）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">コンボ</span></div>
+                <div class="combo-stats"><span>始動 <b>強P（カウンター確認）</b></span></div>
+                <p class="combo-note">確認できる人だけでOK。</p>
+              </article>
+            </div>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="combo-sa_build" aria-labelledby="tab-sa_build" hidden>
+            <p class="tab-desc">SAゲージの回収を優先するコンボ。</p>
+            <div class="combo-list">
+              <article class="combo-card" id="cb-b1">
+                <div class="combo-top"><span class="combo-id">B1</span><h4 class="combo-recipe">ラッシュ小足ヒット→ゲージ回収ルート</h4></div>
+                <div class="combo-cmd"><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱K（持続当て）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ゲージ回収・マイン起爆ルート</span></div>
+                <div class="combo-stats"><span>始動 <b>ラッシュ</b></span></div>
+                <p class="combo-note">倒し切れそうな時はODサイコ系のルートも可。</p>
+              </article>
+            </div>
+          </div>
+          </div>
+          <div class="callout">動画内で紹介なし：締めパーツ／パニカン／インパクト／SAゲージ活用</div>
+        </section>
+
+        <!-- ④ 生ラッシュ -->
+        <section class="doc-section reveal" id="rush">
+          <div class="sec-head"><span class="sec-no">04</span><h2 class="sec-title">よく使う生ラッシュ行動</h2><span class="sec-en">DRIVE RUSH</span></div>
+          <div class="table-wrap"><table class="data-table" style="min-width:780px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:170px">行動</th><th>コマンド</th><th style="width:120px">有利F</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">R1</td><td><b>生ラッシュ</b></td><td><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">打撃</span></td><td class="num"><span>ガード時プラス</span></td><td>ラッシュできる時はとりあえずラッシュ。</td></tr><tr><td class="num">R2</td><td><b>ラッシュ持続小足（大マイン後）</b></td><td><span class="cmd">（大マイン後）ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱K（持続）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">中P（←を押しながら入れ込み）</span></td><td class="num"><span>+3（持続成功時、通常は+2）</span></td><td>早く押すと普通に光るので、起き上がり少し前のタイミングで。中Pガードならターゲットコンボで削る。</td></tr><tr><td class="num">R3</td><td><b>ラッシュ持続小足（投げ後）</b></td><td><span class="cmd">投げ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">ラッシュ（最速気味）</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱K（持続）</span></td><td class="num"><span style="color:var(--text-dim)">—</span></td><td>距離が離れるので中Pの入れ込みはできない。基本は様子見。</td></tr></tbody>
+          </table></div>
+        </section>
+
+        <!-- ⑤ セットプレイ -->
+        <section class="doc-section reveal" id="setplay">
+          <div class="sec-head"><span class="sec-no">05</span><h2 class="sec-title">セットプレイ・起き攻め</h2><span class="sec-en">SET PLAY</span></div>
+          <p>起点（締めや状況）ごとに、その後の行動・有利フレーム・重ねる技をまとめています。</p>
+          <div class="table-wrap"><table class="data-table" style="min-width:1100px">
+            <thead><tr><th style="width:56px">ID</th><th style="width:190px">起点（締め）</th><th style="width:170px">その後の行動</th><th style="width:230px">コマンド</th><th style="width:120px">有利F</th><th style="width:140px">重ね技</th><th>摘要</th></tr></thead>
+            <tbody><tr><td class="num">K1</td><td>立ち強Pガード（+1）</td><td>歩いて投げ</td><td><span class="cmd">強P</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">前歩き</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">投げ</span></td><td class="num"><span>+1</span></td><td>—</td><td>暴れる相手には弱P→しゃがみ中P。</td></tr><tr><td class="num">K2</td><td>立ち中Kガード</td><td>相手の反応に合わせる</td><td><span class="cmd">中K</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">差し返し／ダブルニープレス／逆サイコ</span></td><td class="num"><span style="color:var(--text-dim)">（数値表記なし）</span></td><td>—</td><td>まずは垂直ジャンプだけ見る。</td></tr><tr><td class="num">K3</td><td>大マイン・投げ</td><td>ラッシュ持続小足</td><td><span class="cmd">ラッシュ</span><span class="arrow" aria-hidden="true">›</span><span class="cmd">↓弱K</span></td><td class="num"><span>+2〜+3</span></td><td>しゃがみ弱K（持続）</td><td>持続にならなくてもラッシュ小足自体が強い。</td></tr></tbody>
+          </table></div>
+          <div class="callout">「数値表記なし」は動画内で有利Fが示されていない連携です。トレーニングモードのフレームメーターで計測して追記してください。</div>
+        </section>
+
+        <!-- ⑥ 出典・用語 -->
+        <section class="doc-section reveal" id="source">
+          <div class="sec-head"><span class="sec-no">06</span><h2 class="sec-title">出典・用語</h2><span class="sec-en">SOURCE</span></div>
+          <p>このページの内容は、以下の解説動画の内容を整理したものです（クラシック）。技コマンドはCAPCOM公式コマンドリスト（クラシック）で確認しています。</p>
+          <div class="info-grid">
+            <a class="info-card" data-accent="pink" href="https://www.youtube.com/watch?v=n_kcQfKbq90" target="_blank" rel="noopener">
+              <p class="info-label">YOUTUBE ／ 8:05</p>
+              <p class="info-title">【ベガ解説動画】MR2000が教える！ランクで勝てるようになるベガの立ち回り解説【ストリートファイター6】</p>
+              <p>投稿者：rari</p>
+            </a>
+          </div>
+          <h3>動画内用語</h3>
+          <div class="table-wrap"><table class="data-table" style="min-width:0">
+            <thead><tr><th>用語</th><th>意味</th></tr></thead>
+            <tbody><tr><td><b>生ラッシュ</b></td><td>通常技をキャンセルせず直接出すドライブラッシュ。</td></tr><tr><td><b>ダブニー</b></td><td>ダブルニープレス（↓↘→+K）。</td></tr><tr><td><b>マイン</b></td><td>サイコマイン（相手に付与して起爆させる要素）。</td></tr><tr><td><b>逆サイコ</b></td><td>対空として使うサイコ系の技（動画内の呼称）。</td></tr><tr><td><b>持続当て</b></td><td>技の持続部分を重ねて有利を増やすこと。</td></tr><tr><td><b>パニカン</b></td><td>パニッシュカウンター。</td></tr></tbody>
+          </table></div>
+          <h3>摘要（字幕・補足）</h3>
+          <ul class="list"><li>ゆっくり実況形式の立ち回り解説。コンボの詳細は投稿者の前回のコンボ動画を参照するよう案内されている。</li><li>ラッシュ持続小足を出す前に移動キーを離しておくと、普通の小足に化けにくい。</li><li>プロによれば立ち中Kは「ベガの立ち回りの根幹を担う技」との評価もある。</li></ul>
+        </section>
+
+        <nav class="page-pager" aria-label="前後のページ">
+          <a href="character-akuma.html" class="pager-link"><small>← PREV</small><span>豪鬼</span></a>
+          <a href="character-terry.html" class="pager-link pager-link--next"><small>NEXT →</small><span>テリー</span></a>
+        </nav>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-logo">SF6 攻略ガイド</p>
+    <p class="footer-note">本サイトは非公式のファンサイトです。ゲーム内の名称・データの権利は各権利者に帰属します。</p>
+  </footer>
+
+  <script src="../script.js?v=20261010"></script>
+</body>
+</html>
